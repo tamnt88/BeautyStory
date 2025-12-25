@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A708E5B7-39C1-4F1C-BC4A-0B8B7C5381C8}</ProjectGuid>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BeautyStory</RootNamespace>
+    <AssemblyName>BeautyStory</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="EntityFramework">
+      <HintPath>bin\EntityFramework.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>bin\EntityFramework.SqlServer.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Code\BeautyStoryContext.cs" />
+    <Compile Include="App_Code\Models\CfAuditLog.cs" />
+    <Compile Include="App_Code\Models\CfMenu.cs" />
+    <Compile Include="App_Code\Models\CfMenuPermission.cs" />
+    <Compile Include="App_Code\Models\CfPermission.cs" />
+    <Compile Include="App_Code\Models\CfProvince.cs" />
+    <Compile Include="App_Code\Models\CfRole.cs" />
+    <Compile Include="App_Code\Models\CfRolePermission.cs" />
+    <Compile Include="App_Code\Models\CfUser.cs" />
+    <Compile Include="App_Code\Models\CfUserRole.cs" />
+    <Compile Include="App_Code\Models\CfWard.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\app_licenses.dll" />
+    <Content Include="bin\CsQuery.dll" />
+    <Content Include="bin\CsQuery.xml" />
+    <Content Include="bin\dataprovider.dll" />
+    <Content Include="bin\dataprovider.pdb" />
+    <Content Include="bin\dataprovider.xml" />
+    <Content Include="bin\dxtlib.dll" />
+    <Content Include="bin\dxtlib.pdb" />
+    <Content Include="bin\dxtlib.xml" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\ImageResizer.dll" />
+    <Content Include="bin\ImageResizer.Mvc.dll" />
+    <Content Include="bin\ImageResizer.Mvc.xml" />
+    <Content Include="bin\ImageResizer.xml" />
+    <Content Include="bin\moxiemanager.core.dll" />
+    <Content Include="bin\moxiemanager.plugins.aspnetauthenticator.dll" />
+    <Content Include="bin\moxiemanager.plugins.autoformat.dll" />
+    <Content Include="bin\moxiemanager.plugins.autorename.dll" />
+    <Content Include="bin\moxiemanager.plugins.basicauthenticator.dll" />
+    <Content Include="bin\moxiemanager.plugins.externalauthenticator.dll" />
+    <Content Include="bin\moxiemanager.plugins.favorites.dll" />
+    <Content Include="bin\moxiemanager.plugins.history.dll" />
+    <Content Include="bin\moxiemanager.plugins.ipauthenticator.dll" />
+    <Content Include="bin\moxiemanager.plugins.sessionauthenticator.dll" />
+    <Content Include="bin\moxiemanager.plugins.uploaded.dll" />
+    <Content Include="bin\system.windows.interactivity.dll" />
+    <Content Include="bin\system.windows.interactivity.xml" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="obj\Debug\BeautyStory.csproj.FileListAbsolute.txt" />
+    <Content Include="packages\EntityFramework.6.5.1\build\Microsoft.Data.Entity.Build.Tasks.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\Icon.png" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\about_EntityFramework6.help.txt" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\any\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\any\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-arm64\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-arm64\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-x86\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-x86\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\any\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\any\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-arm64\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-arm64\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-x86\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-x86\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net6.0\any\ef6.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net6.0\any\ef6.pdb" />
+    <Content Include="sql\cf_address.sql" />
+    <Content Include="sql\cf_auth.sql" />
+    <Content Include="sql\import_cf_address.sql" />
+    <Content Include="sql\seed_admin.sql" />
+    <Content Include="Web.config" />
+    <Content Include="packages.config" />
+    <Content Include="images\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\" />
+    <Folder Include="App_Start\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\ajaxcontroltoolkit.dll.refresh" />
+    <Content Include="bin\CsQuery.dll.refresh" />
+    <Content Include="bin\dataprovider.dll.refresh" />
+    <Content Include="bin\dxtlib.dll.refresh" />
+    <Content Include="bin\EntityFramework.dll.refresh" />
+    <Content Include="bin\EntityFramework.SqlServer.dll.refresh" />
+    <Content Include="bin\ImageResizer.dll.refresh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="document\Danh-muc-Phuong-xa_moi.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\BeautyStory.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\BeautyStory.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="packages\EntityFramework.6.5.1\.signature.p7s" />
+    <Content Include="packages\EntityFramework.6.5.1\buildTransitive\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.5.1\buildTransitive\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.5.1\buildTransitive\net6.0\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.5.1\buildTransitive\net6.0\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.5.1\build\EntityFramework.DefaultItems.props" />
+    <Content Include="packages\EntityFramework.6.5.1\build\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.5.1\build\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.5.1\build\net6.0\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.5.1\build\net6.0\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.5.1\content\net40\App.config.install.xdt" />
+    <Content Include="packages\EntityFramework.6.5.1\content\net40\App.config.transform" />
+    <Content Include="packages\EntityFramework.6.5.1\content\net40\Web.config.install.xdt" />
+    <Content Include="packages\EntityFramework.6.5.1\content\net40\Web.config.transform" />
+    <Content Include="packages\EntityFramework.6.5.1\EntityFramework.6.5.1.nupkg" />
+    <Content Include="packages\EntityFramework.6.5.1\README.md" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.PS2.psd1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.PS2.psm1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.psd1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.psm1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\init.ps1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\install.ps1" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net6.0\any\ef6.runtimeconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="codex.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59555/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
