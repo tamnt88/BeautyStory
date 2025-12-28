@@ -16,4 +16,132 @@ public class BeautyStoryContext : DbContext
     public DbSet<CfAuditLog> CfAuditLogs { get; set; }
     public DbSet<CfProvince> CfProvinces { get; set; }
     public DbSet<CfWard> CfWards { get; set; }
+    public DbSet<CfCategory> CfCategories { get; set; }
+    public DbSet<CfBrand> CfBrands { get; set; }
+    public DbSet<CfOrigin> CfOrigins { get; set; }
+    public DbSet<CfSeoSlug> CfSeoSlugs { get; set; }
+    public DbSet<CfProduct> CfProducts { get; set; }
+    public DbSet<CfProductVariant> CfProductVariants { get; set; }
+    public DbSet<CfProductImage> CfProductImages { get; set; }
+    public DbSet<CfVariantAttribute> CfVariantAttributes { get; set; }
+    public DbSet<CfVariantAttributeValue> CfVariantAttributeValues { get; set; }
+    public DbSet<CfProductVariantAttribute> CfProductVariantAttributes { get; set; }
+    public DbSet<CfFilterGroup> CfFilterGroups { get; set; }
+    public DbSet<CfFilterOption> CfFilterOptions { get; set; }
+    public DbSet<CfCategoryFilterGroup> CfCategoryFilterGroups { get; set; }
+    public DbSet<CfProductFilter> CfProductFilters { get; set; }
+    public DbSet<CfStockMovement> CfStockMovements { get; set; }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<CfCategory>()
+            .HasOptional(c => c.Parent)
+            .WithMany(p => p.Children)
+            .HasForeignKey(c => c.ParentId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProduct>()
+            .HasRequired(p => p.Category)
+            .WithMany(c => c.Products)
+            .HasForeignKey(p => p.CategoryId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProduct>()
+            .HasOptional(p => p.Brand)
+            .WithMany(b => b.Products)
+            .HasForeignKey(p => p.BrandId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProduct>()
+            .HasOptional(p => p.Origin)
+            .WithMany(o => o.Products)
+            .HasForeignKey(p => p.OriginId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProductVariant>()
+            .HasRequired(v => v.Product)
+            .WithMany(p => p.Variants)
+            .HasForeignKey(v => v.ProductId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProductImage>()
+            .HasRequired(i => i.Product)
+            .WithMany(p => p.Images)
+            .HasForeignKey(i => i.ProductId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProductImage>()
+            .HasOptional(i => i.Variant)
+            .WithMany(v => v.Images)
+            .HasForeignKey(i => i.VariantId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfVariantAttributeValue>()
+            .HasRequired(v => v.Attribute)
+            .WithMany(a => a.Values)
+            .HasForeignKey(v => v.AttributeId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProductVariantAttribute>()
+            .HasRequired(p => p.Variant)
+            .WithMany(v => v.VariantAttributes)
+            .HasForeignKey(p => p.VariantId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProductVariantAttribute>()
+            .HasRequired(p => p.Attribute)
+            .WithMany(a => a.ProductVariantAttributes)
+            .HasForeignKey(p => p.AttributeId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProductVariantAttribute>()
+            .HasRequired(p => p.AttributeValue)
+            .WithMany(v => v.ProductVariantAttributes)
+            .HasForeignKey(p => p.AttributeValueId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfFilterOption>()
+            .HasRequired(o => o.Group)
+            .WithMany(g => g.Options)
+            .HasForeignKey(o => o.GroupId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfCategoryFilterGroup>()
+            .HasRequired(c => c.Category)
+            .WithMany(cg => cg.CategoryFilterGroups)
+            .HasForeignKey(c => c.CategoryId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfCategoryFilterGroup>()
+            .HasRequired(c => c.Group)
+            .WithMany(g => g.CategoryFilterGroups)
+            .HasForeignKey(c => c.GroupId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProductFilter>()
+            .HasRequired(p => p.Product)
+            .WithMany(pf => pf.Filters)
+            .HasForeignKey(p => p.ProductId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProductFilter>()
+            .HasRequired(p => p.Group)
+            .WithMany(g => g.ProductFilters)
+            .HasForeignKey(p => p.GroupId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfProductFilter>()
+            .HasRequired(p => p.Option)
+            .WithMany(o => o.ProductFilters)
+            .HasForeignKey(p => p.OptionId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfStockMovement>()
+            .HasRequired(m => m.Variant)
+            .WithMany(v => v.StockMovements)
+            .HasForeignKey(m => m.VariantId)
+            .WillCascadeOnDelete(false);
+    }
 }
