@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,6 +27,10 @@ public partial class ProductDefault : System.Web.UI.Page
                 .ThenBy(c => c.CategoryName)
                 .ToList());
 
+            var menuCategories = allCategories
+                .Where(c => !c.ParentId.HasValue)
+                .ToList();
+
             var slugs = PublicCache.GetOrCreate("slugs_all", 5, () => db.CfSeoSlugs.ToList());
             var slugLookup = slugs
                 .GroupBy(s => s.EntityType)
@@ -34,7 +38,45 @@ public partial class ProductDefault : System.Web.UI.Page
                     g => g.Key,
                     g => g.ToDictionary(s => s.EntityId, s => s.SeoSlug));
 
-            string slug = GetSlugFromRequest();
+            var menuItems = menuCategories
+                .Select(c => new CategoryMenuItem
+                {
+                    Id = c.Id,
+                    CategoryName = c.CategoryName,
+                    SeoSlug = GetSlug(slugLookup, "Category", c.Id),
+                    Children = allCategories
+                        .Where(child => child.ParentId == c.Id && child.Status)
+                        .OrderBy(child => child.SortOrder)
+                        .ThenBy(child => child.CategoryName)
+                        .Select(child => new CategoryMenuItem
+                        {
+                            Id = child.Id,
+                            CategoryName = child.CategoryName,
+                            SeoSlug = GetSlug(slugLookup, "Category", child.Id),
+                            Children = allCategories
+                                .Where(grand => grand.ParentId == child.Id && grand.Status)
+                                .OrderBy(grand => grand.SortOrder)
+                                .ThenBy(grand => grand.CategoryName)
+                                .Select(grand => new CategoryMenuItem
+                                {
+                                    Id = grand.Id,
+                                    CategoryName = grand.CategoryName,
+                                    SeoSlug = GetSlug(slugLookup, "Category", grand.Id)
+                                })
+                                .ToList()
+                        })
+                        .ToList()
+                })
+                .Where(item => !string.IsNullOrWhiteSpace(item.SeoSlug))
+                .ToList();
+
+            CategoryMenuRepeater.DataSource = menuItems;
+            CategoryMenuRepeater.DataBind();
+
+            CategoryPanelRepeater.DataSource = menuItems;
+            CategoryPanelRepeater.DataBind();
+
+            string slug = (Request.QueryString["slug"] ?? string.Empty).Trim();
             int productId = ResolveProductId(slugLookup, slug);
             if (productId == 0)
             {
@@ -51,6 +93,7 @@ public partial class ProductDefault : System.Web.UI.Page
 
             ProductName = product.ProductName;
             ProductNameLiteral.Text = product.ProductName;
+            ShortDescription.Text = string.IsNullOrWhiteSpace(product.ShortDescription) ? "Đang cập nhật." : product.ShortDescription;
             Description.Text = string.IsNullOrWhiteSpace(product.Description) ? "Đang cập nhật." : product.Description;
             Specification.Text = string.IsNullOrWhiteSpace(product.Specification) ? "Đang cập nhật." : product.Specification;
             Ingredients.Text = string.IsNullOrWhiteSpace(product.Ingredients) ? "Đang cập nhật." : product.Ingredients;
@@ -79,8 +122,6 @@ public partial class ProductDefault : System.Web.UI.Page
             ThumbRepeater.DataBind();
 
             PriceLiteral.Text = variants.Any() ? GetDisplayPrice(variants) : "Liên hệ";
-            ProductNameLiteralAside.Text = ProductName;
-            PriceLiteralAside.Text = PriceLiteral.Text;
 
             CategoryPath.Text = BuildCategoryPath(allCategories, product.CategoryId, slugLookup);
         }
@@ -138,7 +179,7 @@ public partial class ProductDefault : System.Web.UI.Page
         var links = path.Select(c =>
         {
             string slug = GetSlug(slugLookup, "Category", c.Id);
-            return string.Format("<a href=\"/danh-muc/{0}\">{1}</a>", slug, c.CategoryName);
+            return string.Format("<a href=\"/danh-muc/default.aspx?slug={0}\">{1}</a>", slug, c.CategoryName);
         });
 
         return string.Join(" <span class=\"sep\">/</span> ", links);
@@ -297,15 +338,4 @@ public partial class ProductDefault : System.Web.UI.Page
         public string SeoSlug { get; set; }
         public List<CategoryMenuItem> Children { get; set; }
     }
-
-    private string GetSlugFromRequest()
-    {
-        var routeSlug = Page.RouteData.Values["slug"] as string;
-        if (!string.IsNullOrWhiteSpace(routeSlug))
-        {
-            return routeSlug.Trim();
-        }
-        return (Request.QueryString["slug"] ?? string.Empty).Trim();
-    }
 }
-

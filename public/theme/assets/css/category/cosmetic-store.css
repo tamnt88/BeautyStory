@@ -53,17 +53,17 @@ Font Variable
 ==================================*/
 
 :root {
-    --theme-general-font: 'Jost', sans-serif;
+    --theme-general-font: 'Roboto', sans-serif;
     /* Font use for normal text and general text ok*/
 }
 
 :root {
-    --theme-hiperlink-font: 'Jost', sans-serif;
+    --theme-hiperlink-font: 'Roboto', sans-serif;
     /* Font use for normal text and general text ok*/
 }
 
 :root {
-    --theme-highlight-font: 'Josefin Slab', serif;
+    --theme-highlight-font: 'Roboto', serif;
     /* Font used in title or special area ok*/
 }
 

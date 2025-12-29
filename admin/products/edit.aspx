@@ -645,6 +645,9 @@
             $("#<%= ValueSelectInput.ClientID %>").select2({ width: "100%" });
             $("#<%= MatrixAttributeSelect.ClientID %>").select2({ width: "100%" });
             $("#<%= MatrixAttributeValueSelect.ClientID %>").select2({ width: "100%" });
+            $("#<%= CategoryInput.ClientID %>").select2({ width: "100%" });
+            $("#<%= BrandInput.ClientID %>").select2({ width: "100%" });
+            $("#<%= OriginInput.ClientID %>").select2({ width: "100%" });
             $(".matrix-value-select").select2({ width: "100%" });
             function formatVnNumber(value) {
                 if (!value) {

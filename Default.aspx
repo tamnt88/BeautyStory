@@ -1,221 +1,2730 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" MasterPageFile="~/public/Public.master" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">
-<head runat="server">
-    <title>BeautyStory</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/public/assets/css/roboto.css" rel="stylesheet" />
-    <link href="/public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/public/assets/vendor/fontawesome/css/all.min.css" rel="stylesheet" />
-    <link href="/public/assets/vendor/flaticon/css/all.css" rel="stylesheet" />
-    <link href="/public/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link href="/public/assets/vendor/malihu/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
-    <link href="/public/assets/css/public.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
-        <header class="site-header">
-            <div class="container header-top">
-                <div class="brand">
-                    <img src="/images/logo_ngang.png" alt="BeautyStory" />
-                    <div class="brand-text">Mỹ phẩm &amp; làm đẹp chính hãng</div>
+<asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
+    Beauty Story
+</asp:Content>
+
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+    
+</asp:Content>
+
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
+    
+        <!--==================== Slider Section End ====================-->
+        <div class="full-row p-0 bg-light">
+            <div id="slider" style="width:1200px; height:650px; margin:0 auto; margin-bottom:0px;">
+                <!-- Slide 1-->
+                <div class="ls-slide" data-ls="duration:8000; transition2d:4; kenburnsscale:1.2;">
+                    <img width="1920" height="750" src="/public/theme/assets/images/slider/22.png" class="ls-bg" alt="" style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; mix-blend-mode:normal; width:100%;" data-ls="showinfo:1; durationin:2000; easingin:easeOutExpo; scalexin:1.5; scaleyin:1.5; position:fixed;">
+
+                    <p style="width:450px; font-size:80px; line-height:60px; top:40%; left:100px; white-space:normal;" class="ls-l higlight-font font-700 ls-hide-phone text-dark" data-ls="offsetyin:150; durationin:700; delayin:500; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; parallaxlevel:0;">
+                        Beauty Care
+                    </p>
+                    <p style="font-size:14px; letter-spacing: 2px; line-height:20px; top:28%; left:100px;" class="ls-l ordenery-font text-dark text-uppercase font-700 ls-hide-phone" data-ls="offsetyin:150; durationin:700; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; parallaxlevel:0;">Deal Upto 30%</p>
+
+                    <p style="width:580px; font-weight:600; font-size:15px; line-height:30px; top:58%; left:120px; white-space:normal;" class="ls-l ls-hide-phone text-dark ordenery-font text-uppercase" data-ls="offsetxin:150; durationin:700; easingin:easeOutBack; rotatexin:20; scalexin:1; offsetyout:600; durationout:400; parallaxlevel:0; delayin:900;">Price Starting<br>From <span class="text-primary font-600 font-large"> $29.99</span></p>
+
+                    <div style="width:3px; height:60px; border-radius:0; top:58%; left:100px;" class="ls-l ls-hide-phone bg-primary" data-ls="offsetxin:100; easingin:easeOutBack; delayin:700; durationout:400; offsetxout:-20; parallax:false; parallaxlevel:1;"></div>
+
+                    <a class="ls-l ls-hide-phone" href="#" target="_self" data-ls="offsetyin:150; durationin:700; delayin:1200; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; hover:true; hoveropacity:1; hoverbgcolor:#e74c3c ; parallaxlevel:0;">
+                        <p style="cursor:pointer;padding-top:8px; padding-bottom:8px; font-weight: 500; font-size:14px; top:72%; left:100px; padding-right:25px; padding-left:25px; line-height:28px;" class="bg-dark text-white">SHOP NOW</p>
+                    </a>
                 </div>
-                    <div class="header-actions">
-                        <div class="search-box">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" class="js-search-input" placeholder="Tìm sản phẩm..." autocomplete="off" />
-                            <div class="search-suggest"></div>
+
+                <!-- Slide 2-->
+                <div class="ls-slide" data-ls="duration:8000; transition2d:4; kenburnsscale:1.2;">
+                    <img width="1920" height="750" src="/public/theme/assets/images/slider/22.png" class="ls-bg" alt="" style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; mix-blend-mode:normal; width:100%;" data-ls="showinfo:1; durationin:2000; easingin:easeOutExpo; scalexin:1.5; scaleyin:1.5; position:fixed;">
+
+                    <p style="width:450px; font-size:80px; line-height:60px; top:40%; left:100px; white-space:normal;" class="ls-l higlight-font font-700 ls-hide-phone text-dark" data-ls="offsetyin:150; durationin:700; delayin:500; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; parallaxlevel:0;">
+                        Beauty Care
+                    </p>
+                    <p style="font-size:14px; letter-spacing: 2px; line-height:20px; top:28%; left:100px;" class="ls-l ordenery-font text-dark text-uppercase font-700 ls-hide-phone" data-ls="offsetyin:150; durationin:700; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; parallaxlevel:0;">Deal Upto 30%</p>
+
+                    <p style="width:580px; font-weight:600; font-size:15px; line-height:30px; top:58%; left:120px; white-space:normal;" class="ls-l ls-hide-phone text-dark ordenery-font text-uppercase" data-ls="offsetxin:150; durationin:700; easingin:easeOutBack; rotatexin:20; scalexin:1; offsetyout:600; durationout:400; parallaxlevel:0; delayin:900;">Price Starting<br>From <span class="text-primary font-600 font-large"> $29.99</span></p>
+
+                    <div style="width:3px; height:60px; border-radius:0; top:58%; left:100px;" class="ls-l ls-hide-phone bg-primary" data-ls="offsetxin:100; easingin:easeOutBack; delayin:700; durationout:400; offsetxout:-20; parallax:false; parallaxlevel:1;"></div>
+
+                    <a class="ls-l ls-hide-phone" href="#" target="_self" data-ls="offsetyin:150; durationin:700; delayin:1200; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; hover:true; hoveropacity:1; hoverbgcolor:#e74c3c ; parallaxlevel:0;">
+                        <p style="cursor:pointer;padding-top:8px; padding-bottom:8px; font-weight: 500; font-size:14px; top:72%; left:100px; padding-right:25px; padding-left:25px; line-height:28px;" class="bg-dark text-white">SHOP NOW</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--==================== Slider Section End ====================-->
+
+        <!--==================== Shop By Categories Section Start ====================-->
+        <div class="full-row pb-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-head d-flex justify-content-between align-items-center pb-20">
+                            <h3 class="text-secondary mb-0">Shop By Categories</h3>
+                            <a href="#" class="btn-link-down-line text-uppercase font-small">See More Categories</a>
                         </div>
-                        <a class="btn btn-outline-dark" href="/gio-hang/default.aspx">
-                            <i class="fa-solid fa-cart-shopping me-1"></i> Giỏ hàng
-                        </a>
-                        <a class="btn btn-outline-dark" href="/admin/login.aspx">
-                            <i class="fa-solid fa-lock me-1"></i> Quản trị
-                        </a>
                     </div>
                 </div>
-            <nav class="category-nav">
-                <div class="container">
-                    <div class="category-bar">
-                        <div class="category-toggle">
-                            <i class="fa-solid fa-bars"></i>
-                            <span>Danh mục</span>
-                        </div>
-                        <div class="category-dropdown">
-                            <div class="category-left">
-                                <asp:Repeater ID="CategoryMenuRepeater" runat="server">
-                                    <ItemTemplate>
-                                    <a class="category-parent <%# GetMenuItemActiveClass(Container.ItemIndex) %>" data-target="cat-panel-<%# Container.ItemIndex %>" href="/danh-muc/default.aspx?slug=<%# Eval("SeoSlug") %>">
-                                            <%# Eval("CategoryName") %>
-                                            <span class="chevron"><i class="fa-solid fa-angle-right"></i></span>
-                                        </a>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 sm-mb-30">
+                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
+                            <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/58.png" alt="Banner Image"></div>
+                            <div class="banner-content position-absolute">
+                                <span class="font-500 font-small text-uppercase d-block mb-2">Beauty Special</span>
+                                <h4><a href="#" class="text-primary text-decoration-none">Makeup Accessories</a></h4>
+                                <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
                             </div>
-                            <div class="category-right">
-                                <div class="category-scroll">
-                                <asp:Repeater ID="CategoryPanelRepeater" runat="server">
-                                    <ItemTemplate>
-                                        <div class="category-panel <%# GetPanelActiveClass(Container.ItemIndex) %>" id="cat-panel-<%# Container.ItemIndex %>">
-                                            <h6><%# Eval("CategoryName") %></h6>
-                                            <ul class="panel-links">
-                                                <asp:Repeater ID="ChildPanelRepeater" runat="server" DataSource='<%# Eval("Children") %>'>
-                                                    <ItemTemplate>
-                                                        <li class="panel-group">
-                                                            <a class="panel-title" href="/danh-muc/default.aspx?slug=<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
-                                                            <ul class="panel-sub">
-                                                                <asp:Repeater ID="GrandChildPanelRepeater" runat="server" DataSource='<%# Eval("Children") %>'>
-                                                                    <ItemTemplate>
-                                                                        <li>
-                                                                            <a href="/danh-muc/default.aspx?slug=<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
-                                                                        </li>
-                                                                    </ItemTemplate>
-                                                                </asp:Repeater>
-                                                            </ul>
-                                                        </li>
-                                                    </ItemTemplate>
-                                                </asp:Repeater>
-                                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-6">
+                        <div class="row row-cols-lg-2 row-cols-1">
+                            <div class="col">
+                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
+                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/59.png" alt="Banner Image"></div>
+                                    <div class="banner-content position-absolute">
+                                        <span class="d-block font-500 font-small text-uppercase mb-2">Sale Upto 50%</span>
+                                        <h4><a href="#" class="text-primary text-decoration-none">Natural Cream</a></h4>
+                                        <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
+                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/60.png" alt="Banner Image"></div>
+                                    <div class="banner-content position-absolute">
+                                        <span class="font-500 font-small text-uppercase d-block mb-2">Natural</span>
+                                        <h4><a href="#" class="text-primary text-decoration-none">Hair Cares</a></h4>
+                                        <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
+                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/61.png" alt="Banner Image"></div>
+                                    <div class="banner-content position-absolute">
+                                        <span class="font-500 font-small text-uppercase d-block mb-2">TOP BRAND BEAUTY</span>
+                                        <h4><a href="#" class="text-primary text-decoration-none">Natural Oils</a></h4>
+                                        <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
+                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/62.png" alt="Banner Image"></div>
+                                    <div class="banner-content position-absolute">
+                                        <span class="font-500 font-small text-uppercase d-block mb-2">Fat Loss</span>
+                                        <h4><a href="#" class="text-primary text-decoration-none">Organic Tea</a></h4>
+                                        <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--==================== Shop By Categories Section End ====================-->
+
+        <!--==================== Exclusive Product Section Start ====================-->
+        <div class="full-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <span class="text-primary text-center pb-2 d-table mx-auto tagline text-uppercase font-small">Exclusive Product</span>
+                        <h3 class="mb-4 w-50 text-center mx-auto w-sm-100 font-700 text-dark">New Arrival</h3>
+                    </div>
+                </div>
+				<div class="row">
+					<div class="col-12">
+						<div class="products product-style-3">
+							<div class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 e-image-bg-light e-hover-image-zoom e-btn-set-hover-primary">
+								<div class="col">
+									<div class="product type-product">
+										<div class="product-wrapper">
+											<div class="product-image">
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+												<div class="product-labels">
+													<div class="badge1"><span>New</span></div>
+												</div>
+												<div class="on-sale">- 60%</div>
+											</div>
+											<div class="product-info">
+												<h3 class="product-title"><a href="#">Body Bulm</a></h3>
+												<div class="product-price">
+													<div class="price">
+														<ins>$45.00</ins>
+														<del>$98.00</del>
+													</div>
+												</div>
+												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+												<div class="shipping-feed-back">
+													<div class="star-rating">
+														<div class="rating-wrap">
+															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+														</div>
+														<div class="rating-counts-wrap">
+															<a href="#">(563)</a>
+														</div>
+													</div>
+													<div class="sold-items">
+														<span>65</span> <span>Sold</span>
+													</div>
+												</div>
+												<div class="hover-area">
+													<div class="cart-button">
+														<a href="#" class="button add_to_cart_button">Add to Cart</a>
+													</div>
+													<div class="wishlist-button">
+														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+													</div>
+													<div class="compare-button">
+														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="product type-product">
+										<div class="product-wrapper">
+											<div class="product-image">
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+												<div class="product-labels">
+													<div class="badge1"><span>New</span></div>
+												</div>
+											</div>
+											<div class="product-info">
+												<h3 class="product-title"><a href="#">Shinylicious Lip Gloss</a></h3>
+												<div class="product-price">
+													<div class="price">
+														<ins>$15.00</ins>
+													</div>
+												</div>
+												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+												<div class="shipping-feed-back">
+													<div class="star-rating">
+														<div class="rating-wrap">
+															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+														</div>
+														<div class="rating-counts-wrap">
+															<a href="#">(563)</a>
+														</div>
+													</div>
+													<div class="sold-items">
+														<span>65</span> <span>Sold</span>
+													</div>
+												</div>
+												<div class="hover-area">
+													<div class="cart-button">
+														<a href="#" class="button add_to_cart_button">Add to Cart</a>
+													</div>
+													<div class="wishlist-button">
+														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+													</div>
+													<div class="compare-button">
+														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="product type-product">
+										<div class="product-wrapper">
+											<div class="product-image">
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-218.png" alt="Product Image"></a>
+												<div class="product-labels">
+													<div class="badge1"><span>New</span></div>
+												</div>
+											</div>
+											<div class="product-info">
+												<h3 class="product-title"><a href="#">Face Glow Spray</a></h3>
+												<div class="product-price">
+													<div class="price">
+														<ins>$21.00</ins>
+													</div>
+												</div>
+												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+												<div class="shipping-feed-back">
+													<div class="star-rating">
+														<div class="rating-wrap">
+															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+														</div>
+														<div class="rating-counts-wrap">
+															<a href="#">(563)</a>
+														</div>
+													</div>
+													<div class="sold-items">
+														<span>65</span> <span>Sold</span>
+													</div>
+												</div>
+												<div class="hover-area">
+													<div class="cart-button">
+														<a href="#" class="button add_to_cart_button">Add to Cart</a>
+													</div>
+													<div class="wishlist-button">
+														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+													</div>
+													<div class="compare-button">
+														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="product type-product">
+										<div class="product-wrapper">
+											<div class="product-image">
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-219.png" alt="Product Image"></a>
+												<div class="product-labels">
+													<div class="badge1"><span>New</span></div>
+												</div>
+											</div>
+											<div class="product-info">
+												<h3 class="product-title"><a href="#">Duneam Lipstick</a></h3>
+												<div class="product-price">
+													<div class="price">
+														<ins>$17.80</ins>
+													</div>
+												</div>
+												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+												<div class="shipping-feed-back">
+													<div class="star-rating">
+														<div class="rating-wrap">
+															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+														</div>
+														<div class="rating-counts-wrap">
+															<a href="#">(563)</a>
+														</div>
+													</div>
+													<div class="sold-items">
+														<span>65</span> <span>Sold</span>
+													</div>
+												</div>
+												<div class="hover-area">
+													<div class="cart-button">
+														<a href="#" class="button add_to_cart_button">Add to Cart</a>
+													</div>
+													<div class="wishlist-button">
+														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+													</div>
+													<div class="compare-button">
+														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col">
+									<div class="product type-product">
+										<div class="product-wrapper">
+											<div class="product-image">
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-220.png" alt="Product Image"></a>
+												<div class="product-labels">
+													<div class="badge1"><span>New</span></div>
+												</div>
+											</div>
+											<div class="product-info">
+												<h3 class="product-title"><a href="#">Duneam Lipstick</a></h3>
+												<div class="product-price">
+													<div class="price">
+														<ins>$12.80</ins>
+													</div>
+												</div>
+												<div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+												<div class="shipping-feed-back">
+													<div class="star-rating">
+														<div class="rating-wrap">
+															<a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+														</div>
+														<div class="rating-counts-wrap">
+															<a href="#">(563)</a>
+														</div>
+													</div>
+													<div class="sold-items">
+														<span>65</span> <span>Sold</span>
+													</div>
+												</div>
+												<div class="hover-area">
+													<div class="cart-button">
+														<a href="#" class="button add_to_cart_button">Add to Cart</a>
+													</div>
+													<div class="wishlist-button">
+														<a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+													</div>
+													<div class="compare-button">
+														<a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+        <!--==================== Exclusive Product Section End ====================-->
+
+        <!--==================== Special Offer Section Start ====================-->
+        <div class="full-row" style="background: url(assets/images/background/1.png) no-repeat center / cover;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="p-50 text-white bg-primary">
+                            <div class="text-uppercase text-white font-500">Special Offer</div>
+                            <h1 class="text-white my-4">Special Beauty Care Available</h1>
+                            <div class="font-medium w-75">
+                                <p>On purchases with your City Furniture Credit Card from 6/16/2021 – 7/6/2021.</p>
+                            </div>
+                            <a href="#" class="btn btn-dark mt-4">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--==================== Special Offer Section End ====================-->
+
+        <!--==================== Trending Products Section Start ====================-->
+        <div class="full-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-head d-flex justify-content-between align-items-center pb-20">
+                            <h3 class="font-700 text-secondary mb-0 down-line">Trending Products</h3>
+                            <div class="woocommerce-tabs wc-tabs-wrapper ps-0 mt-0">
+                                <ul class="nav nav-pills wc-tabs" id="pills-tab-three" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" id="pills-makeup-one-tab" data-bs-toggle="pill" href="#pills-makeup-one" role="tab" aria-controls="pills-makeup-one" aria-selected="true">Makeup</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="pills-cream-one-tab" data-bs-toggle="pill" href="#pills-cream-one" role="tab" aria-controls="pills-cream-one" aria-selected="true">Cream</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="pills-body-oil-one-tab" data-bs-toggle="pill" href="#pills-body-oil-one" role="tab" aria-controls="pills-body-oil-one" aria-selected="true">Body Oil</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="pills-harbal-one-tab" data-bs-toggle="pill" href="#pills-harbal-one" role="tab" aria-controls="pills-harbal-one" aria-selected="true">Harbal</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="woocommerce-tabs wc-tabs-wrapper mt-0">
+                        <div class="tab-content" id="pills-tabContent-three">
+                            <div class="tab-pane fade show active woocommerce-Tabs-panel woocommerce-Tabs-panel--description" id="pills-makeup-one" role="tabpanel" aria-labelledby="pills-makeup-one-tab">
+                                <div class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 product-style-1 e-image-bg-light e-hover-image-zoom">
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-221.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 20%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Commage Leavers</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$56.00</ins>
+                                                            <del>$80.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-222.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 21%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Aqualia Thermal</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$72.00</ins>
+                                                            <del>$98.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Aqua Globes</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$37.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-224.png" alt="Product Image"></a>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Hand Cream</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$57.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-225.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Eccentric Eyeliner</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$205.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-226.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 20%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Premy Lip Gloss</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$30.00</ins>
+                                                            <del>$40.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-227.png" alt="Product Image"></a>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Cool Cosmetics</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$45.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-228.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Hope In Jar</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$37.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="on-sale">- 60%</div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Body Bulm</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$45.00</ins>
+                                                            <del>$98.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Shinylicious Lip Gloss</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$15.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-cream-one" role="tabpanel" aria-labelledby="pills-cream-one-tab">
+                                <div class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 product-style-1 e-image-bg-light e-hover-image-zoom">
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-221.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 20%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Commage Leavers</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$56.00</ins>
+                                                            <del>$80.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-222.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 21%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Aqualia Thermal</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$72.00</ins>
+                                                            <del>$98.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Aqua Globes</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$37.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-224.png" alt="Product Image"></a>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Hand Cream</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$57.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-225.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Eccentric Eyeliner</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$205.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-226.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 20%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Premy Lip Gloss</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$30.00</ins>
+                                                            <del>$40.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-227.png" alt="Product Image"></a>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Cool Cosmetics</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$45.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-228.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Hope In Jar</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$37.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="on-sale">- 60%</div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Body Bulm</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$45.00</ins>
+                                                            <del>$98.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Shinylicious Lip Gloss</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$15.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-body-oil-one" role="tabpanel" aria-labelledby="pills-body-oil-one-tab">
+                                <div class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 product-style-1 e-image-bg-light e-hover-image-zoom">
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-221.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 20%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Commage Leavers</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$56.00</ins>
+                                                            <del>$80.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-222.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 21%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Aqualia Thermal</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$72.00</ins>
+                                                            <del>$98.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Aqua Globes</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$37.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-224.png" alt="Product Image"></a>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Hand Cream</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$57.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-225.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Eccentric Eyeliner</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$205.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-226.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 20%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Premy Lip Gloss</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$30.00</ins>
+                                                            <del>$40.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-227.png" alt="Product Image"></a>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Cool Cosmetics</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$45.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-228.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Hope In Jar</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$37.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="on-sale">- 60%</div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Body Bulm</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$45.00</ins>
+                                                            <del>$98.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Shinylicious Lip Gloss</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$15.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-harbal-one" role="tabpanel" aria-labelledby="pills-harbal-one-tab">
+                                <div class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 product-style-1 e-image-bg-light e-hover-image-zoom">
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-221.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 20%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Commage Leavers</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$56.00</ins>
+                                                            <del>$80.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-222.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 21%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Aqualia Thermal</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$72.00</ins>
+                                                            <del>$98.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Aqua Globes</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$37.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-224.png" alt="Product Image"></a>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Hand Cream</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$57.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-225.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Eccentric Eyeliner</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$205.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-226.png" alt="Product Image"></a>
+                                                    <div class="on-sale">- 20%</div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Premy Lip Gloss</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$30.00</ins>
+                                                            <del>$40.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-227.png" alt="Product Image"></a>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Cool Cosmetics</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$45.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-228.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Hope In Jar</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$37.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                    <div class="on-sale">- 60%</div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Body Bulm</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$45.00</ins>
+                                                            <del>$98.00</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="product type-product">
+                                            <div class="product-wrapper">
+                                                <div class="product-image">
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+                                                    <div class="hover-area">
+                                                        <div class="cart-button">
+                                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                                        </div>
+                                                        <div class="wishlist-button">
+                                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-labels">
+                                                        <div class="badge1"><span>New</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="#">Shinylicious Lip Gloss</a></h3>
+                                                    <div class="product-price">
+                                                        <div class="price">
+                                                            <ins>$15.00</ins>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                                    <div class="shipping-feed-back">
+                                                        <div class="star-rating">
+                                                            <div class="rating-wrap">
+                                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                                            </div>
+                                                            <div class="rating-counts-wrap">
+                                                                <a href="#">(563)</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sold-items">
+                                                            <span>65</span> <span>Sold</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </nav>
-        </header>
+            </div>
+        </div>
+        <!--==================== Trending Products Section End ====================-->
 
-        <main class="container py-4">
-            <section class="hero-slider mb-4">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide hero-slide hero-slide-1">
-                            <div class="hero-content">
-                                <span class="badge">BeautyStory</span>
-                                <h2>Chăm sóc da chuẩn spa tại nhà</h2>
-                                <p>Khám phá bộ sưu tập sản phẩm mới, ưu đãi tốt mỗi ngày.</p>
-                                <a class="btn btn-light" href="#">Mua ngay</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide hero-slide hero-slide-2">
-                            <div class="hero-content">
-                                <span class="badge">Ưu đãi</span>
-                                <h2>Serum phục hồi da, giảm kích ứng</h2>
-                                <p>Gợi ý theo tình trạng da và thành phần nổi bật.</p>
-                                <a class="btn btn-light" href="#">Xem thêm</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide hero-slide hero-slide-3">
-                            <div class="hero-content">
-                                <span class="badge">Hàng mới</span>
-                                <h2>Trang điểm tự nhiên, bền màu</h2>
-                                <p>Xu hướng make-up nhẹ nhàng cho mọi loại da.</p>
-                                <a class="btn btn-light" href="#">Khám phá</a>
+        <!--==================== Banner Section Start ====================-->
+        <div class="full-row p-0 d-none d-sm-block">
+            <div class="container">
+                <div class="row row-cols-lg-2 row-cols-1 g-3">
+                    <div class="col">
+                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
+                            <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/63.png" alt="Banner Image"></div>
+                            <div class="banner-content position-absolute">
+                                <span class="text-dark font-500 font-small text-uppercase d-block mb-2">Natural Product</span>
+                                <h4><a href="#" class="text-dark font-700 text-decoration-none">Beauty Essintial Product</a></h4>
+                                <div class="font-fifteen">
+                                    <p>Turpis pulvinar amet sodales. Dui eget interdum molestie vivamus tempus.</p>
+                                </div>
+                                <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </section>
-
-            <section class="product-section">
-                <div class="section-heading">
-                    <div>
-                        <h4>Sản phẩm mới nhất</h4>
-                        <p>Hiển thị 30 sản phẩm mới</p>
+                    <div class="col">
+                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
+                            <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/64.png" alt="Banner Image"></div>
+                            <div class="banner-content position-absolute">
+                                <span class="text-dark font-500 font-small text-uppercase d-block mb-2">Sale Upto 30%</span>
+                                <h4><a href="#" class="text-dark font-700 text-decoration-none">Beauty Essintial Product</a></h4>
+                                <div class="font-fifteen">
+                                    <p>Turpis pulvinar amet sodales. Dui eget interdum molestie vivamus tempus.</p>
+                                </div>
+                                <a href="#" class="btn-link-down-line mt-20 text-uppercase">Shop Now</a>
+                            </div>
+                        </div>
                     </div>
-                    <a class="btn btn-outline-dark" href="#">Xem tất cả</a>
                 </div>
-                <div class="row g-3">
-                    <asp:Repeater ID="LatestProductRepeater" runat="server">
-                        <ItemTemplate>
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="product-card">
-                                    <div class="product-thumb">
-                                        <img src="<%# Eval("ImageUrl") %>" alt="<%# Eval("ProductName") %>" />
+            </div>
+        </div>
+        <!--==================== Banner Section End ====================-->
+
+        <!--==================== Best Selling Products Section Start ====================-->
+        <div class="full-row pb-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-head d-flex justify-content-between align-items-center pb-20">
+                            <h3 class="font-700 text-secondary mb-0 down-line">Best Selling Products</h3>
+                            <a href="#" class="btn-link-down-line text-uppercase font-small">View all products</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-1 product-list e-hover-image-zoom e-btn-set-two">
+                    <div class="col">
+                        <div class="product type-product">
+                            <div class="product-wrapper">
+                                <div class="product-image">
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-229.png" alt="Product Image"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Beauty Bee Harbal</a></h3>
+                                    <div class="product-price">
+                                        <div class="price">
+                                            <ins>$27.50</ins>
+                                        </div>
                                     </div>
-                                    <div class="product-body">
-                                        <div class="product-category"><%# Eval("CategoryName") %></div>
-                                        <h6 class="product-title"><%# Eval("ProductName") %></h6>
-                                        <div class="product-price"><%# Eval("PriceLabel") %></div>
+                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                    <div class="shipping-feed-back">
+                                        <div class="star-rating">
+                                            <div class="rating-wrap">
+                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                            </div>
+                                            <div class="rating-counts-wrap">
+                                                <a href="#">(563)</a>
+                                            </div>
+                                        </div>
+                                        <div class="sold-items">
+                                            <span>65</span> <span>Sold</span>
+                                        </div>
                                     </div>
-                                    <div class="product-footer">
-                                        <a class="btn btn-sm btn-dark w-100" href="/san-pham/default.aspx?slug=<%# Eval("SeoSlug") %>">
-                                            Xem chi tiết
-                                        </a>
+                                    <div class="hover-area">
+                                        <div class="cart-button">
+                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                        </div>
+                                        <div class="wishlist-button">
+                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                        </div>
+                                        <div class="compare-button">
+                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="product type-product">
+                            <div class="product-wrapper">
+                                <div class="product-image">
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-230.png" alt="Product Image"></a>
+                                    <div class="on-sale">- 10%</div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Hawaiian Tropic</a></h3>
+                                    <div class="product-price">
+                                        <div class="price">
+                                            <ins>$18.00</ins>
+                                            <del>$28.00</del>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                    <div class="shipping-feed-back">
+                                        <div class="star-rating">
+                                            <div class="rating-wrap">
+                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                            </div>
+                                            <div class="rating-counts-wrap">
+                                                <a href="#">(563)</a>
+                                            </div>
+                                        </div>
+                                        <div class="sold-items">
+                                            <span>65</span> <span>Sold</span>
+                                        </div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="cart-button">
+                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                        </div>
+                                        <div class="wishlist-button">
+                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                        </div>
+                                        <div class="compare-button">
+                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="product type-product">
+                            <div class="product-wrapper">
+                                <div class="product-image">
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-231.png" alt="Product Image"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Ariana Grande Ari</a></h3>
+                                    <div class="product-price">
+                                        <div class="price">
+                                            <ins>$31.00</ins>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                    <div class="shipping-feed-back">
+                                        <div class="star-rating">
+                                            <div class="rating-wrap">
+                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                            </div>
+                                            <div class="rating-counts-wrap">
+                                                <a href="#">(563)</a>
+                                            </div>
+                                        </div>
+                                        <div class="sold-items">
+                                            <span>65</span> <span>Sold</span>
+                                        </div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="cart-button">
+                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                        </div>
+                                        <div class="wishlist-button">
+                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                        </div>
+                                        <div class="compare-button">
+                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="product type-product">
+                            <div class="product-wrapper">
+                                <div class="product-image">
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-232.png" alt="Product Image"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Women Night Cream</a></h3>
+                                    <div class="product-price">
+                                        <div class="price">
+                                            <ins>$17.99</ins>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                    <div class="shipping-feed-back">
+                                        <div class="star-rating">
+                                            <div class="rating-wrap">
+                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                            </div>
+                                            <div class="rating-counts-wrap">
+                                                <a href="#">(563)</a>
+                                            </div>
+                                        </div>
+                                        <div class="sold-items">
+                                            <span>65</span> <span>Sold</span>
+                                        </div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="cart-button">
+                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                        </div>
+                                        <div class="wishlist-button">
+                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                        </div>
+                                        <div class="compare-button">
+                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="product type-product">
+                            <div class="product-wrapper">
+                                <div class="product-image">
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-233.png" alt="Product Image"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Harbal Facial Jel</a></h3>
+                                    <div class="product-price">
+                                        <div class="price">
+                                            <ins>$12.00</ins>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                    <div class="shipping-feed-back">
+                                        <div class="star-rating">
+                                            <div class="rating-wrap">
+                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                            </div>
+                                            <div class="rating-counts-wrap">
+                                                <a href="#">(563)</a>
+                                            </div>
+                                        </div>
+                                        <div class="sold-items">
+                                            <span>65</span> <span>Sold</span>
+                                        </div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="cart-button">
+                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                        </div>
+                                        <div class="wishlist-button">
+                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                        </div>
+                                        <div class="compare-button">
+                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="product type-product">
+                            <div class="product-wrapper">
+                                <div class="product-image">
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Organic Facial</a></h3>
+                                    <div class="product-price">
+                                        <div class="price">
+                                            <ins>$38.70</ins>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                    <div class="shipping-feed-back">
+                                        <div class="star-rating">
+                                            <div class="rating-wrap">
+                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                            </div>
+                                            <div class="rating-counts-wrap">
+                                                <a href="#">(563)</a>
+                                            </div>
+                                        </div>
+                                        <div class="sold-items">
+                                            <span>65</span> <span>Sold</span>
+                                        </div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="cart-button">
+                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                        </div>
+                                        <div class="wishlist-button">
+                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                        </div>
+                                        <div class="compare-button">
+                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="product type-product">
+                            <div class="product-wrapper">
+                                <div class="product-image">
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-234.png" alt="Product Image"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Make Up For Ever</a></h3>
+                                    <div class="product-price">
+                                        <div class="price">
+                                            <ins>$25.00</ins>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                    <div class="shipping-feed-back">
+                                        <div class="star-rating">
+                                            <div class="rating-wrap">
+                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                            </div>
+                                            <div class="rating-counts-wrap">
+                                                <a href="#">(563)</a>
+                                            </div>
+                                        </div>
+                                        <div class="sold-items">
+                                            <span>65</span> <span>Sold</span>
+                                        </div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="cart-button">
+                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                        </div>
+                                        <div class="wishlist-button">
+                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                        </div>
+                                        <div class="compare-button">
+                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="product type-product">
+                            <div class="product-wrapper">
+                                <div class="product-image">
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-235.png" alt="Product Image"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Advice Smoothing</a></h3>
+                                    <div class="product-price">
+                                        <div class="price">
+                                            <ins>$20.00</ins>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                    <div class="shipping-feed-back">
+                                        <div class="star-rating">
+                                            <div class="rating-wrap">
+                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                            </div>
+                                            <div class="rating-counts-wrap">
+                                                <a href="#">(563)</a>
+                                            </div>
+                                        </div>
+                                        <div class="sold-items">
+                                            <span>65</span> <span>Sold</span>
+                                        </div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="cart-button">
+                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                        </div>
+                                        <div class="wishlist-button">
+                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                        </div>
+                                        <div class="compare-button">
+                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="product type-product">
+                            <div class="product-wrapper">
+                                <div class="product-image">
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-236.png" alt="Product Image"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Makeup Utility</a></h3>
+                                    <div class="product-price">
+                                        <div class="price">
+                                            <ins>$20.25</ins>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-cost"><span>+Shipping: </span> <span>$5.00</span> </div>
+                                    <div class="shipping-feed-back">
+                                        <div class="star-rating">
+                                            <div class="rating-wrap">
+                                                <a href="#"><i class="fas fa-star"></i><span> 4.6</span></a>
+                                            </div>
+                                            <div class="rating-counts-wrap">
+                                                <a href="#">(563)</a>
+                                            </div>
+                                        </div>
+                                        <div class="sold-items">
+                                            <span>65</span> <span>Sold</span>
+                                        </div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="cart-button">
+                                            <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
+                                        </div>
+                                        <div class="wishlist-button">
+                                            <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Wishlist" aria-label="Add to Wishlist">Wishlist</a>
+                                        </div>
+                                        <div class="compare-button">
+                                            <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Compare" aria-label="Compare">Compare</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </main>
-    </form>
-    <script src="/public/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="/public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/public/assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="/public/assets/js/public-search.js"></script>
-    <script src="/public/assets/vendor/malihu/jquery.mCustomScrollbar.concat.min.js"></script>
+            </div>
+        </div>
+        <!--==================== Best Selling Products Section End ====================-->
+
+        <div class="full-row pb-0">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <div class="owl-carousel dot-disable nav-disable six-carousel">
+                            <div class="item">
+                                <div class="hover-img-zoom overflow-hidden transation">
+                                    <a href="assets/images/products/squire-221.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="assets/images/products/squire-221.png" alt="Image not found!">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="hover-img-zoom overflow-hidden transation">
+                                    <a href="assets/images/products/squire-222.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="assets/images/products/squire-222.png" alt="Image not found!">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="hover-img-zoom overflow-hidden transation">
+                                    <a href="assets/images/products/squire-223.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="assets/images/products/squire-223.png" alt="Image not found!">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="hover-img-zoom overflow-hidden transation">
+                                    <a href="assets/images/products/squire-224.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="assets/images/products/squire-224.png" alt="Image not found!">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="hover-img-zoom overflow-hidden transation">
+                                    <a href="assets/images/products/squire-225.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="assets/images/products/squire-225.png" alt="Image not found!">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="hover-img-zoom overflow-hidden transation">
+                                    <a href="assets/images/products/squire-226.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="assets/images/products/squire-226.png" alt="Image not found!">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="hover-img-zoom overflow-hidden transation">
+                                    <a href="assets/images/products/squire-227.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="assets/images/products/squire-227.png" alt="Image not found!">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="hover-img-zoom overflow-hidden transation">
+                                    <a href="assets/images/products/squire-228.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="assets/images/products/squire-228.png" alt="Image not found!">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="hover-img-zoom overflow-hidden transation">
+                                    <a href="assets/images/products/squire-229.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="assets/images/products/squire-229.png" alt="Image not found!">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</asp:Content>
+
+<asp:Content ID="PageScripts" ContentPlaceHolderID="PageScripts" runat="server">
     <script>
-        (function () {
-            new Swiper(".hero-slider .swiper", {
-                loop: true,
-                speed: 700,
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false
-                },
-                pagination: {
-                    el: ".hero-slider .swiper-pagination",
-                    clickable: true
-                }
+        $(document).ready(function() {
+            $('#slider').layerSlider({
+                sliderVersion: '6.0.0',
+                type: 'fullwidth',
+                responsiveUnder: 0,
+                layersContainer: 1200,
+                hideUnder: 0,
+                hideOver: 100000,
+                skin: 'v6',
+                globalBGColor: '#ffffff',
+                navStartStop: false,
+                skinsPath: '/public/theme/assets/skins/',
+                height: 650
             });
-
-            var categoryParents = document.querySelectorAll(".category-parent");
-            var categoryPanels = document.querySelectorAll(".category-panel");
-
-            function activatePanel(targetId) {
-                categoryParents.forEach(function (item) {
-                    item.classList.toggle("active", item.getAttribute("data-target") === targetId);
-                });
-                categoryPanels.forEach(function (panel) {
-                    panel.classList.toggle("active", panel.id === targetId);
-                });
-            }
-
-            categoryParents.forEach(function (item) {
-                item.addEventListener("mouseenter", function () {
-                    var targetId = item.getAttribute("data-target");
-                    activatePanel(targetId);
-                });
-            });
-
-            function syncMenuHeight() {
-                var left = document.querySelector(".category-left");
-                var right = document.querySelector(".category-right");
-                if (!left || !right) {
-                    return;
-                }
-                right.style.height = left.offsetHeight + "px";
-                $(".category-scroll").mCustomScrollbar("destroy");
-                $(".category-scroll").mCustomScrollbar({
-                    theme: "minimal-dark",
-                    scrollInertia: 120,
-                    mouseWheel: { preventDefault: true }
-                });
-            }
-
-            var categoryBar = document.querySelector(".category-bar");
-            if (categoryBar) {
-                categoryBar.addEventListener("mouseenter", syncMenuHeight);
-                window.addEventListener("resize", syncMenuHeight);
-            }
-        })();
+        });
     </script>
-</body>
-</html>
+</asp:Content>

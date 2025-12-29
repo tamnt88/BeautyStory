@@ -416,7 +416,7 @@ body.admin-dashboard {
 }
 
 .select2-container .select2-selection--single {
-    height: 38px;
+    height: 42px;
     border: 1px solid #d1d5db;
     border-radius: 8px;
     display: flex;
@@ -424,13 +424,18 @@ body.admin-dashboard {
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    line-height: 36px;
+    line-height: 40px;
     padding-left: 12px;
     color: #111827;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 36px;
+    height: 40px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__clear {
+    height: 40px;
+    line-height: 40px;
 }
 
 .matrix-fieldset-left .form-select,

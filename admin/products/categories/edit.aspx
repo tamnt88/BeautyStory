@@ -15,6 +15,9 @@
     <li class="breadcrumb-item"><a href="/admin/products/categories/default.aspx">Danh mục</a></li>
     <li class="breadcrumb-item active" aria-current="page">Cập nhật</li>
 </asp:Content>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+    <link href="/admin/assets/vendor/select2/select2.min.css" rel="stylesheet" />
+</asp:Content>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row g-3">
@@ -212,6 +215,7 @@
 </asp:Content>
 <asp:Content ID="PageScripts" ContentPlaceHolderID="PageScripts" runat="server">
     <script src="/admin/assets/vendor/ckeditor/ckeditor.js"></script>
+    <script src="/admin/assets/vendor/select2/select2.min.js"></script>
     <script>
         (function () {
             if (!window.CKEDITOR) {
@@ -229,6 +233,15 @@
                 filebrowserUploadUrl: "/admin/moxiemanager/api.ashx"
             });
         })();
+    </script>
+    <script>
+        (function ($) {
+            if (!$.fn.select2) {
+                return;
+            }
+
+            $("#<%= ParentIdInput.ClientID %>").select2({ width: "100%" });
+        })(jQuery);
     </script>
 </asp:Content>
 

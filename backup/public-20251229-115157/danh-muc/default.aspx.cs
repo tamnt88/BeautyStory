@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 public partial class CategoryDefault : System.Web.UI.Page
 {
@@ -10,7 +9,7 @@ public partial class CategoryDefault : System.Web.UI.Page
     private HashSet<int> _selectedFilterOptionIds = new HashSet<int>();
     private HashSet<int> _selectedAttributeValueIds = new HashSet<int>();
     private int _currentPage = 1;
-    private const int PageSize = 21;
+    private const int PageSize = 9;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -30,6 +29,10 @@ public partial class CategoryDefault : System.Web.UI.Page
                 .ThenBy(c => c.CategoryName)
                 .ToList());
 
+            var menuCategories = allCategories
+                .Where(c => !c.ParentId.HasValue)
+                .ToList();
+
             var slugs = PublicCache.GetOrCreate("slugs_all", 5, () => db.CfSeoSlugs.ToList());
             var slugLookup = slugs
                 .GroupBy(s => s.EntityType)
@@ -37,17 +40,7 @@ public partial class CategoryDefault : System.Web.UI.Page
                     g => g.Key,
                     g => g.ToDictionary(s => s.EntityId, s => s.SeoSlug));
 
-            string slug = GetSlugFromRequest();
-            if (string.IsNullOrWhiteSpace(slug))
-            {
-                var firstSlug = slugs.FirstOrDefault(s => s.EntityType == "Category");
-                slug = firstSlug != null ? firstSlug.SeoSlug : string.Empty;
-            }
-
-            _activeCategoryId = ResolveCategoryId(slugLookup, slug);
-
-            var menuItems = allCategories
-                .Where(c => !c.ParentId.HasValue)
+            var menuItems = menuCategories
                 .Select(c => new CategoryMenuItem
                 {
                     Id = c.Id,
@@ -79,12 +72,27 @@ public partial class CategoryDefault : System.Web.UI.Page
                 .Where(item => !string.IsNullOrWhiteSpace(item.SeoSlug))
                 .ToList();
 
+            CategoryMenuRepeater.DataSource = menuItems;
+            CategoryMenuRepeater.DataBind();
+
+            CategoryPanelRepeater.DataSource = menuItems;
+            CategoryPanelRepeater.DataBind();
+
             var categoryLookup = allCategories.ToDictionary(c => c.Id, c => c);
             var activePath = GetActiveCategoryPath(categoryLookup, _activeCategoryId);
             MarkActive(menuItems, activePath);
 
             SidebarRepeater.DataSource = menuItems;
             SidebarRepeater.DataBind();
+
+            string slug = (Request.QueryString["slug"] ?? string.Empty).Trim();
+            if (string.IsNullOrWhiteSpace(slug))
+            {
+                var first = menuItems.FirstOrDefault();
+                slug = first != null ? first.SeoSlug : string.Empty;
+            }
+
+            _activeCategoryId = ResolveCategoryId(slugLookup, slug);
 
             if (_activeCategoryId == 0)
             {
@@ -95,41 +103,10 @@ public partial class CategoryDefault : System.Web.UI.Page
                 return;
             }
 
-            var activeCategory = db.CfCategories.FirstOrDefault(c => c.Id == _activeCategoryId);
+            var activeCategory = allCategories.FirstOrDefault(c => c.Id == _activeCategoryId);
             CategoryTitle.Text = activeCategory != null ? activeCategory.CategoryName : "Danh mục";
-            CategorySubTitle.Text = string.Empty;
+            CategorySubTitle.Text = "Sản phẩm theo danh mục";
             CategoryBreadcrumb.Text = BuildCategoryBreadcrumb(allCategories, _activeCategoryId, slugLookup);
-            CategoryTitleTop.Text = activeCategory != null ? activeCategory.CategoryName : "Danh mục";
-            string bannerUrl = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.BannerUrl)
-                ? activeCategory.BannerUrl
-                : "/public/theme/assets/images/slider/22.png";
-            CategoryBannerImage.ImageUrl = bannerUrl;
-
-            string slugUrl = !string.IsNullOrWhiteSpace(slug) ? "/danh-muc/" + slug : "/danh-muc";
-            string title = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.SeoTitle)
-                ? activeCategory.SeoTitle
-                : (activeCategory != null ? activeCategory.CategoryName : "Danh mục");
-            string description = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.SeoDescription)
-                ? activeCategory.SeoDescription
-                : title;
-            string keywords = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.SeoKeywords)
-                ? activeCategory.SeoKeywords
-                : title;
-            string siteUrl = Request.Url != null ? Request.Url.GetLeftPart(UriPartial.Authority) : string.Empty;
-            string canonical = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.CanonicalUrl)
-                ? activeCategory.CanonicalUrl
-                : (siteUrl + slugUrl);
-            string robots = activeCategory != null ? activeCategory.Robots : string.Empty;
-            string ogTitle = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.OgTitle) ? activeCategory.OgTitle : title;
-            string ogDescription = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.OgDescription) ? activeCategory.OgDescription : description;
-            string ogImage = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.OgImage) ? activeCategory.OgImage : bannerUrl;
-            string ogType = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.OgType) ? activeCategory.OgType : "website";
-            string twitterTitle = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.TwitterTitle) ? activeCategory.TwitterTitle : title;
-            string twitterDescription = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.TwitterDescription) ? activeCategory.TwitterDescription : description;
-            string twitterImage = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.TwitterImage) ? activeCategory.TwitterImage : bannerUrl;
-
-            SeoTitleLiteral.Text = HttpUtility.HtmlEncode(title + " | Beauty Story");
-            SeoMetaLiteral.Text = string.Join(Environment.NewLine, BuildSeoMeta(canonical, description, keywords, robots, ogTitle, ogDescription, ogImage, ogType, twitterTitle, twitterDescription, twitterImage));
 
             var categoryIds = new List<int> { _activeCategoryId };
             var childIds = allCategories.Where(c => c.ParentId == _activeCategoryId).Select(c => c.Id).ToList();
@@ -227,7 +204,6 @@ public partial class CategoryDefault : System.Web.UI.Page
                     p.Id,
                     p.ProductName,
                     CategoryName = categoryNameLookup.ContainsKey(p.CategoryId) ? categoryNameLookup[p.CategoryId] : "-",
-                    CategorySlug = GetSlug(slugLookup, "Category", p.CategoryId),
                     SeoSlug = GetSlug(slugLookup, "Product", p.Id),
                     ImageUrl = primaryImageLookup.ContainsKey(p.Id) && !string.IsNullOrWhiteSpace(primaryImageLookup[p.Id]) ? primaryImageLookup[p.Id] : "/images/fav.png",
                     PriceLabel = priceLookup.ContainsKey(p.Id) ? priceLookup[p.Id] : "Liên hệ"
@@ -545,7 +521,7 @@ public partial class CategoryDefault : System.Web.UI.Page
 
         if (_currentPage > 1)
         {
-            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}\">Trước</a></li>", BuildPageUrl(baseUrl, _currentPage - 1)));
+            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}&page={1}\">Trước</a></li>", baseUrl, _currentPage - 1));
         }
 
         for (int i = start; i <= end; i++)
@@ -556,25 +532,29 @@ public partial class CategoryDefault : System.Web.UI.Page
             }
             else
             {
-                links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}\">{1}</a></li>", BuildPageUrl(baseUrl, i), i));
+                links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}&page={1}\">{1}</a></li>", baseUrl, i));
             }
         }
 
         if (_currentPage < totalPages)
         {
-            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}\">Sau</a></li>", BuildPageUrl(baseUrl, _currentPage + 1)));
+            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}&page={1}\">Sau</a></li>", baseUrl, _currentPage + 1));
         }
 
-        PaginationLiteral.Text = string.Format("<nav><ul class=\"pagination justify-content-center\">{0}</ul></nav>", string.Join("", links));
+        PaginationLiteral.Text = string.Format("<nav><ul class=\"pagination\">{0}</ul></nav>", string.Join("", links));
     }
 
     private string BuildBaseUrl()
     {
-        string slug = GetSlugFromRequest();
+        string slug = (Request.QueryString["slug"] ?? string.Empty).Trim();
         string filters = Request.QueryString["filters"];
         string attrs = Request.QueryString["attrs"];
 
         var query = new List<string>();
+        if (!string.IsNullOrWhiteSpace(slug))
+        {
+            query.Add("slug=" + Server.UrlEncode(slug));
+        }
         if (!string.IsNullOrWhiteSpace(filters))
         {
             query.Add("filters=" + Server.UrlEncode(filters));
@@ -584,18 +564,7 @@ public partial class CategoryDefault : System.Web.UI.Page
             query.Add("attrs=" + Server.UrlEncode(attrs));
         }
 
-        var basePath = string.IsNullOrWhiteSpace(slug) ? "/danh-muc" : "/danh-muc/" + Server.UrlEncode(slug);
-        if (query.Count == 0)
-        {
-            return basePath;
-        }
-        return basePath + "?" + string.Join("&", query);
-    }
-
-    private static string BuildPageUrl(string baseUrl, int page)
-    {
-        var separator = baseUrl.Contains("?") ? "&" : "?";
-        return baseUrl + separator + "page=" + page;
+        return "/danh-muc/default.aspx?" + string.Join("&", query);
     }
 
     private static string BuildCategoryBreadcrumb(List<CfCategory> categories, int categoryId, Dictionary<string, Dictionary<int, string>> slugLookup)
@@ -620,115 +589,20 @@ public partial class CategoryDefault : System.Web.UI.Page
             "<li class=\"breadcrumb-item\"><a href=\"/\">Trang chủ</a></li>"
         };
 
-        for (int i = 0; i < path.Count; i++)
+        foreach (var item in path)
         {
-            var item = path[i];
-            var name = item.CategoryName ?? string.Empty;
-            if (IsLikelyUrl(name))
-            {
-                continue;
-            }
-
-            bool isLast = i == path.Count - 1;
             var slug = GetSlug(slugLookup, "Category", item.Id);
-            if (isLast || string.IsNullOrWhiteSpace(slug))
+            if (!string.IsNullOrWhiteSpace(slug))
             {
-                links.Add(string.Format("<li class=\"breadcrumb-item active\" aria-current=\"page\">{0}</li>", name));
-                continue;
+                links.Add(string.Format("<li class=\"breadcrumb-item\"><a href=\"/danh-muc/default.aspx?slug={0}\">{1}</a></li>", slug, item.CategoryName));
             }
-
-            links.Add(string.Format("<li class=\"breadcrumb-item\"><a href=\"/danh-muc/{0}\">{1}</a></li>", slug, name));
+            else
+            {
+                links.Add(string.Format("<li class=\"breadcrumb-item active\" aria-current=\"page\">{0}</li>", item.CategoryName));
+            }
         }
 
         return string.Join("", links);
     }
-
-    private static bool IsLikelyUrl(string value)
-    {
-        if (string.IsNullOrWhiteSpace(value))
-        {
-            return false;
-        }
-
-        return value.StartsWith("http://", StringComparison.OrdinalIgnoreCase)
-            || value.StartsWith("https://", StringComparison.OrdinalIgnoreCase)
-            || value.Contains("unicoderbd.com");
-    }
-
-    private string GetSlugFromRequest()
-    {
-        var routeSlug = Page.RouteData.Values["slug"] as string;
-        if (!string.IsNullOrWhiteSpace(routeSlug))
-        {
-            return routeSlug.Trim();
-        }
-        return (Request.QueryString["slug"] ?? string.Empty).Trim();
-    }
-
-    private static IEnumerable<string> BuildSeoMeta(
-        string canonical,
-        string description,
-        string keywords,
-        string robots,
-        string ogTitle,
-        string ogDescription,
-        string ogImage,
-        string ogType,
-        string twitterTitle,
-        string twitterDescription,
-        string twitterImage)
-    {
-        var tags = new List<string>();
-        tags.Add("<meta name=\"description\" content=\"" + Encode(description) + "\" />");
-        tags.Add("<meta name=\"keywords\" content=\"" + Encode(keywords) + "\" />");
-        if (!string.IsNullOrWhiteSpace(robots))
-        {
-            tags.Add("<meta name=\"robots\" content=\"" + Encode(robots) + "\" />");
-        }
-        if (!string.IsNullOrWhiteSpace(canonical))
-        {
-            tags.Add("<link rel=\"canonical\" href=\"" + Encode(canonical) + "\" />");
-            tags.Add("<meta property=\"og:url\" content=\"" + Encode(canonical) + "\" />");
-        }
-
-        if (!string.IsNullOrWhiteSpace(ogTitle))
-        {
-            tags.Add("<meta property=\"og:title\" content=\"" + Encode(ogTitle) + "\" />");
-        }
-        if (!string.IsNullOrWhiteSpace(ogDescription))
-        {
-            tags.Add("<meta property=\"og:description\" content=\"" + Encode(ogDescription) + "\" />");
-        }
-        if (!string.IsNullOrWhiteSpace(ogImage))
-        {
-            tags.Add("<meta property=\"og:image\" content=\"" + Encode(ogImage) + "\" />");
-        }
-        if (!string.IsNullOrWhiteSpace(ogType))
-        {
-            tags.Add("<meta property=\"og:type\" content=\"" + Encode(ogType) + "\" />");
-        }
-
-        tags.Add("<meta name=\"twitter:card\" content=\"summary_large_image\" />");
-        if (!string.IsNullOrWhiteSpace(twitterTitle))
-        {
-            tags.Add("<meta name=\"twitter:title\" content=\"" + Encode(twitterTitle) + "\" />");
-        }
-        if (!string.IsNullOrWhiteSpace(twitterDescription))
-        {
-            tags.Add("<meta name=\"twitter:description\" content=\"" + Encode(twitterDescription) + "\" />");
-        }
-        if (!string.IsNullOrWhiteSpace(twitterImage))
-        {
-            tags.Add("<meta name=\"twitter:image\" content=\"" + Encode(twitterImage) + "\" />");
-        }
-
-        return tags;
-    }
-
-    private static string Encode(string value)
-    {
-        return HttpUtility.HtmlAttributeEncode(value ?? string.Empty);
-    }
 }
-
 
