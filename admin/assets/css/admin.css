@@ -586,3 +586,32 @@ body.admin-dashboard {
     padding: 6px 12px !important;
     display: block;
 }
+
+.filter-group {
+    border: 1px solid #efe7df;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    background: #fff;
+}
+.filter-group-title {
+    font-weight: 600;
+    color: #6e4c2a;
+    margin-bottom: 8px;
+}
+.filter-option-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 6px 12px;
+}
+.filter-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #2f2a26;
+}
+.filter-option input {
+    accent-color: #b58a5a;
+}
+

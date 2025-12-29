@@ -30,6 +30,7 @@ public partial class AdminProductsEdit : AdminBasePage
             BindMatrixAttributes();
             BindMatrixAttributeValues();
             BindMatrixValues(ParseSelectedAttributeIds());
+            BindFilterGroups();
         }
     }
 
@@ -74,6 +75,89 @@ public partial class AdminProductsEdit : AdminBasePage
             foreach (var item in origins)
             {
                 OriginInput.Items.Add(new ListItem(item.OriginName, item.Id.ToString()));
+            }
+        }
+    }
+
+    private void BindFilterGroups()
+    {
+        FilterMessage.Text = string.Empty;
+
+        int categoryId;
+        if (!int.TryParse(CategoryInput.SelectedValue, out categoryId) || categoryId <= 0)
+        {
+            FilterGroupRepeater.DataSource = null;
+            FilterGroupRepeater.DataBind();
+            FilterMessage.Text = "Vui long chon danh muc de hien bo loc.";
+            return;
+        }
+
+        int productId;
+        int.TryParse(ProductId.Value, out productId);
+
+        using (var db = new BeautyStoryContext())
+        {
+            var groupIds = db.CfCategoryFilterGroups
+                .Where(c => c.CategoryId == categoryId && c.Status)
+                .Select(c => c.GroupId)
+                .ToList();
+
+            if (groupIds.Count == 0)
+            {
+                groupIds = db.CfFilterGroups.Where(g => g.Status).Select(g => g.Id).ToList();
+            }
+
+            bool hasMapping = groupIds.Count > 0;
+            if (!hasMapping)
+            {
+                groupIds = db.CfFilterGroups.Where(g => g.Status).Select(g => g.Id).ToList();
+            }
+
+            var selectedOptionIds = new HashSet<int>();
+            if (productId > 0)
+            {
+                selectedOptionIds = new HashSet<int>(db.CfProductFilters
+                    .Where(f => f.ProductId == productId)
+                    .Select(f => f.OptionId)
+                    .ToList());
+            }
+
+            var groups = db.CfFilterGroups
+                .Where(g => groupIds.Contains(g.Id) && g.Status)
+                .OrderBy(g => g.SortOrder)
+                .ThenBy(g => g.GroupName)
+                .Select(g => new { g.Id, g.GroupName })
+                .ToList();
+
+            var options = db.CfFilterOptions
+                .Where(o => groupIds.Contains(o.GroupId) && o.Status)
+                .OrderBy(o => o.SortOrder)
+                .ThenBy(o => o.OptionName)
+                .Select(o => new { o.Id, o.GroupId, o.OptionName })
+                .ToList();
+
+            var data = groups.Select(g => new FilterGroupView
+            {
+                GroupId = g.Id,
+                GroupName = g.GroupName,
+                Options = options
+                    .Where(o => o.GroupId == g.Id)
+                    .Select(o => new FilterOptionView
+                    {
+                        GroupId = g.Id,
+                        OptionId = o.Id,
+                        OptionName = o.OptionName,
+                        IsSelected = selectedOptionIds.Contains(o.Id)
+                    })
+                    .ToList()
+            }).ToList();
+
+            FilterGroupRepeater.DataSource = data;
+            FilterGroupRepeater.DataBind();
+
+            if (!hasMapping)
+            {
+                FilterMessage.Text = "Danh muc chua duoc gan bo loc. Dang hien tat ca bo loc.";
             }
         }
     }
@@ -247,6 +331,91 @@ public partial class AdminProductsEdit : AdminBasePage
     {
         MatrixMessage.Text = string.Empty;
         BindMatrixAttributeValues();
+    }
+
+    protected void CategoryInput_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BindFilterGroups();
+    }
+
+    protected void FilterSaveButton_Click(object sender, EventArgs e)
+    {
+        FilterMessage.Text = string.Empty;
+
+        int productId;
+        if (!int.TryParse(ProductId.Value, out productId) || productId <= 0)
+        {
+            FilterMessage.Text = "Vui long luu san pham truoc khi chon bo loc.";
+            return;
+        }
+
+        int categoryId;
+        if (!int.TryParse(CategoryInput.SelectedValue, out categoryId) || categoryId <= 0)
+        {
+            FilterMessage.Text = "Vui long chon danh muc.";
+            return;
+        }
+
+        var selectedValues = Request.Form.GetValues("filterOption") ?? new string[0];
+        var selectedIds = new List<int>();
+        foreach (var raw in selectedValues)
+        {
+            int id;
+            if (int.TryParse(raw, out id) && id > 0)
+            {
+                selectedIds.Add(id);
+            }
+        }
+
+        using (var db = new BeautyStoryContext())
+        {
+            var groupIds = db.CfCategoryFilterGroups
+                .Where(c => c.CategoryId == categoryId && c.Status)
+                .Select(c => c.GroupId)
+                .ToList();
+            if (groupIds.Count == 0)
+            {
+                groupIds = db.CfFilterGroups.Where(g => g.Status).Select(g => g.Id).ToList();
+            }
+
+            var removeItems = db.CfProductFilters
+                .Where(p => p.ProductId == productId && groupIds.Contains(p.GroupId))
+                .ToList();
+
+            if (removeItems.Count > 0)
+            {
+                db.CfProductFilters.RemoveRange(removeItems);
+            }
+
+            if (selectedIds.Count > 0)
+            {
+                var optionItems = db.CfFilterOptions
+                    .Where(o => selectedIds.Contains(o.Id) && groupIds.Contains(o.GroupId) && o.Status)
+                    .Select(o => new { o.Id, o.GroupId })
+                    .ToList();
+
+                foreach (var option in optionItems)
+                {
+                    var item = new CfProductFilter
+                    {
+                        ProductId = productId,
+                        GroupId = option.GroupId,
+                        OptionId = option.Id,
+                        Status = true,
+                        SortOrder = 0,
+                        CreatedAt = DateTime.UtcNow,
+                        CreatedBy = Session["AdminUsername"] != null ? Session["AdminUsername"].ToString() : null
+                    };
+                    db.CfProductFilters.Add(item);
+                }
+            }
+
+            db.SaveChanges();
+        }
+
+        FilterMessage.CssClass = "text-success small d-block mb-2";
+        FilterMessage.Text = "&#272;&#227; l&#432;u b&#7897; l&#7885;c th&#224;nh c&#244;ng.";
+        BindFilterGroups();
     }
 
     protected void MatrixAddAttributeButton_Click(object sender, EventArgs e)
@@ -1803,4 +1972,25 @@ public partial class AdminProductsEdit : AdminBasePage
             }
         }
     }
+    private class FilterGroupView
+    {
+        public int GroupId { get; set; }
+        public string GroupName { get; set; }
+        public List<FilterOptionView> Options { get; set; }
+    }
+
+    private class FilterOptionView
+    {
+        public int GroupId { get; set; }
+        public int OptionId { get; set; }
+        public string OptionName { get; set; }
+        public bool IsSelected { get; set; }
+    }
 }
+
+
+
+
+
+
+

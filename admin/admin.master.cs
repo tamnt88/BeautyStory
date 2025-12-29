@@ -251,14 +251,14 @@ public partial class AdminMaster : AdminBaseMaster
 
     private static bool IsMenuActive(AdminMenuItem item, string currentPath)
     {
-        if (!string.IsNullOrWhiteSpace(item.Url) && IsSamePath(item.Url, currentPath))
+        if (!string.IsNullOrWhiteSpace(item.Url) && IsSamePathOrChild(item.Url, currentPath))
         {
             return true;
         }
 
         foreach (var child in item.Children)
         {
-            if (!string.IsNullOrWhiteSpace(child.Url) && IsSamePath(child.Url, currentPath))
+            if (!string.IsNullOrWhiteSpace(child.Url) && IsSamePathOrChild(child.Url, currentPath))
             {
                 return true;
             }
@@ -267,7 +267,7 @@ public partial class AdminMaster : AdminBaseMaster
         return false;
     }
 
-    private static bool IsSamePath(string url, string currentPath)
+    private static bool IsSamePathOrChild(string url, string currentPath)
     {
         if (string.IsNullOrWhiteSpace(url))
         {
@@ -277,6 +277,19 @@ public partial class AdminMaster : AdminBaseMaster
         string normalized = VirtualPathUtility.ToAbsolute(url.Split('?')[0].Trim());
         string current = VirtualPathUtility.ToAbsolute(currentPath.Split('?')[0].Trim());
 
-        return string.Equals(normalized, current, StringComparison.OrdinalIgnoreCase);
+        if (string.Equals(normalized, current, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        // Treat any page under the same folder as active (e.g. edit.aspx under /admin/products/).
+        string normalizedDir = VirtualPathUtility.GetDirectory(normalized);
+        string currentDir = VirtualPathUtility.GetDirectory(current);
+        if (!string.IsNullOrWhiteSpace(normalizedDir) && !string.IsNullOrWhiteSpace(currentDir))
+        {
+            return string.Equals(normalizedDir, currentDir, StringComparison.OrdinalIgnoreCase);
+        }
+
+        return false;
     }
 }

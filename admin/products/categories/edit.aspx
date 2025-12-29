@@ -26,19 +26,19 @@
 
                 <ul class="nav nav-tabs" id="categoryTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="tab-basic" data-bs-toggle="tab" data-bs-target="#tab-basic-pane" type="button" role="tab">Cơ bản</button>
+                        <button class="nav-link active" id="tab-basic" data-bs-toggle="tab" data-bs-target="#tab-basic-pane" type="button" role="tab"><i class=\</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-media" data-bs-toggle="tab" data-bs-target="#tab-media-pane" type="button" role="tab">Hình ảnh</button>
+                        <button class="nav-link" id="tab-media" data-bs-toggle="tab" data-bs-target="#tab-media-pane" type="button" role="tab"><i class=\</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-seo" data-bs-toggle="tab" data-bs-target="#tab-seo-pane" type="button" role="tab">SEO</button>
+                        <button class="nav-link" id="tab-seo" data-bs-toggle="tab" data-bs-target="#tab-seo-pane" type="button" role="tab"><i class=\</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-social" data-bs-toggle="tab" data-bs-target="#tab-social-pane" type="button" role="tab">Social</button>
+                        <button class="nav-link" id="tab-social" data-bs-toggle="tab" data-bs-target="#tab-social-pane" type="button" role="tab"><i class=\</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-setting" data-bs-toggle="tab" data-bs-target="#tab-setting-pane" type="button" role="tab">Thiết lập</button>
+                        <button class="nav-link" id="tab-setting" data-bs-toggle="tab" data-bs-target="#tab-setting-pane" type="button" role="tab"><i class=\</button>
                     </li>
                 </ul>
 
@@ -231,3 +231,4 @@
         })();
     </script>
 </asp:Content>
+
