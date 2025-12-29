@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeFile="PublicFooter.ascx.cs" Inherits="PublicFooter" %>
 
-<div class="full-row bg-dark p-0">
+<%--<div class="full-row bg-dark p-0">
     <div class="container py-50 border-white border-2 border-bottom">
         <div class="row align-items-center">
             <div class="col-md-4">
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--%>
 
 <footer class="full-row bg-dark">
     <div class="container">

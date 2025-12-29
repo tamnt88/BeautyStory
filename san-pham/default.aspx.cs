@@ -8,6 +8,7 @@ public partial class ProductDefault : System.Web.UI.Page
     public string ProductName { get; set; }
     public string VariantPriceJson { get; set; }
     public string VariantIdJson { get; set; }
+    public string VariantSkuJson { get; set; }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -51,6 +52,36 @@ public partial class ProductDefault : System.Web.UI.Page
 
             ProductName = product.ProductName;
             ProductNameLiteral.Text = product.ProductName;
+
+            var brandName = string.Empty;
+            var brandSlug = string.Empty;
+            if (product.BrandId > 0)
+            {
+                var brand = db.CfBrands.FirstOrDefault(b => b.Id == product.BrandId);
+                if (brand != null)
+                {
+                    brandName = brand.BrandName;
+                    brandSlug = GetSlug(slugLookup, "Brand", brand.Id);
+                }
+            }
+
+            SupplierLink.Text = string.IsNullOrWhiteSpace(brandName) ? "Nhà cung cấp" : brandName;
+            SupplierLink.NavigateUrl = string.IsNullOrWhiteSpace(brandSlug) ? "#" : "/thuong-hieu/" + brandSlug;
+
+            var originName = string.Empty;
+            var originSlug = string.Empty;
+            if (product.OriginId > 0)
+            {
+                var origin = db.CfOrigins.FirstOrDefault(o => o.Id == product.OriginId);
+                if (origin != null)
+                {
+                    originName = origin.OriginName;
+                    originSlug = GetSlug(slugLookup, "Origin", origin.Id);
+                }
+            }
+
+            OriginLink.Text = string.IsNullOrWhiteSpace(originName) ? "Xuất xứ" : originName;
+            OriginLink.NavigateUrl = string.IsNullOrWhiteSpace(originSlug) ? "#" : "/xuat-xu/" + originSlug;
             Description.Text = string.IsNullOrWhiteSpace(product.Description) ? "Đang cập nhật." : product.Description;
             Specification.Text = string.IsNullOrWhiteSpace(product.Specification) ? "Đang cập nhật." : product.Specification;
             Ingredients.Text = string.IsNullOrWhiteSpace(product.Ingredients) ? "Đang cập nhật." : product.Ingredients;
@@ -78,9 +109,16 @@ public partial class ProductDefault : System.Web.UI.Page
             ThumbRepeater.DataSource = imageList;
             ThumbRepeater.DataBind();
 
-            PriceLiteral.Text = variants.Any() ? GetDisplayPrice(variants) : "Liên hệ";
+            PriceLiteral.Text = variants.Any() ? GetDisplayPriceHtml(variants) : "Liên hệ";
             ProductNameLiteralAside.Text = ProductName;
             PriceLiteralAside.Text = PriceLiteral.Text;
+
+            var defaultVariant = GetDefaultVariant(variants);
+            SkuLiteral.Text = defaultVariant != null && !string.IsNullOrWhiteSpace(defaultVariant.Sku) ? defaultVariant.Sku : "-";
+            if (defaultVariant != null)
+            {
+                SelectedVariantId.Value = defaultVariant.Id.ToString();
+            }
 
             CategoryPath.Text = BuildCategoryPath(allCategories, product.CategoryId, slugLookup);
         }
@@ -154,6 +192,21 @@ public partial class ProductDefault : System.Web.UI.Page
         return string.Format("{0:N0} đ", price);
     }
 
+    private static string FormatPriceHtml(CfProductVariant variant)
+    {
+        if (variant == null)
+        {
+            return "Liên hệ";
+        }
+
+        if (variant.SalePrice.HasValue && variant.SalePrice.Value > 0 && variant.SalePrice.Value < variant.Price)
+        {
+            return string.Format("<span class=\"price-old\">{0:N0} đ</span> <span class=\"price-current\">{1:N0} đ</span>", variant.Price, variant.SalePrice.Value);
+        }
+
+        return string.Format("<span class=\"price-current\">{0:N0} đ</span>", variant.Price);
+    }
+
     private static string GetDisplayPrice(List<CfProductVariant> variants)
     {
         if (variants == null || variants.Count == 0)
@@ -168,6 +221,22 @@ public partial class ProductDefault : System.Web.UI.Page
 
         var variant = saleVariant ?? variants.OrderBy(v => v.Price).First();
         return FormatPrice(variant);
+    }
+
+    private static string GetDisplayPriceHtml(List<CfProductVariant> variants)
+    {
+        if (variants == null || variants.Count == 0)
+        {
+            return "Liên hệ";
+        }
+
+        var saleVariant = variants
+            .Where(v => v.SalePrice.HasValue)
+            .OrderBy(v => v.SalePrice.Value)
+            .FirstOrDefault();
+
+        var variant = saleVariant ?? variants.OrderBy(v => v.Price).First();
+        return FormatPriceHtml(variant);
     }
 
     private void BindVariantAttributes(BeautyStoryContext db, List<int> variantIds, Dictionary<int, int> defaultSelections)
@@ -217,6 +286,7 @@ public partial class ProductDefault : System.Web.UI.Page
 
         var variantPriceMap = new Dictionary<string, string>();
         var variantIdMap = new Dictionary<string, int>();
+        var variantSkuMap = new Dictionary<string, string>();
         foreach (var variantId in attrs.Select(a => a.VariantId).Distinct())
         {
             var parts = attrs
@@ -231,8 +301,9 @@ public partial class ProductDefault : System.Web.UI.Page
                 var variant = db.CfProductVariants.FirstOrDefault(v => v.Id == variantId);
                 if (variant != null)
                 {
-                    variantPriceMap[key] = FormatPrice(variant);
+                    variantPriceMap[key] = FormatPriceHtml(variant);
                     variantIdMap[key] = variant.Id;
+                    variantSkuMap[key] = string.IsNullOrWhiteSpace(variant.Sku) ? "-" : variant.Sku;
                 }
             }
         }
@@ -240,6 +311,7 @@ public partial class ProductDefault : System.Web.UI.Page
         var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
         VariantPriceJson = serializer.Serialize(variantPriceMap);
         VariantIdJson = serializer.Serialize(variantIdMap);
+        VariantSkuJson = serializer.Serialize(variantSkuMap);
     }
 
     protected void AddToCartButton_Click(object sender, EventArgs e)
@@ -250,9 +322,23 @@ public partial class ProductDefault : System.Web.UI.Page
             int.TryParse(SelectedVariantId.Value, out variantId);
         }
 
+        int quantity = 1;
+        if (!string.IsNullOrWhiteSpace(SelectedQuantity.Value))
+        {
+            int.TryParse(SelectedQuantity.Value, out quantity);
+        }
+        if (quantity < 1)
+        {
+            quantity = 1;
+        }
+        if (quantity > 99)
+        {
+            quantity = 99;
+        }
+
         if (variantId > 0)
         {
-            CartService.AddVariant(variantId, 1);
+            CartService.AddVariant(variantId, quantity);
             Response.Redirect("/gio-hang/default.aspx");
         }
     }

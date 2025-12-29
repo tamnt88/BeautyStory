@@ -192,11 +192,11 @@
                                         <i class="flaticon-search flat-small text-dark"></i>
                                     </a>
                                 </div>
-                                <div class="refresh-view">
+                                <%--<div class="refresh-view">
                                     <a href="compare.html" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
                                         <i class="flaticon-shuffle flat-small text-dark"></i>
                                     </a>
-                                </div>
+                                </div>--%>
                                 <div class="header-cart-4">
                                     <a href="cart.html" class="cart has-cart-data" title="View Cart">
                                         <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count">2</span></div>
@@ -544,11 +544,11 @@
                                         <i class="flaticon-like flat-small text-dark"></i>
                                     </a>
                                 </div>
-                                <div class="refresh-view">
+                                <%--<div class="refresh-view">
                                     <a href="compare.html" class="position-relative top-quantity d-flex align-items-center text-dark text-decoration-none">
                                         <i class="flaticon-shuffle flat-small text-dark"></i>
                                     </a>
-                                </div>
+                                </div>--%>
                                 <div class="header-cart-4">
                                     <a href="cart.html" class="cart has-cart-data" title="View Cart">
                                         <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count">2</span></div>

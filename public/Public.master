@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/public/theme/assets/css/bootstrap.min.css") %>" />
     <link rel="stylesheet" href="<%= ResolveUrl("~/public/theme/assets/css/all.min.css") %>" />
     <link rel="stylesheet" href="<%= ResolveUrl("~/public/theme/assets/css/animate.min.css") %>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/public/assets/vendor/fontawesome/css/all.min.css") %>" />
     <link rel="stylesheet" href="<%= ResolveUrl("~/public/theme/assets/webfonts/flaticon/flaticon.css") %>" />
     <link rel="stylesheet" href="<%= ResolveUrl("~/public/theme/assets/css/owl.carousel.min.css") %>" />
     <link rel="stylesheet" href="<%= ResolveUrl("~/public/theme/assets/css/jquery.fancybox.min.css") %>" />
