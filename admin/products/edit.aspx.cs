@@ -41,15 +41,11 @@ public partial class AdminProductsEdit : AdminBasePage
             var categories = db.CfCategories
                 .OrderBy(c => c.SortOrder)
                 .ThenBy(c => c.CategoryName)
-                .Select(c => new { c.Id, c.CategoryName })
                 .ToList();
 
             CategoryInput.Items.Clear();
-            CategoryInput.Items.Add(new ListItem("-- Chọn danh mục --", ""));
-            foreach (var item in categories)
-            {
-                CategoryInput.Items.Add(new ListItem(item.CategoryName, item.Id.ToString()));
-            }
+            CategoryInput.Items.Add(new ListItem("-- Chon danh muc --", ""));
+            AddCategoryOptions(CategoryInput, categories, null, 0);
 
             var brands = db.CfBrands
                 .OrderBy(b => b.SortOrder)
@@ -78,7 +74,27 @@ public partial class AdminProductsEdit : AdminBasePage
             }
         }
     }
+    private static void AddCategoryOptions(ListControl target, List<CfCategory> categories, int? parentId, int level)
+    {
+        var items = categories
+            .Where(c => c.ParentId == parentId)
+            .OrderBy(c => c.SortOrder)
+            .ThenBy(c => c.CategoryName)
+            .ToList();
 
+        string prefix = string.Empty;
+        for (int i = 0; i < level; i++)
+        {
+            prefix += "|-- ";
+        }
+
+        foreach (var item in items)
+        {
+            string label = string.Concat(prefix, item.CategoryName);
+            target.Items.Add(new ListItem(label, item.Id.ToString()));
+            AddCategoryOptions(target, categories, item.Id, level + 1);
+        }
+    }
     private void BindFilterGroups()
     {
         FilterMessage.Text = string.Empty;
@@ -1987,6 +2003,8 @@ public partial class AdminProductsEdit : AdminBasePage
         public bool IsSelected { get; set; }
     }
 }
+
+
 
 
 

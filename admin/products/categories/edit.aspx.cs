@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Web.UI.WebControls;
@@ -48,13 +48,13 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
 
         if (string.IsNullOrWhiteSpace(name))
         {
-            FormMessage.Text = "Vui lòng nhập tên danh mục.";
+            FormMessage.Text = "Vui l�ng nh?p t�n danh m?c.";
             return;
         }
 
         if (string.IsNullOrWhiteSpace(seoSlug))
         {
-            FormMessage.Text = "Vui lòng nhập slug cho danh mục.";
+            FormMessage.Text = "Vui l�ng nh?p slug cho danh m?c.";
             return;
         }
 
@@ -80,13 +80,13 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
                 category = db.CfCategories.FirstOrDefault(c => c.Id == id);
                 if (category == null)
                 {
-                    FormMessage.Text = "Danh mục không tồn tại.";
+                    FormMessage.Text = "Danh m?c kh�ng t?n t?i.";
                     return;
                 }
 
                 if (parentId.HasValue && parentId.Value == category.Id)
                 {
-                    FormMessage.Text = "Danh mục cha không hợp lệ.";
+                    FormMessage.Text = "Danh m?c cha kh�ng h?p l?.";
                     return;
                 }
             }
@@ -103,7 +103,7 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
                 var parent = db.CfCategories.FirstOrDefault(c => c.Id == parentId.Value);
                 if (parent == null)
                 {
-                    FormMessage.Text = "Danh mục cha không tồn tại.";
+                    FormMessage.Text = "Danh m?c cha kh�ng t?n t?i.";
                     return;
                 }
             }
@@ -135,7 +135,7 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
             bool slugExists = db.CfSeoSlugs.Any(s => s.SeoSlug == normalizedSlug && (s.EntityType != "Category" || s.EntityId != category.Id));
             if (slugExists)
             {
-                FormMessage.Text = "Slug đã tồn tại. Vui lòng chọn slug khác.";
+                FormMessage.Text = "Slug d� t?n t?i. Vui l�ng ch?n slug kh�c.";
                 return;
             }
 
@@ -163,7 +163,7 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
         }
 
         FormMessage.CssClass = "text-success small d-block mb-2";
-        FormMessage.Text = "Lưu thành công.";
+        FormMessage.Text = "Luu th�nh c�ng.";
     }
 
     protected void ResetButton_Click(object sender, EventArgs e)
@@ -171,7 +171,27 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
         ResetForm();
         BindParentCategories(null, null);
     }
+    private static void AddCategoryOptions(ListControl target, List<CfCategory> categories, int? parentId, int level)
+    {
+        var items = categories
+            .Where(c => c.ParentId == parentId)
+            .OrderBy(c => c.SortOrder)
+            .ThenBy(c => c.CategoryName)
+            .ToList();
 
+        string prefix = string.Empty;
+        for (int i = 0; i < level; i++)
+        {
+            prefix += "|-- ";
+        }
+
+        foreach (var item in items)
+        {
+            string label = string.Concat(prefix, item.CategoryName);
+            target.Items.Add(new ListItem(label, item.Id.ToString()));
+            AddCategoryOptions(target, categories, item.Id, level + 1);
+        }
+    }
     private void BindParentCategories(int? selectedId, int? excludeId)
     {
         using (var db = new BeautyStoryContext())
@@ -182,13 +202,9 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
                 .ThenBy(c => c.CategoryName)
                 .ToList();
 
-            ParentIdInput.Items.Clear();
-            ParentIdInput.Items.Add(new ListItem("Không có", ""));
-
-            foreach (var category in categories)
-            {
-                ParentIdInput.Items.Add(new ListItem(category.CategoryName, category.Id.ToString()));
-            }
+                        ParentIdInput.Items.Clear();
+            ParentIdInput.Items.Add(new ListItem("Khong co", ""));
+            AddCategoryOptions(ParentIdInput, categories, null, 0);
 
             if (selectedId.HasValue)
             {
@@ -395,4 +411,6 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
         }
     }
 }
+
+
 

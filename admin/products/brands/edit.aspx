@@ -25,22 +25,22 @@
                 <asp:HiddenField ID="BrandId" runat="server" />
 
                 <ul class="nav nav-tabs" id="brandTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="tab-basic" data-bs-toggle="tab" data-bs-target="#tab-basic-pane" type="button" role="tab"><i class=\</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-media" data-bs-toggle="tab" data-bs-target="#tab-media-pane" type="button" role="tab"><i class=\</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-seo" data-bs-toggle="tab" data-bs-target="#tab-seo-pane" type="button" role="tab"><i class=\</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-social" data-bs-toggle="tab" data-bs-target="#tab-social-pane" type="button" role="tab"><i class=\</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-setting" data-bs-toggle="tab" data-bs-target="#tab-setting-pane" type="button" role="tab"><i class=\</button>
-                    </li>
-                </ul>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-basic" data-bs-toggle="tab" data-bs-target="#tab-basic-pane" type="button" role="tab"><i class="fa-solid fa-circle-info"></i> C&#417; b&#7843;n</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-media" data-bs-toggle="tab" data-bs-target="#tab-media-pane" type="button" role="tab"><i class="fa-regular fa-image"></i> H&#236;nh &#7843;nh</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-seo" data-bs-toggle="tab" data-bs-target="#tab-seo-pane" type="button" role="tab"><i class="fa-solid fa-magnifying-glass"></i> SEO</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-social" data-bs-toggle="tab" data-bs-target="#tab-social-pane" type="button" role="tab"><i class="fa-solid fa-share-nodes"></i> Social</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-setting" data-bs-toggle="tab" data-bs-target="#tab-setting-pane" type="button" role="tab"><i class="fa-solid fa-gear"></i> Thi&#7871;t l&#7853;p</button>
+    </li>
+</ul>
 
                 <div class="tab-content border border-top-0 rounded-bottom p-3">
                     <div class="tab-pane fade show active" id="tab-basic-pane" role="tabpanel">
@@ -231,4 +231,5 @@
         })();
     </script>
 </asp:Content>
+
 
