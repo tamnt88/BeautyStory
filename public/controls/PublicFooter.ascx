@@ -26,6 +26,49 @@
     </div>
 </div>--%>
 
+<div class="footer-benefits">
+    <div class="container">
+        <div class="row g-3 align-items-center">
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="benefit-item">
+                    <img src="<%= ResolveUrl("~/public/assets/icon/1.png") %>" alt="Thanh toán" />
+                    <div>Thanh toán<br />khi nhận hàng</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="benefit-item">
+                    <img src="<%= ResolveUrl("~/public/assets/icon/2.png") %>" alt="Giao nhanh" />
+                    <div>Giao nhanh<br />miễn phí 2H</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="benefit-item">
+                    <img src="<%= ResolveUrl("~/public/assets/icon/3.png") %>" alt="Đổi trả" />
+                    <div>30 ngày đổi<br />trả miễn phí</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="benefit-item">
+                    <img src="<%= ResolveUrl("~/public/assets/icon/4.png") %>" alt="Thương hiệu" />
+                    <div>Thương hiệu<br />uy tín toàn cầu</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="benefit-action">
+                    <div class="benefit-label"><i class="fa-solid fa-circle-question"></i> Hotline CSKH</div>
+                    <a class="benefit-button" href="tel:0828 409 096">0828 409 096</a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="benefit-action">
+                    <div class="benefit-label"><i class="fa-solid fa-location-dot"></i> Tìm chi nhánh</div>
+                    <a class="benefit-button" href="#">Hệ thống Beauty Story</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="full-row bg-dark">
     <div class="container">
         <div class="row">
@@ -36,8 +79,8 @@
                     </div>
                     <div class="widget-ecommerce-contact">
                         <span class="font-medium font-500 text-primary">Got Questions? Call us 24/7</span>
-                        <div class="text-primary font-500 h4">(090) 8001-8588, (090) 874 548</div>
-                        <div class="text-general font-500 mt-20">Beauty Story, Ho Chi Minh City, Vietnam</div>
+                        <div class="text-primary font-500 h4">0909 221 558</div>
+                        <div class="text-general font-500 mt-20">143 đường số 32-CL, Phường Cát Lái, TP Hồ Chí Minh, Việt Nam</div>
                     </div>
                 </div>
                 <div class="footer-widget media-widget mb-5">
@@ -50,37 +93,37 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-widget category-widget mb-5">
-                    <h6 class="widget-title mb-4">Services</h6>
+                    <h6 class="widget-title mb-4">Dịch vụ</h6>
                     <ul>
-                        <li><a href="#">Assembly Guides</a></li>
-                        <li><a href="#">Furniture Packages and Fitouts</a></li>
-                        <li><a href="#">Trade Programme</a></li>
-                        <li><a href="#">Sale</a></li>
-                        <li><a href="#">New Designs</a></li>
+                        <li><a href="#">Hướng dẫn lắp ráp</a></li>
+                        <li><a href="#">Gói nội thất</a></li>
+                        <li><a href="#">Chương trình thương mại</a></li>
+                        <li><a href="#">Doanh thu</a></li>
+                        <li><a href="#">Thiết kế mới</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-widget category-widget mb-5">
-                    <h6 class="widget-title mb-4 xs-mx-none">Pages</h6>
+                    <h6 class="widget-title mb-4 xs-mx-none">Trang website</h6>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Compare</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Hỗ trợ</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">So sánh</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6">
                 <div class="footer-widget widget-nav mb-5">
-                    <h6 class="widget-title mb-4">Support</h6>
+                    <h6 class="widget-title mb-4">Hỗ trợ</h6>
                     <ul>
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Track your Order</a></li>
-                        <li><a href="#">Customer Service</a></li>
-                        <li><a href="#">Returns/Exchange</a></li>
-                        <li><a href="#">Product Support</a></li>
+                        <li><a href="#">Tài khoản của tôi</a></li>
+                        <li><a href="#">Theo dõi đơn hàng của bạn</a></li>
+                        <li><a href="#">Dịch vụ khách hàng</a></li>
+                        <li><a href="#">Trả hàng/Đổi hàng</a></li>
+                        <li><a href="#">Hỗ trợ sản phẩm</a></li>
                     </ul>
                 </div>
             </div>
@@ -92,7 +135,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <span class="text-white font-500 sm-mb-10 d-block">(c) 2025 Beauty Story. All rights reserved.</span>
+                <span class="text-white font-500 sm-mb-10 d-block">Copyright (c) 2025 Beauty Story. All rights reserved.</span>
             </div>
             <div class="col-md-6">
                 <ul class="list-ml-30 d-flex align-items-center justify-content-md-end">

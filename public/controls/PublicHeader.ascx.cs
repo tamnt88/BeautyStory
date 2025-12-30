@@ -8,8 +8,19 @@ public partial class PublicHeader : System.Web.UI.UserControl
     {
         if (!IsPostBack)
         {
+            BindCartCount();
             BindCategoryMenu();
         }
+    }
+
+    private void BindCartCount()
+    {
+        var cart = CartService.GetCart();
+        var count = cart.Sum(item => item.Quantity);
+        CartCountLiteral.Text = count.ToString();
+        CartCountTextLiteral.Text = count.ToString();
+        CartCountLiteralSticky.Text = count.ToString();
+        CartCountTextLiteralSticky.Text = count.ToString();
     }
 
     private void BindCategoryMenu()

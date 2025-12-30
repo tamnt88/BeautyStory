@@ -20,6 +20,10 @@ public class BeautyStoryContext : DbContext
     public DbSet<CfBrand> CfBrands { get; set; }
     public DbSet<CfOrigin> CfOrigins { get; set; }
     public DbSet<CfSeoSlug> CfSeoSlugs { get; set; }
+    public DbSet<CfShippingMethod> CfShippingMethods { get; set; }
+    public DbSet<CfPaymentMethod> CfPaymentMethods { get; set; }
+    public DbSet<CfOrderStatus> CfOrderStatuses { get; set; }
+    public DbSet<CfPaymentStatus> CfPaymentStatuses { get; set; }
     public DbSet<CfProduct> CfProducts { get; set; }
     public DbSet<CfProductVariant> CfProductVariants { get; set; }
     public DbSet<CfProductImage> CfProductImages { get; set; }
@@ -31,6 +35,9 @@ public class BeautyStoryContext : DbContext
     public DbSet<CfCategoryFilterGroup> CfCategoryFilterGroups { get; set; }
     public DbSet<CfProductFilter> CfProductFilters { get; set; }
     public DbSet<CfStockMovement> CfStockMovements { get; set; }
+    public DbSet<CfOrder> CfOrders { get; set; }
+    public DbSet<CfOrderItem> CfOrderItems { get; set; }
+    public DbSet<CfOrderHistory> CfOrderHistories { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
@@ -142,6 +149,18 @@ public class BeautyStoryContext : DbContext
             .HasRequired(m => m.Variant)
             .WithMany(v => v.StockMovements)
             .HasForeignKey(m => m.VariantId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfOrderItem>()
+            .HasRequired(i => i.Order)
+            .WithMany(o => o.Items)
+            .HasForeignKey(i => i.OrderId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfOrderHistory>()
+            .HasRequired(h => h.Order)
+            .WithMany(o => o.Histories)
+            .HasForeignKey(h => h.OrderId)
             .WillCascadeOnDelete(false);
     }
 }

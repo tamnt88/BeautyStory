@@ -34,6 +34,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="PublicScriptManager" runat="server" EnablePartialRendering="true" EnablePageMethods="true" />
         <div id="page_wrapper" class="bg-white">
             <bs:PublicHeader runat="server" ID="PublicHeader" />
 

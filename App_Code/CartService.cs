@@ -61,6 +61,17 @@ public static class CartService
         cart.RemoveAll(x => x.VariantId == variantId);
     }
 
+    public static void ClearCart()
+    {
+        var context = HttpContext.Current;
+        if (context == null)
+        {
+            return;
+        }
+
+        context.Session[CartSessionKey] = new List<CartItem>();
+    }
+
     public class CartItem
     {
         public int VariantId { get; set; }

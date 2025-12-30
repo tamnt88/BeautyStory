@@ -1,12 +1,16 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="ProductDefault" MasterPageFile="~/public/Public.master" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
-    Chi tiết sản phẩm | Beauty Story
+    <asp:Literal ID="SeoTitleLiteral" runat="server" />
 </asp:Content>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="<%= ResolveUrl("~/public/assets/vendor/swiper/swiper-bundle.min.css") %>" rel="stylesheet" />
     <link href="<%= ResolveUrl("~/public/assets/vendor/malihu/jquery.mCustomScrollbar.min.css") %>" rel="stylesheet" />
+    <script src="<%= ResolveUrl("~/public/assets/js/product-detail.js") %>" defer></script>
+    <asp:Literal ID="SeoMetaLiteral" runat="server" />
+    <asp:Literal ID="SocialMetaLiteral" runat="server" />
+    <asp:Literal ID="SchemaLiteral" runat="server" />
 </asp:Content>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -127,16 +131,36 @@
                     </ul>
                     <div class="tab-content p-3 bg-white border border-top-0">
                         <div class="tab-pane fade show active" id="tab-desc" role="tabpanel">
-                            <asp:Literal ID="Description" runat="server" />
+                            <div class="tab-body js-tab-body">
+                                <div class="tab-body-content">
+                                    <asp:Literal ID="Description" runat="server" />
+                                </div>
+                                <button type="button" class="tab-toggle">Xem thêm</button>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="tab-spec" role="tabpanel">
-                            <asp:Literal ID="Specification" runat="server" />
+                            <div class="tab-body js-tab-body">
+                                <div class="tab-body-content">
+                                    <asp:Literal ID="Specification" runat="server" />
+                                </div>
+                                <button type="button" class="tab-toggle">Xem thêm</button>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="tab-ing" role="tabpanel">
-                            <asp:Literal ID="Ingredients" runat="server" />
+                            <div class="tab-body js-tab-body">
+                                <div class="tab-body-content">
+                                    <asp:Literal ID="Ingredients" runat="server" />
+                                </div>
+                                <button type="button" class="tab-toggle">Xem thêm</button>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="tab-use" role="tabpanel">
-                            <asp:Literal ID="Usage" runat="server" />
+                            <div class="tab-body js-tab-body">
+                                <div class="tab-body-content">
+                                    <asp:Literal ID="Usage" runat="server" />
+                                </div>
+                                <button type="button" class="tab-toggle">Xem thêm</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -164,7 +188,7 @@
                                 <img src="/public/assets/icon/3.png" alt="Giao hàng miễn phí" />
                                 <div>
                                     <div class="shipping-main">Giao hàng miễn phí</div>
-                                    <div class="shipping-sub">Từ 90K tại 60 tỉnh thành</div>
+                                    <div class="shipping-sub">Từ 690K tại 34 tỉnh thành</div>
                                 </div>
                             </div>
                             <div class="shipping-item">
@@ -177,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-sidecard">
+                <%--<div class="product-sidecard">
                     <div class="sidecard-brand">
                         <img src="/images/logo_doc.png" alt="Brand Logo" />
                         <div class="sidecard-brand-actions">
@@ -185,25 +209,71 @@
                             <span class="brand-badge">25K</span>
                         </div>
                     </div>
-                </div>
+                </div>--%>
                 <div class="product-sidecard">
                     <div class="sidecard-title">Sản phẩm xem cùng</div>
                     <div class="sidecard-related">
-                        <div class="related-item">
-                            <img src="<%= MainImageUrl %>" alt="<%= ProductName %>" />
-                            <div>
-                                <div class="related-name"><asp:Literal ID="ProductNameLiteralAside" runat="server" /></div>
-                                <div class="related-price"><asp:Literal ID="PriceLiteralAside" runat="server" /></div>
-                            </div>
+                        <asp:Repeater ID="RelatedRepeater" runat="server">
+                            <ItemTemplate>
+                                <a class="related-item" href="<%# Eval("Url") %>">
+                                    <img src="<%# Eval("ImageUrl") %>" alt="<%# Eval("ProductName") %>" />
+                                    <div>
+                                        <div class="related-name"><%# Eval("ProductName") %></div>
+                                        <div class="related-price"><%# Eval("PriceHtml") %></div>
+                                    </div>
+                                </a>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
+                <div class="product-sidecard">
+                    <div class="sidecard-title">Sản phẩm cùng thương hiệu</div>
+                    <div class="sidecard-related">
+                        <asp:Repeater ID="BrandRelatedRepeater" runat="server">
+                            <ItemTemplate>
+                                <a class="related-item" href="<%# Eval("Url") %>">
+                                    <img src="<%# Eval("ImageUrl") %>" alt="<%# Eval("ProductName") %>" />
+                                    <div>
+                                        <div class="related-name"><%# Eval("ProductName") %></div>
+                                        <div class="related-price"><%# Eval("PriceHtml") %></div>
+                                    </div>
+                                </a>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
                         </div>
                     </div>
                 </div>
             </aside>
         </div>
+        <section class="suggested-products container">
+            <div class="suggested-card">
+                <div class="suggested-title">Có thể bạn thích</div>
+                <div class="swiper suggested-swiper">
+                    <div class="swiper-wrapper">
+                        <asp:Repeater ID="SuggestedRepeater" runat="server">
+                            <ItemTemplate>
+                                <div class="swiper-slide">
+                                    <a class="suggested-item" href="<%# Eval("Url") %>">
+                                        <div class="suggested-image">
+                                            <img src="<%# Eval("ImageUrl") %>" alt="<%# Eval("ProductName") %>" />
+                                        </div>
+                                        <div class="suggested-name"><%# Eval("ProductName") %></div>
+                                        <div class="suggested-price"><%# Eval("PriceHtml") %></div>
+                                    </a>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                    <div class="swiper-button-prev suggested-prev"></div>
+                    <div class="swiper-button-next suggested-next"></div>
+                </div>
+            </div>
+        </section>
     </main>
 </asp:Content>
 <asp:Content ID="PageScripts" ContentPlaceHolderID="PageScripts" runat="server">
-    <script src="<%= ResolveUrl("~/public/assets/js/public-search.js") %>"></script>
     <script src="<%= ResolveUrl("~/public/assets/vendor/swiper/swiper-bundle.min.js") %>"></script>
     <script src="<%= ResolveUrl("~/public/assets/vendor/malihu/jquery.mCustomScrollbar.concat.min.js") %>"></script>
     <script>
@@ -227,6 +297,22 @@
                 },
                 thumbs: {
                     swiper: thumbSwiper
+                }
+            });
+            var suggestedSwiper = new Swiper(".suggested-swiper", {
+                slidesPerView: 5.5,
+                spaceBetween: 16,
+                grabCursor: true,
+                navigation: {
+                    nextEl: ".suggested-next",
+                    prevEl: ".suggested-prev"
+                },
+                breakpoints: {
+                    0: { slidesPerView: 1.3, spaceBetween: 12 },
+                    576: { slidesPerView: 2.2, spaceBetween: 14 },
+                    768: { slidesPerView: 3.2, spaceBetween: 14 },
+                    992: { slidesPerView: 4.2, spaceBetween: 16 },
+                    1200: { slidesPerView: 5.5, spaceBetween: 16 }
                 }
             });
         })();
@@ -388,3 +474,4 @@
         })();
     </script>
 </asp:Content>
+

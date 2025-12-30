@@ -6,23 +6,25 @@
                     <div class="row align-items-center">
                         <div class="col-lg-4 sm-mx-none">
                             <div class="d-flex align-items-center">
-                                <a href="#" class="text-general"><span>143 đường số 32-CL, Phường Cát Lái, TP Hồ Chí Minh, Việt Nam</span></a>
+                                <a href="#" class="text-general"><span><i class="fa-solid fa-address"></i>&nbsp;143 đường số 32-CL, Phường Cát Lái, TP Hồ Chí Minh, Việt Nam</span></a>
                             </div>
                         </div>
                         <div class="col-lg-8 d-flex">
                             <ul class="top-links d-flex ms-auto align-items-center">
-                                <li><a href="#">Become Seller</a></li>
-                                <li><a href="#">Hỗ trợ</a></li>
-                                <li><a href="#">Vietnamese</a></li>
-                                <li><a href="#"><i class="flaticon-like flat-mini me-1 text-primary"></i> Yêu thích</a></li>
-                                <li class="my-account-dropdown">
+                                <li><a href="tel:0909 221 558"><i class="fa-solid fa-phone"></i>&nbsp;Hotline: 0828 409 096</a></li>
+                                
+                                <li><a href="#"><i class="fa-solid fa-envelope"></i>&nbsp;beautystory0909@gmail.com</a></li>
+                                <li><a href="#"><i class="fa-solid fa-receipt"></i>&nbsp;Tra cứu đơn hàng</a></li>
+                                <%--<li><a href="#">Vietnamese</a></li>--%>
+                                <%--<li><a href="#"><i class="flaticon-like flat-mini me-1 text-primary"></i> Yêu thích</a></li>--%>
+                               <%-- <li class="my-account-dropdown">
                                     <a href="my-account.html" class="has-dropdown"><i class="flaticon-user-3 flat-mini text-primary me-1"></i>Tài khoản</a>
                                     <ul class="my-account-popup">
                                         <li><a href="my-account.html"><span class="menu-item-text">Thông tin tài khoản</span></a></li>
                                         <li><a href="checkout.html"><span class="menu-item-text">Thanh toán</span></a></li>
                                         <li><a href="wishlist.html"><span class="menu-item-text">Yêu thích</span></a></li>
                                     </ul>
-                                </li>
+                                </li>--%>
                             </ul>
                         </div>
                     </div>
@@ -31,7 +33,7 @@
             <div class="main-nav py-4 bg-white d-none d-lg-block">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-xl-7 col-md-9">
+                        <div class="col-xl-8 col-md-9">
                             <nav class="navbar navbar-expand-lg nav-general nav-primary-hover">
                                 <a class="navbar-brand" href="/"><img class="nav-logo" src="/images/logo_ngang.png" alt="Beauty Story"></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,68 +88,12 @@
                                         </div>
                                     </div>
                                     <ul class="navbar-nav mx-auto">
-                                        <li class="nav-item"><a class="nav-link" href="/">Trang chủ</a></li>
-                                        <li class="nav-item dropdown mega-dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#">Shop</a>
-                                            <ul class="dropdown-menu mega-dropdown-menu">
-                                                <li class="mega-container">
-                                                    <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1">
-                                                        <div class="col">
-                                                            <span class="d-inline-block px-3 font-600 text-uppercase text-secondary pb-2">Product Grid View</span>
-                                                            <ul>
-                                                                <li><a class="dropdown-item" href="shop-grid-full.html">Shop Grid Full</a></li>
-                                                                <li><a class="dropdown-item" href="shop-grid-left-sidebar.html">Shop Grid Modern</a></li>
-                                                                <li><a class="dropdown-item" href="shop-grid-left-sidebar-1.html">Shop Grid Left Sidebar 1</a></li>
-                                                                <li><a class="dropdown-item" href="shop-grid-left-sidebar-2.html">Shop Grid Left Sidebar 2</a></li>
-                                                                <li><a class="dropdown-item" href="shop-grid-left-sidebar-3.html">Shop Grid Left Sidebar 3</a></li>
-                                                                <li><a class="dropdown-item" href="shop-grid-right-sidebar-1.html">Shop Grid Right Sidebar 1</a></li>
-                                                                <li><a class="dropdown-item" href="shop-grid-right-sidebar-2.html">Shop Grid Right Sidebar 2</a></li>
-                                                                <li><a class="dropdown-item" href="shop-grid-right-sidebar-3.html">Shop Grid Right Sidebar 3</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="col">
-                                                            <span class="d-inline-block px-3 font-600 text-uppercase text-secondary pb-2">Product List View</span>
-                                                            <ul>
-                                                                <li><a class="dropdown-item" href="shop-list-full.html">Shop List Full</a></li>
-                                                                <li><a class="dropdown-item" href="shop-list-left-sidebar.html">Shop Grid Modern</a></li>
-                                                                <li><a class="dropdown-item" href="shop-list-left-sidebar-1.html">Shop List Left Sidebar 1</a></li>
-                                                                <li><a class="dropdown-item" href="shop-list-left-sidebar-2.html">Shop List Left Sidebar 2</a></li>
-                                                                <li><a class="dropdown-item" href="shop-list-left-sidebar-3.html">Shop List Left Sidebar 3</a></li>
-                                                                <li><a class="dropdown-item" href="shop-list-right-sidebar-1.html">Shop List Right Sidebar 1</a></li>
-                                                                <li><a class="dropdown-item" href="shop-list-right-sidebar-2.html">Shop List Right Sidebar 2</a></li>
-                                                                <li><a class="dropdown-item" href="shop-list-right-sidebar-3.html">Shop List Right Sidebar 3</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="col">
-                                                            <span class="d-inline-block px-3 font-600 text-uppercase text-secondary pb-2">Woocommerce Pages</span>
-                                                            <ul>
-                                                                <li><a class="dropdown-item" href="cart.html">Cart</a></li>
-                                                                <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
-                                                                <li><a class="dropdown-item" href="my-account.html">My Account</a></li>
-                                                                <li><a class="dropdown-item" href="registration.html">Registration</a></li>
-                                                                <li><a class="dropdown-item" href="wishlist.html">Wishlist</a></li>
-                                                                <li><a class="dropdown-item" href="single-shop.html">Single Shop 1</a></li>
-                                                                <li><a class="dropdown-item" href="single-shop-2.html">Single Shop 2</a></li>
-                                                                <li><a class="dropdown-item" href="single-shop-3.html">Single Shop 3</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="col">
-                                                            <span class="d-inline-block px-3 font-600 text-uppercase text-secondary pb-2">Product Thumbs</span>
-                                                            <ul>
-                                                                <li><a class="dropdown-item" href="hover-bg-light.html">Hover Background Light</a></li>
-                                                                <li><a class="dropdown-item" href="hover-shadow-active.html">Hover Shadow Active</a></li>
-                                                                <li><a class="dropdown-item" href="hover-image-zoom.html">Hover Image Zoom</a></li>
-                                                                <li><a class="dropdown-item" href="hover-btn-slide-1.html">Hover Btn Slide 1</a></li>
-                                                                <li><a class="dropdown-item" href="hover-btn-slide-2.html">Hover Btn Slide 2</a></li>
-                                                                <li><a class="dropdown-item" href="hover-btn-slide-3.html">Hover Btn Slide 3</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                        <%--<li class="nav-item"><a class="nav-link" href="/">Hot deals</a></li>--%>
+                                        <li class="nav-item"><a class="nav-link" href="/">Thương hiệu</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/">Hàng mới về</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/">Bán chạy</a></li>
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Blog</a>
+                                            <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Tin tức</a>
                                             <ul class="dropdown-menu">
                                                 <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-grid-modern.html">Blog Grid</a>
                                                     <ul class="dropdown-menu">
@@ -174,17 +120,17 @@
                                                 <li><a class="dropdown-item" href="blog-video-grid.html">Video Grid</a></li>
                                             </ul>
                                         </li>
-                                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
                                     </ul>
                                 </div>
                             </nav>
                         </div>
-                        <div class="col-xl-5 col-md-3">
+                        <div class="col-xl-4 col-md-3">
                             <div class="margin-right-1 d-flex align-items-center justify-content-end h-100">
                                 <div class="product-search-one flex-grow-1 global-search touch-screen-view">
                                     <div class="form-inline search-pill-shape">
-                                        <input type="text" class="form-control search-field" name="search" placeholder="I’m shopping for">
-                                        <button type="submit" name="submit" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
+                                        <input type="text" class="form-control search-field js-search-input" name="search" placeholder="Tìm sản phẩm, thương hiệu bạn mong muốn...">
+                                        <button type="submit" name="searchSubmit" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
                                     </div>
                                 </div>
                                 <div class="search-view d-xl-none">
@@ -198,14 +144,11 @@
                                     </a>
                                 </div>--%>
                                 <div class="header-cart-4">
-                                    <a href="cart.html" class="cart has-cart-data" title="View Cart">
-                                        <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count">2</span></div>
+                                    <a href="<%= ResolveUrl("~/gio-hang/default.aspx") %>" class="cart has-cart-data" title="Gi? h?ng">
+                                        <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count"><asp:Literal ID="CartCountLiteral" runat="server" /></span></div>
                                         <div class="cart-wrap">
-                                            <div class="cart-text">Cart</div>
-                                            <span class="header-cart-count">(2) Item</span>
-                                            <span class="woocommerce-Price-amount amount">
-                                                <bdi><span class="woocommerce-Price-currencySymbol">$</span>62.00</bdi>
-                                            </span>
+                                            <div class="cart-text">Gi? h?ng</div>
+                                            <span class="header-cart-count">(<asp:Literal ID="CartCountTextLiteral" runat="server" />) s?n ph?m</span>
                                         </div>
                                     </a>
                                 </div>
@@ -267,7 +210,7 @@
                                                                     </ul>
                                                                 </li>
                                                                 <li class="nav-item dropdown">
-                                                                    <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Blog</a>
+                                                                    <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Tin tức</a>
                                                                     <ul class="dropdown-menu">
                                                                         <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-grid-modern.html">Blog Grid</a>
                                                                             <ul class="dropdown-menu">
@@ -294,7 +237,7 @@
                                                                         <li><a class="dropdown-item" href="blog-video-grid.html">Video Grid</a></li>
                                                                     </ul>
                                                                 </li>
-                                                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                                                <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
                                                             </ul>
                                                             <a href="#" class="p-20 d-block bg-secondary text-primary text-uppercase font-600 hover-text-primary">Buy now!</a>
                                                         </div>
@@ -550,25 +493,21 @@
                                     </a>
                                 </div>--%>
                                 <div class="header-cart-4">
-                                    <a href="cart.html" class="cart has-cart-data" title="View Cart">
-                                        <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count">2</span></div>
+                                    <a href="<%= ResolveUrl("~/gio-hang/default.aspx") %>" class="cart has-cart-data" title="Gi? h?ng">
+                                        <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count"><asp:Literal ID="CartCountLiteralSticky" runat="server" /></span></div>
                                         <div class="cart-wrap">
-                                            <div class="cart-text">Cart</div>
-                                            <span class="header-cart-count">(2) Item</span>
-                                            <span class="woocommerce-Price-amount amount">
-                                                <bdi><span class="woocommerce-Price-currencySymbol">$</span>62.00</bdi>
-                                            </span>
+                                            <div class="cart-text">Gi? h?ng</div>
+                                            <span class="header-cart-count">(<asp:Literal ID="CartCountTextLiteralSticky" runat="server" />) s?n ph?m</span>
                                         </div>
                                     </a>
-                                    
                                 </div>
                             </div>
                         </div>
                         <div class="col-xxl-7 col-xl-6 col-lg-6 col-12 order-lg-2">
                             <div class="product-search-one">
                                 <div class="form-inline search-pill-shape">
-                                    <input type="text" class="form-control search-field" name="search" placeholder="I’m shopping for">
-                                    <button type="submit" name="submit" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
+                                    <input type="text" class="form-control search-fieldjs-search-input" name="search" placeholder="Tìm sản phẩm, thương hiệu bạn mong muốn...">
+                                    <button type="submit" name="searchSubmit" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
                                 </div>
                             </div>
                         </div>

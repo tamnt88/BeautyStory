@@ -10,7 +10,7 @@ public partial class CategoryDefault : System.Web.UI.Page
     private HashSet<int> _selectedFilterOptionIds = new HashSet<int>();
     private HashSet<int> _selectedAttributeValueIds = new HashSet<int>();
     private int _currentPage = 1;
-    private const int PageSize = 21;
+    private const int PageSize = 28;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -193,17 +193,7 @@ public partial class CategoryDefault : System.Web.UI.Page
                 .GroupBy(v => v.ProductId)
                 .ToDictionary(
                     g => g.Key,
-                    g =>
-                    {
-                        var sale = g.Where(v => v.SalePrice.HasValue).OrderBy(v => v.SalePrice.Value).FirstOrDefault();
-                        var variant = sale ?? g.OrderBy(v => v.Price).FirstOrDefault();
-                        if (variant == null)
-                        {
-                            return "Liên hệ";
-                        }
-                        var price = variant.SalePrice.HasValue ? variant.SalePrice.Value : variant.Price;
-                        return string.Format("{0:N0} đ", price);
-                    });
+                    g => FormatPriceHtml(g.ToList()));
             var primaryImageLookup = images
                 .GroupBy(i => i.ProductId)
                 .ToDictionary(
@@ -238,6 +228,14 @@ public partial class CategoryDefault : System.Web.UI.Page
             BindFilters(db);
             BindAttributes(db);
             RenderPagination(totalPages);
+
+            SchemaLiteral.Text = BuildItemListSchema(
+                products.Select(p => new SchemaItem
+                {
+                    Name = p.ProductName,
+                    Url = "/san-pham/" + GetSlug(slugLookup, "Product", p.Id),
+                    ImageUrl = primaryImageLookup.ContainsKey(p.Id) ? primaryImageLookup[p.Id] : "/images/fav.png"
+                }).ToList());
         }
     }
 
@@ -540,15 +538,18 @@ public partial class CategoryDefault : System.Web.UI.Page
         var links = new List<string>();
         string baseUrl = BuildBaseUrl();
 
-        int start = Math.Max(1, _currentPage - 2);
-        int end = Math.Min(totalPages, _currentPage + 2);
+        int groupSize = 5;
+        int currentGroup = (int)Math.Ceiling(_currentPage / (double)groupSize);
+        int groupStart = (currentGroup - 1) * groupSize + 1;
+        int groupEnd = Math.Min(groupStart + groupSize - 1, totalPages);
 
+        links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}\">&laquo;</a></li>", BuildPageUrl(baseUrl, 1)));
         if (_currentPage > 1)
         {
-            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}\">Trước</a></li>", BuildPageUrl(baseUrl, _currentPage - 1)));
+            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}\">&lsaquo;</a></li>", BuildPageUrl(baseUrl, _currentPage - 1)));
         }
 
-        for (int i = start; i <= end; i++)
+        for (int i = groupStart; i <= groupEnd; i++)
         {
             if (i == _currentPage)
             {
@@ -562,8 +563,9 @@ public partial class CategoryDefault : System.Web.UI.Page
 
         if (_currentPage < totalPages)
         {
-            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}\">Sau</a></li>", BuildPageUrl(baseUrl, _currentPage + 1)));
+            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}\">&rsaquo;</a></li>", BuildPageUrl(baseUrl, _currentPage + 1)));
         }
+        links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}\">&raquo;</a></li>", BuildPageUrl(baseUrl, totalPages)));
 
         PaginationLiteral.Text = string.Format("<nav><ul class=\"pagination justify-content-center\">{0}</ul></nav>", string.Join("", links));
     }
@@ -596,6 +598,64 @@ public partial class CategoryDefault : System.Web.UI.Page
     {
         var separator = baseUrl.Contains("?") ? "&" : "?";
         return baseUrl + separator + "page=" + page;
+    }
+
+    private static string FormatPriceHtml(List<CfProductVariant> variants)
+    {
+        if (variants == null || variants.Count == 0)
+        {
+            return "Liên hệ";
+        }
+
+        var sale = variants.Where(v => v.SalePrice.HasValue && v.SalePrice.Value > 0 && v.SalePrice.Value < v.Price)
+            .OrderBy(v => v.SalePrice.Value)
+            .FirstOrDefault();
+        var variant = sale ?? variants.OrderBy(v => v.Price).FirstOrDefault();
+        if (variant == null)
+        {
+            return "Liên hệ";
+        }
+
+        if (variant.SalePrice.HasValue && variant.SalePrice.Value > 0 && variant.SalePrice.Value < variant.Price)
+        {
+            return string.Format("<span class=\"price-old\">{0:N0} đ</span> <span class=\"price-current\">{1:N0} đ</span>", variant.Price, variant.SalePrice.Value);
+        }
+
+        return string.Format("<span class=\"price-current\">{0:N0} đ</span>", variant.Price);
+    }
+
+    private class SchemaItem
+    {
+        public string Name { get; set; }
+        public string Url { get; set; }
+        public string ImageUrl { get; set; }
+    }
+
+    private string BuildItemListSchema(List<SchemaItem> items)
+    {
+        if (items == null || items.Count == 0)
+        {
+            return string.Empty;
+        }
+
+        var list = items.Select((item, index) => new
+        {
+            @type = "ListItem",
+            position = index + 1,
+            url = item.Url,
+            name = item.Name,
+            image = item.ImageUrl
+        }).ToList();
+
+        var schema = new
+        {
+            @context = "https://schema.org",
+            @type = "ItemList",
+            itemListElement = list
+        };
+
+        var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(schema);
+        return "<script type=\"application/ld+json\">" + json + "</script>";
     }
 
     private static string BuildCategoryBreadcrumb(List<CfCategory> categories, int categoryId, Dictionary<string, Dictionary<int, string>> slugLookup)

@@ -1,11 +1,12 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 
 public partial class SearchDefault : System.Web.UI.Page
 {
-    private const int PageSize = 24;
+    private const int PageSize = 30;
     private int _currentPage = 1;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -31,7 +32,7 @@ public partial class SearchDefault : System.Web.UI.Page
                 .Where(p => p.Status && p.ProductName.Contains(query));
 
             var totalProducts = productQuery.Count();
-            SearchSummary.Text = string.Format("Từ khóa: \"{0}\" - {1} sản phẩm", query, totalProducts);
+            SearchSummary.Text = "Từ khóa: " + query + " - " + totalProducts + " sản phẩm";
             if (totalProducts == 0)
             {
                 EmptyResultPanel.Visible = true;
@@ -60,9 +61,10 @@ public partial class SearchDefault : System.Web.UI.Page
                 .Where(v => productIds.Contains(v.ProductId) && v.Status)
                 .ToList();
             var slugs = db.CfSeoSlugs
-                .Where(s => s.EntityType == "Product" && productIds.Contains(s.EntityId))
+                .Where(s => (s.EntityType == "Product" && productIds.Contains(s.EntityId)) || s.EntityType == "Category")
                 .ToList();
-            var slugLookup = slugs.ToDictionary(s => s.EntityId, s => s.SeoSlug);
+            var productSlugs = slugs.Where(s => s.EntityType == "Product").ToDictionary(s => s.EntityId, s => s.SeoSlug);
+            var categorySlugs = slugs.Where(s => s.EntityType == "Category").ToDictionary(s => s.EntityId, s => s.SeoSlug);
 
             var primaryImageLookup = images
                 .GroupBy(i => i.ProductId)
@@ -83,17 +85,7 @@ public partial class SearchDefault : System.Web.UI.Page
                 .GroupBy(v => v.ProductId)
                 .ToDictionary(
                     g => g.Key,
-                    g =>
-                    {
-                        var sale = g.Where(v => v.SalePrice.HasValue).OrderBy(v => v.SalePrice.Value).FirstOrDefault();
-                        var variant = sale ?? g.OrderBy(v => v.Price).FirstOrDefault();
-                        if (variant == null)
-                        {
-                            return "Liên hệ";
-                        }
-                        var price = variant.SalePrice.HasValue ? variant.SalePrice.Value : variant.Price;
-                        return string.Format("{0:N0} đ", price);
-                    });
+                    g => FormatPriceHtml(g.ToList()));
 
             SearchRepeater.DataSource = products
                 .Select(p => new
@@ -101,7 +93,8 @@ public partial class SearchDefault : System.Web.UI.Page
                     p.Id,
                     p.ProductName,
                     CategoryName = categories.ContainsKey(p.CategoryId) ? categories[p.CategoryId] : "-",
-                    SeoSlug = slugLookup.ContainsKey(p.Id) ? slugLookup[p.Id] : "",
+                    CategorySlug = categorySlugs.ContainsKey(p.CategoryId) ? categorySlugs[p.CategoryId] : "",
+                    SeoSlug = productSlugs.ContainsKey(p.Id) ? productSlugs[p.Id] : "",
                     ImageUrl = primaryImageLookup.ContainsKey(p.Id) ? primaryImageLookup[p.Id] : "/images/fav.png",
                     PriceLabel = priceLookup.ContainsKey(p.Id) ? priceLookup[p.Id] : "Liên hệ"
                 })
@@ -110,6 +103,14 @@ public partial class SearchDefault : System.Web.UI.Page
             SearchRepeater.DataBind();
 
             RenderPagination(totalPages, query);
+
+            SchemaLiteral.Text = BuildItemListSchema(
+                products.Select(p => new SchemaItem
+                {
+                    Name = p.ProductName,
+                    Url = "/san-pham/" + (productSlugs.ContainsKey(p.Id) ? productSlugs[p.Id] : string.Empty),
+                    ImageUrl = primaryImageLookup.ContainsKey(p.Id) ? primaryImageLookup[p.Id] : "/images/fav.png"
+                }).ToList());
         }
     }
 
@@ -134,15 +135,18 @@ public partial class SearchDefault : System.Web.UI.Page
         var links = new List<string>();
         string baseUrl = "/tim-kiem/default.aspx?q=" + Server.UrlEncode(query);
 
-        int start = Math.Max(1, _currentPage - 2);
-        int end = Math.Min(totalPages, _currentPage + 2);
+        int groupSize = 5;
+        int currentGroup = (int)Math.Ceiling(_currentPage / (double)groupSize);
+        int groupStart = (currentGroup - 1) * groupSize + 1;
+        int groupEnd = Math.Min(groupStart + groupSize - 1, totalPages);
 
+        links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}&page=1\">&laquo;</a></li>", baseUrl));
         if (_currentPage > 1)
         {
-            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}&page={1}\">Trước</a></li>", baseUrl, _currentPage - 1));
+            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}&page={1}\">&lsaquo;</a></li>", baseUrl, _currentPage - 1));
         }
 
-        for (int i = start; i <= end; i++)
+        for (int i = groupStart; i <= groupEnd; i++)
         {
             if (i == _currentPage)
             {
@@ -156,9 +160,68 @@ public partial class SearchDefault : System.Web.UI.Page
 
         if (_currentPage < totalPages)
         {
-            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}&page={1}\">Sau</a></li>", baseUrl, _currentPage + 1));
+            links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}&page={1}\">&rsaquo;</a></li>", baseUrl, _currentPage + 1));
+        }
+        links.Add(string.Format("<li class=\"page-item\"><a class=\"page-link\" href=\"{0}&page={1}\">&raquo;</a></li>", baseUrl, totalPages));
+
+        PaginationLiteral.Text = string.Format("<nav><ul class=\"pagination justify-content-center\">{0}</ul></nav>", string.Join("", links));
+    }
+
+    private static string FormatPriceHtml(List<CfProductVariant> variants)
+    {
+        if (variants == null || variants.Count == 0)
+        {
+            return "Liên hệ";
         }
 
-        PaginationLiteral.Text = string.Format("<nav><ul class=\"pagination\">{0}</ul></nav>", string.Join("", links));
+        var sale = variants.Where(v => v.SalePrice.HasValue && v.SalePrice.Value > 0 && v.SalePrice.Value < v.Price)
+            .OrderBy(v => v.SalePrice.Value)
+            .FirstOrDefault();
+        var variant = sale ?? variants.OrderBy(v => v.Price).FirstOrDefault();
+        if (variant == null)
+        {
+            return "Liên hệ";
+        }
+
+        if (variant.SalePrice.HasValue && variant.SalePrice.Value > 0 && variant.SalePrice.Value < variant.Price)
+        {
+            return string.Format("<span class=\"price-old\">{0:N0} đ</span> <span class=\"price-current\">{1:N0} đ</span>", variant.Price, variant.SalePrice.Value);
+        }
+
+        return string.Format("<span class=\"price-current\">{0:N0} đ</span>", variant.Price);
+    }
+
+    private class SchemaItem
+    {
+        public string Name { get; set; }
+        public string Url { get; set; }
+        public string ImageUrl { get; set; }
+    }
+
+    private string BuildItemListSchema(List<SchemaItem> items)
+    {
+        if (items == null || items.Count == 0)
+        {
+            return string.Empty;
+        }
+
+        var list = items.Select((item, index) => new
+        {
+            @type = "ListItem",
+            position = index + 1,
+            url = item.Url,
+            name = item.Name,
+            image = item.ImageUrl
+        }).ToList();
+
+        var schema = new
+        {
+            @context = "https://schema.org",
+            @type = "ItemList",
+            itemListElement = list
+        };
+
+        var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(schema);
+        return "<script type=\"application/ld+json\">" + json + "</script>";
     }
 }

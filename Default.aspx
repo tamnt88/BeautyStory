@@ -66,7 +66,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 sm-mb-30">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
-                            <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/58.png" alt="Banner Image"></div>
+                            <div class="banner-image overflow-hidden transation"><img src="/public/theme/assets/images/banner/58.png" alt="Banner Image"></div>
                             <div class="banner-content position-absolute">
                                 <span class="font-500 font-small text-uppercase d-block mb-2">Beauty Special</span>
                                 <h4><a href="#" class="text-primary text-decoration-none">Makeup Accessories</a></h4>
@@ -78,7 +78,7 @@
                         <div class="row row-cols-lg-2 row-cols-1">
                             <div class="col">
                                 <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/59.png" alt="Banner Image"></div>
+                                    <div class="banner-image overflow-hidden transation"><img src="/public/theme/assets/images/banner/59.png" alt="Banner Image"></div>
                                     <div class="banner-content position-absolute">
                                         <span class="d-block font-500 font-small text-uppercase mb-2">Sale Upto 50%</span>
                                         <h4><a href="#" class="text-primary text-decoration-none">Natural Cream</a></h4>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="col">
                                 <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/60.png" alt="Banner Image"></div>
+                                    <div class="banner-image overflow-hidden transation"><img src="/public/theme/assets/images/banner/60.png" alt="Banner Image"></div>
                                     <div class="banner-content position-absolute">
                                         <span class="font-500 font-small text-uppercase d-block mb-2">Natural</span>
                                         <h4><a href="#" class="text-primary text-decoration-none">Hair Cares</a></h4>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="col">
                                 <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/61.png" alt="Banner Image"></div>
+                                    <div class="banner-image overflow-hidden transation"><img src="/public/theme/assets/images/banner/61.png" alt="Banner Image"></div>
                                     <div class="banner-content position-absolute">
                                         <span class="font-500 font-small text-uppercase d-block mb-2">TOP BRAND BEAUTY</span>
                                         <h4><a href="#" class="text-primary text-decoration-none">Natural Oils</a></h4>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="col">
                                 <div class="banner-wrapper hover-img-zoom banner-one custom-class-113">
-                                    <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/62.png" alt="Banner Image"></div>
+                                    <div class="banner-image overflow-hidden transation"><img src="/public/theme/assets/images/banner/62.png" alt="Banner Image"></div>
                                     <div class="banner-content position-absolute">
                                         <span class="font-500 font-small text-uppercase d-block mb-2">Fat Loss</span>
                                         <h4><a href="#" class="text-primary text-decoration-none">Organic Tea</a></h4>
@@ -140,7 +140,7 @@
 									<div class="product type-product">
 										<div class="product-wrapper">
 											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-216.png" alt="Product Image"></a>
 												<div class="product-labels">
 													<div class="badge1"><span>New</span></div>
 												</div>
@@ -187,7 +187,7 @@
 									<div class="product type-product">
 										<div class="product-wrapper">
 											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-217.png" alt="Product Image"></a>
 												<div class="product-labels">
 													<div class="badge1"><span>New</span></div>
 												</div>
@@ -232,7 +232,7 @@
 									<div class="product type-product">
 										<div class="product-wrapper">
 											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-218.png" alt="Product Image"></a>
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-218.png" alt="Product Image"></a>
 												<div class="product-labels">
 													<div class="badge1"><span>New</span></div>
 												</div>
@@ -277,7 +277,7 @@
 									<div class="product type-product">
 										<div class="product-wrapper">
 											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-219.png" alt="Product Image"></a>
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-219.png" alt="Product Image"></a>
 												<div class="product-labels">
 													<div class="badge1"><span>New</span></div>
 												</div>
@@ -322,7 +322,7 @@
 									<div class="product type-product">
 										<div class="product-wrapper">
 											<div class="product-image">
-												<a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-220.png" alt="Product Image"></a>
+												<a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-220.png" alt="Product Image"></a>
 												<div class="product-labels">
 													<div class="badge1"><span>New</span></div>
 												</div>
@@ -372,7 +372,7 @@
         <!--==================== Exclusive Product Section End ====================-->
 
         <!--==================== Special Offer Section Start ====================-->
-        <div class="full-row" style="background: url(assets/images/background/1.png) no-repeat center / cover;">
+        <div class="full-row" style="background: url(/public/theme/assets/images/background/1.png) no-repeat center / cover;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -425,7 +425,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-221.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-221.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 20%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -469,7 +469,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-222.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-222.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 21%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -513,7 +513,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-223.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -555,7 +555,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-224.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-224.png" alt="Product Image"></a>
                                                     <div class="product-labels">
                                                         <div class="badge1"><span>New</span></div>
                                                     </div>
@@ -600,7 +600,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-225.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-225.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -642,7 +642,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-226.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-226.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 20%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -686,7 +686,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-227.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-227.png" alt="Product Image"></a>
                                                     <div class="product-labels">
                                                         <div class="badge1"><span>New</span></div>
                                                     </div>
@@ -731,7 +731,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-228.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-228.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -773,7 +773,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-216.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -820,7 +820,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-217.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -869,7 +869,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-221.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-221.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 20%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -913,7 +913,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-222.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-222.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 21%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -957,7 +957,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-223.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -999,7 +999,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-224.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-224.png" alt="Product Image"></a>
                                                     <div class="product-labels">
                                                         <div class="badge1"><span>New</span></div>
                                                     </div>
@@ -1044,7 +1044,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-225.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-225.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1086,7 +1086,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-226.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-226.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 20%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -1130,7 +1130,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-227.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-227.png" alt="Product Image"></a>
                                                     <div class="product-labels">
                                                         <div class="badge1"><span>New</span></div>
                                                     </div>
@@ -1175,7 +1175,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-228.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-228.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1217,7 +1217,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-216.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1264,7 +1264,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-217.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1313,7 +1313,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-221.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-221.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 20%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -1357,7 +1357,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-222.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-222.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 21%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -1401,7 +1401,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-223.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1443,7 +1443,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-224.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-224.png" alt="Product Image"></a>
                                                     <div class="product-labels">
                                                         <div class="badge1"><span>New</span></div>
                                                     </div>
@@ -1488,7 +1488,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-225.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-225.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1530,7 +1530,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-226.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-226.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 20%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -1574,7 +1574,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-227.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-227.png" alt="Product Image"></a>
                                                     <div class="product-labels">
                                                         <div class="badge1"><span>New</span></div>
                                                     </div>
@@ -1619,7 +1619,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-228.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-228.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1661,7 +1661,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-216.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1708,7 +1708,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-217.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1757,7 +1757,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-221.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-221.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 20%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -1801,7 +1801,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-222.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-222.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 21%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -1845,7 +1845,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-223.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1887,7 +1887,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-224.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-224.png" alt="Product Image"></a>
                                                     <div class="product-labels">
                                                         <div class="badge1"><span>New</span></div>
                                                     </div>
@@ -1932,7 +1932,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-225.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-225.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -1974,7 +1974,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-226.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-226.png" alt="Product Image"></a>
                                                     <div class="on-sale">- 20%</div>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
@@ -2018,7 +2018,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-227.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-227.png" alt="Product Image"></a>
                                                     <div class="product-labels">
                                                         <div class="badge1"><span>New</span></div>
                                                     </div>
@@ -2063,7 +2063,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-228.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-228.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -2105,7 +2105,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-216.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-216.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -2152,7 +2152,7 @@
                                         <div class="product type-product">
                                             <div class="product-wrapper">
                                                 <div class="product-image">
-                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-217.png" alt="Product Image"></a>
+                                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-217.png" alt="Product Image"></a>
                                                     <div class="hover-area">
                                                         <div class="cart-button">
                                                             <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Add to Cart" aria-label="Add to Cart">Add to Cart</a>
@@ -2208,7 +2208,7 @@
                 <div class="row row-cols-lg-2 row-cols-1 g-3">
                     <div class="col">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
-                            <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/63.png" alt="Banner Image"></div>
+                            <div class="banner-image overflow-hidden transation"><img src="/public/theme/assets/images/banner/63.png" alt="Banner Image"></div>
                             <div class="banner-content position-absolute">
                                 <span class="text-dark font-500 font-small text-uppercase d-block mb-2">Natural Product</span>
                                 <h4><a href="#" class="text-dark font-700 text-decoration-none">Beauty Essintial Product</a></h4>
@@ -2221,7 +2221,7 @@
                     </div>
                     <div class="col">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-112">
-                            <div class="banner-image overflow-hidden transation"><img src="assets/images/banner/64.png" alt="Banner Image"></div>
+                            <div class="banner-image overflow-hidden transation"><img src="/public/theme/assets/images/banner/64.png" alt="Banner Image"></div>
                             <div class="banner-content position-absolute">
                                 <span class="text-dark font-500 font-small text-uppercase d-block mb-2">Sale Upto 30%</span>
                                 <h4><a href="#" class="text-dark font-700 text-decoration-none">Beauty Essintial Product</a></h4>
@@ -2253,7 +2253,7 @@
                         <div class="product type-product">
                             <div class="product-wrapper">
                                 <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-229.png" alt="Product Image"></a>
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-229.png" alt="Product Image"></a>
                                 </div>
                                 <div class="product-info">
                                     <h3 class="product-title"><a href="#">Beauty Bee Harbal</a></h3>
@@ -2295,7 +2295,7 @@
                         <div class="product type-product">
                             <div class="product-wrapper">
                                 <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-230.png" alt="Product Image"></a>
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-230.png" alt="Product Image"></a>
                                     <div class="on-sale">- 10%</div>
                                 </div>
                                 <div class="product-info">
@@ -2339,7 +2339,7 @@
                         <div class="product type-product">
                             <div class="product-wrapper">
                                 <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-231.png" alt="Product Image"></a>
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-231.png" alt="Product Image"></a>
                                 </div>
                                 <div class="product-info">
                                     <h3 class="product-title"><a href="#">Ariana Grande Ari</a></h3>
@@ -2381,7 +2381,7 @@
                         <div class="product type-product">
                             <div class="product-wrapper">
                                 <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-232.png" alt="Product Image"></a>
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-232.png" alt="Product Image"></a>
                                 </div>
                                 <div class="product-info">
                                     <h3 class="product-title"><a href="#">Women Night Cream</a></h3>
@@ -2423,7 +2423,7 @@
                         <div class="product type-product">
                             <div class="product-wrapper">
                                 <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-233.png" alt="Product Image"></a>
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-233.png" alt="Product Image"></a>
                                 </div>
                                 <div class="product-info">
                                     <h3 class="product-title"><a href="#">Harbal Facial Jel</a></h3>
@@ -2465,7 +2465,7 @@
                         <div class="product type-product">
                             <div class="product-wrapper">
                                 <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-223.png" alt="Product Image"></a>
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-223.png" alt="Product Image"></a>
                                 </div>
                                 <div class="product-info">
                                     <h3 class="product-title"><a href="#">Organic Facial</a></h3>
@@ -2507,7 +2507,7 @@
                         <div class="product type-product">
                             <div class="product-wrapper">
                                 <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-234.png" alt="Product Image"></a>
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-234.png" alt="Product Image"></a>
                                 </div>
                                 <div class="product-info">
                                     <h3 class="product-title"><a href="#">Make Up For Ever</a></h3>
@@ -2549,7 +2549,7 @@
                         <div class="product type-product">
                             <div class="product-wrapper">
                                 <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-235.png" alt="Product Image"></a>
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-235.png" alt="Product Image"></a>
                                 </div>
                                 <div class="product-info">
                                     <h3 class="product-title"><a href="#">Advice Smoothing</a></h3>
@@ -2591,7 +2591,7 @@
                         <div class="product type-product">
                             <div class="product-wrapper">
                                 <div class="product-image">
-                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="assets/images/products/squire-236.png" alt="Product Image"></a>
+                                    <a href="#" class="woocommerce-LoopProduct-link"><img src="/public/theme/assets/images/products/squire-236.png" alt="Product Image"></a>
                                 </div>
                                 <div class="product-info">
                                     <h3 class="product-title"><a href="#">Makeup Utility</a></h3>
@@ -2641,64 +2641,64 @@
                         <div class="owl-carousel dot-disable nav-disable six-carousel">
                             <div class="item">
                                 <div class="hover-img-zoom overflow-hidden transation">
-                                    <a href="assets/images/products/squire-221.png" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="assets/images/products/squire-221.png" alt="Image not found!">
+                                    <a href="/public/theme/assets/images/products/squire-221.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="/public/theme/assets/images/products/squire-221.png" alt="Image not found!">
                                     </a>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="hover-img-zoom overflow-hidden transation">
-                                    <a href="assets/images/products/squire-222.png" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="assets/images/products/squire-222.png" alt="Image not found!">
+                                    <a href="/public/theme/assets/images/products/squire-222.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="/public/theme/assets/images/products/squire-222.png" alt="Image not found!">
                                     </a>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="hover-img-zoom overflow-hidden transation">
-                                    <a href="assets/images/products/squire-223.png" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="assets/images/products/squire-223.png" alt="Image not found!">
+                                    <a href="/public/theme/assets/images/products/squire-223.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="/public/theme/assets/images/products/squire-223.png" alt="Image not found!">
                                     </a>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="hover-img-zoom overflow-hidden transation">
-                                    <a href="assets/images/products/squire-224.png" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="assets/images/products/squire-224.png" alt="Image not found!">
+                                    <a href="/public/theme/assets/images/products/squire-224.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="/public/theme/assets/images/products/squire-224.png" alt="Image not found!">
                                     </a>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="hover-img-zoom overflow-hidden transation">
-                                    <a href="assets/images/products/squire-225.png" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="assets/images/products/squire-225.png" alt="Image not found!">
+                                    <a href="/public/theme/assets/images/products/squire-225.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="/public/theme/assets/images/products/squire-225.png" alt="Image not found!">
                                     </a>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="hover-img-zoom overflow-hidden transation">
-                                    <a href="assets/images/products/squire-226.png" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="assets/images/products/squire-226.png" alt="Image not found!">
+                                    <a href="/public/theme/assets/images/products/squire-226.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="/public/theme/assets/images/products/squire-226.png" alt="Image not found!">
                                     </a>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="hover-img-zoom overflow-hidden transation">
-                                    <a href="assets/images/products/squire-227.png" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="assets/images/products/squire-227.png" alt="Image not found!">
+                                    <a href="/public/theme/assets/images/products/squire-227.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="/public/theme/assets/images/products/squire-227.png" alt="Image not found!">
                                     </a>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="hover-img-zoom overflow-hidden transation">
-                                    <a href="assets/images/products/squire-228.png" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="assets/images/products/squire-228.png" alt="Image not found!">
+                                    <a href="/public/theme/assets/images/products/squire-228.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="/public/theme/assets/images/products/squire-228.png" alt="Image not found!">
                                     </a>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="hover-img-zoom overflow-hidden transation">
-                                    <a href="assets/images/products/squire-229.png" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="assets/images/products/squire-229.png" alt="Image not found!">
+                                    <a href="/public/theme/assets/images/products/squire-229.png" data-fancybox="gallery" data-caption="Caption for single image">
+                                        <img class="transation" src="/public/theme/assets/images/products/squire-229.png" alt="Image not found!">
                                     </a>
                                 </div>
                             </div>

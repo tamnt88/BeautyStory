@@ -8,6 +8,7 @@
     <link href="<%= ResolveUrl("~/public/assets/vendor/swiper/swiper-bundle.min.css") %>" rel="stylesheet" />
     <link href="<%= ResolveUrl("~/public/assets/vendor/malihu/jquery.mCustomScrollbar.min.css") %>" rel="stylesheet" />
     <asp:Literal ID="SeoMetaLiteral" runat="server" />
+    <asp:Literal ID="SchemaLiteral" runat="server" />
 </asp:Content>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -118,7 +119,7 @@
                 <div class="row g-3">
                     <asp:Repeater ID="CategoryProductRepeater" runat="server">
                         <ItemTemplate>
-                            <div class="col-6 col-md-4">
+                            <div class="col-6 col-md-4 col-lg-3">
                                 <div class="product-card">
                                     <a class="product-thumb" href="/san-pham/<%# Eval("SeoSlug") %>">
                                         <img src="<%# Eval("ImageUrl") %>" alt="<%# Eval("ProductName") %>" />
@@ -129,11 +130,6 @@
                                             <a href="/san-pham/<%# Eval("SeoSlug") %>"><%# Eval("ProductName") %></a>
                                         </h6>
                                         <div class="product-price"><%# Eval("PriceLabel") %></div>
-                                    </div>
-                                    <div class="product-footer">
-                                        <a class="btn btn-sm btn-dark w-100" href="/san-pham/<%# Eval("SeoSlug") %>">
-                                            Xem chi tiết
-                                        </a>
                                     </div>
                                 </div>
                             </div>
