@@ -38,7 +38,7 @@ body {
     gap: 12px;
 }
 
-/*.search-box {
+.search-box {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -47,7 +47,7 @@ body {
     padding: 8px 14px;
     color: #8a7a6a;
     position: relative;
-}*/
+}
 
 .search-box input {
     border: none;
@@ -1570,7 +1570,7 @@ body {
 }
 
 .ecommerce-header .nav-logo {
-    height: 70px;
+    height: 48px;
     width: auto;
     object-fit: contain;
 }
@@ -1673,24 +1673,6 @@ body {
     font-weight: 700;
     color: #3f3226;
     box-shadow: inset 0 0 0 1px #eadfce;
-}
-
-.sidebar-heading {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.sidebar-heading i {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #f1e7da;
-    color: #8c5c36;
-    font-size: 12px;
 }
 #MainContent_CheckoutPanel .form-check label {
     margin-left: 10px;
@@ -2075,72 +2057,4 @@ input#MainContent_PlaceOrderButton {
 
 .cart-price-sale {
     color: #9c6a3c;
-}
-/* Header “Danh mục” style Lux bar */
-.category-page .category-sidebar .sidebar-title,
-.category-sidebar .sidebar-title,
-.category-page .category-title {
-    background: #B8743B;
-    color: #fff;
-    font-weight: 700;
-    border-radius: 12px;
-    padding: 10px 14px;
-    box-shadow: 0 10px 22px rgba(140, 92, 54, 0.22);
-    letter-spacing: 0.2px;
-}
-.ecommerce-header .main-nav {
-    background: linear-gradient(135deg, #0B1F3B 0%, #141414 100%);
-}
-[class*="header-cart-"] .cart-icon, .search-view > a, .wishlist-view > a, .refresh-view > a, .sign-in > a {
-    color: #B3936B;
-}
-button.search-submit {
-    background: #B8743B !important;
-}
-.nav-general .navbar-nav .nav-link {
-    color: #fff;
-}
-#tra_cuu_don_hang_content .form-control {
-    border: 1px solid #ced4da;
-}
-/* Header search + cart layering */
-.ecommerce-header .product-search-one {
-    position: relative;
-    z-index: 1;
-}
-
-.ecommerce-header .header-cart-4 {
-    position: relative;
-    z-index: 2;
-}
-/* Search pill fallback when not using form tag */
-.ecommerce-header .search-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.ecommerce-header .search-box .search-field {
-    flex: 1;
-}
-
-.ecommerce-header .search-box .search-submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ecommerce-header .search-box .search-suggest {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-}
-.ecommerce-header .header-cart-4 {
-    z-index: 5;
-}
-
-.ecommerce-header .search-box .search-suggest {
-    z-index: 4;
 }

@@ -1,4 +1,26 @@
 ﻿(function () {
+    var updateTimer = null;
+
+    function getPostbackTarget() {
+        var trigger = document.querySelector('[data-cart-postback]');
+        return trigger ? trigger.getAttribute('data-cart-postback') : null;
+    }
+
+    function submitCartUpdate() {
+        var target = getPostbackTarget();
+        if (!target || typeof __doPostBack !== 'function') {
+            return;
+        }
+        __doPostBack(target, '');
+    }
+
+    function queueCartUpdate() {
+        if (updateTimer) {
+            clearTimeout(updateTimer);
+        }
+        updateTimer = setTimeout(submitCartUpdate, 400);
+    }
+
     function updateQty(button, delta) {
         var wrap = button.closest('.cart-qty');
         if (!wrap) {
@@ -17,6 +39,7 @@
             next = 1;
         }
         input.value = next;
+        queueCartUpdate();
     }
 
     document.addEventListener('click', function (event) {
@@ -24,6 +47,13 @@
         if (target.classList.contains('qty-btn')) {
             var action = target.getAttribute('data-action');
             updateQty(target, action === 'plus' ? 1 : -1);
+        }
+    });
+
+    document.addEventListener('input', function (event) {
+        var target = event.target;
+        if (target.classList.contains('qty-input')) {
+            queueCartUpdate();
         }
     });
 })();

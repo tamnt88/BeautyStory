@@ -260,18 +260,7 @@ public partial class CheckoutDefault : System.Web.UI.Page
         int provinceId;
         int wardId;
         int? provinceValue = int.TryParse(ProvinceDropDown.SelectedValue, out provinceId) ? (int?)provinceId : null;
-        if (provinceValue.HasValue)
-        {
-            BindWards(provinceValue);
-        }
-
-        var wardSelected = WardDropDown.SelectedValue;
-        if (string.IsNullOrWhiteSpace(wardSelected))
-        {
-            wardSelected = Request.Form[WardDropDown.UniqueID];
-        }
-
-        int? wardValue = int.TryParse(wardSelected, out wardId) ? (int?)wardId : null;
+        int? wardValue = int.TryParse(WardDropDown.SelectedValue, out wardId) ? (int?)wardId : null;
 
         var orderCode = GenerateOrderCode();
 

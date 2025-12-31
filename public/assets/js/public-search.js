@@ -1,4 +1,4 @@
-/* global $, window, document */
+﻿/* global $, window, document */
 (function () {
     var $inputs = $(".js-search-input");
     if ($inputs.length === 0) {
@@ -16,7 +16,7 @@
 
         var html = items.map(function (item) {
             return [
-                "<a class=\"search-item\" href=\"/san-pham/default.aspx?slug=",
+                "<a class=\"search-item\" href=\"/san-pham/",
                 item.Slug,
                 "\">",
                 "<img src=\"",
@@ -54,6 +54,12 @@
         });
     }
 
+    function goToSearch(query) {
+        if (query.length > 0) {
+            window.location.href = "/tim-kiem/default.aspx?q=" + encodeURIComponent(query);
+        }
+    }
+
     $inputs.each(function () {
         var $input = $(this);
         var $box = $input.siblings(".search-suggest");
@@ -75,11 +81,13 @@
         $input.on("keydown", function (event) {
             if (event.key === "Enter") {
                 event.preventDefault();
-                var query = $input.val().trim();
-                if (query.length > 0) {
-                    window.location.href = "/tim-kiem/default.aspx?q=" + encodeURIComponent(query);
-                }
+                goToSearch($input.val().trim());
             }
+        });
+
+        $input.siblings(".search-submit").on("click", function (event) {
+            event.preventDefault();
+            goToSearch($input.val().trim());
         });
 
         $(document).on("click", function (event) {

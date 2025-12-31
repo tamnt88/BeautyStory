@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="CartDefault" MasterPageFile="~/public/Public.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="CartDefault" MasterPageFile="~/public/Public.master" ContentType="text/html; charset=utf-8" ResponseEncoding="utf-8" EnableEventValidation="false" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
     Giỏ hàng | Beauty Story
@@ -68,13 +68,14 @@
                 <div class="cart-actions-left">
                     <asp:LinkButton ID="UpdateCartButton" runat="server" CssClass="btn btn-outline-dark btn-with-icon" OnClick="UpdateCartButton_Click">
                         <i class="fa-solid fa-rotate-right"></i>
-                        Cập nhật giỏ hàng
+                        Cập nhật lại
                     </asp:LinkButton>
+                    <span id="CartUpdateTarget" data-cart-postback="<%= UpdateCartButton.UniqueID %>"></span>
                     <a class="btn btn-outline-dark btn-with-icon" href="/">
                         <i class="fa-solid fa-arrow-left"></i>
                         Tiếp tục mua sắm
                     </a>
-                    <a class="btn btn-dark btn-with-icon" href="/thanh-toan/default.aspx">
+                    <a class="btn btn-dark btn-with-icon" href="/thanh-toan">
                         <i class="fa-solid fa-credit-card"></i>
                         Thanh toán
                     </a>

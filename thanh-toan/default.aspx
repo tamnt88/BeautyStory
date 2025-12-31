@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="CheckoutDefault" MasterPageFile="~/public/Public.master" ContentType="text/html; charset=utf-8" ResponseEncoding="utf-8" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="CheckoutDefault" MasterPageFile="~/public/Public.master" ContentType="text/html; charset=utf-8" ResponseEncoding="utf-8" EnableEventValidation="false" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
     Thanh toán | Beauty Story
@@ -125,21 +125,21 @@
                             <div class="checkout-total">
                                 <div class="checkout-total-row">
                                     <span>Tạm tính</span>
-                                    <strong><asp:Literal ID="SubtotalLiteral" runat="server" /></strong>
+                                    <strong><span id="SubtotalValue" runat="server"><asp:Literal ID="SubtotalLiteral" runat="server" /></span></strong>
                                 </div>
                                 <div class="checkout-total-row">
                                     <span>Phí vận chuyển (tạm tính)</span>
-                                    <strong><asp:Literal ID="ShippingFeeLiteral" runat="server" /></strong>
+                                    <strong><span id="ShippingFeeValue" runat="server"><asp:Literal ID="ShippingFeeLiteral" runat="server" /></span></strong>
                                 </div>
                                 <div class="checkout-total-row total">
                                     <span>Tổng cộng</span>
-                                    <strong><asp:Literal ID="TotalLiteral" runat="server" /></strong>
+                                    <strong><span id="TotalValue" runat="server"><asp:Literal ID="TotalLiteral" runat="server" /></span></strong>
                                 </div>
                             </div>
 
                             <asp:Label ID="CheckoutMessage" runat="server" CssClass="text-danger" />
                             <asp:Button ID="PlaceOrderButton" runat="server" Text="Xác nhận đặt hàng" CssClass="btn btn-dark w-100 mt-3" OnClick="PlaceOrderButton_Click" />
-                            <a class="btn btn-outline-dark w-100 mt-2" href="/gio-hang/default.aspx">Quay lại giỏ hàng</a>
+                            <a class="btn btn-outline-dark w-100 mt-2" href="/gio-hang">Quay lại giỏ hàng</a>
                         </div>
                     </div>
                 </div>
@@ -156,20 +156,41 @@
 <asp:Content ID="PageScripts" ContentPlaceHolderID="PageScripts" runat="server">
     <script>
         (function () {
+            function callPageMethod(method, data, onSuccess) {
+                if (typeof PageMethods !== "undefined" && typeof PageMethods[method] === "function") {
+                    if (method === "GetWards") {
+                        PageMethods.GetWards(data.provinceId, onSuccess);
+                    } else if (method === "GetShippingSummary") {
+                        PageMethods.GetShippingSummary(data.provinceId, data.shippingMethodId, onSuccess);
+                    }
+                    return;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/thanh-toan/default.aspx/" + method,
+                    data: JSON.stringify(data),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (res) {
+                        onSuccess(res.d);
+                    }
+                });
+            }
+
             function updateSummary() {
                 var provinceId = parseInt($("#<%= ProvinceDropDown.ClientID %>").val(), 10) || 0;
-                var shippingMethodId = parseInt($("input[name='<%= ShippingMethodList.UniqueID %>']:checked").val(), 10) || 0;
+                var shippingMethodId = parseInt($("#<%= ShippingMethodList.ClientID %> input:checked").val(), 10) || 0;
 
-                if (typeof PageMethods === "undefined" || !shippingMethodId) {
+                if (!shippingMethodId) {
                     return;
                 }
 
-                PageMethods.GetShippingSummary(provinceId, shippingMethodId, function (result) {
+                callPageMethod("GetShippingSummary", { provinceId: provinceId, shippingMethodId: shippingMethodId }, function (result) {
                     if (!result) {
                         return;
                     }
-                    $("#<%= ShippingFeeLiteral.ClientID %>").text(result.ShippingFeeText || "");
-                    $("#<%= TotalLiteral.ClientID %>").text(result.TotalText || "");
+                    $("#<%= ShippingFeeValue.ClientID %>").text(result.ShippingFeeText || "");
+                    $("#<%= TotalValue.ClientID %>").text(result.TotalText || "");
                 });
             }
 
@@ -179,12 +200,12 @@
                 $ward.empty();
                 $ward.append($("<option></option>").val("").text("-- Chọn phường --"));
 
-                if (typeof PageMethods === "undefined" || !provinceId) {
+                if (!provinceId) {
                     updateSummary();
                     return;
                 }
 
-                PageMethods.GetWards(provinceId, function (items) {
+                callPageMethod("GetWards", { provinceId: provinceId }, function (items) {
                     if (Array.isArray(items)) {
                         items.forEach(function (item) {
                             $ward.append($("<option></option>").val(item.Id).text(item.Name));
@@ -195,7 +216,8 @@
             }
 
             $(document).on("change", "#<%= ProvinceDropDown.ClientID %>", loadWards);
-            $(document).on("change", "input[name='<%= ShippingMethodList.UniqueID %>']", updateSummary);
+            $(document).on("change", "#<%= ShippingMethodList.ClientID %> input[type='radio']", updateSummary);
+            updateSummary();
         })();
     </script>
 </asp:Content>

@@ -540,7 +540,7 @@ public partial class ProductDefault : System.Web.UI.Page
         if (variantId > 0)
         {
             CartService.AddVariant(variantId, quantity);
-            Response.Redirect("/gio-hang/default.aspx");
+            Response.Redirect("/gio-hang");
         }
     }
 

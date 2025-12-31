@@ -4,7 +4,7 @@ using System.Web.Caching;
 
 public static class PublicCache
 {
-    public static T GetOrCreate<T>(string key, int minutes, Func<T> factory)
+    public static T GetOrCreate<T>(string key, int minutes, Func<T> factory) where T : class
     {
         if (string.IsNullOrWhiteSpace(key))
         {
@@ -14,7 +14,12 @@ public static class PublicCache
         var cached = HttpRuntime.Cache[key];
         if (cached != null)
         {
-            return (T)cached;
+            var typed = cached as T;
+            if (typed != null)
+            {
+                return typed;
+            }
+            HttpRuntime.Cache.Remove(key);
         }
 
         var value = factory();

@@ -24,7 +24,7 @@
         <div class="row g-4">
             <aside class="col-lg-3">
                 <div class="category-sidebar">
-                    <h6 class="mb-3">Danh mục</h6>
+                    <h6 class="mb-3 sidebar-heading"><i class="fa-solid fa-list"></i><span>Danh mục</span></h6>
                     <asp:Repeater ID="SidebarRepeater" runat="server">
                         <ItemTemplate>
                             <div class="sidebar-group <%# GetSidebarOpenClass(Eval("IsOpen")) %>">
@@ -66,7 +66,7 @@
                     </asp:Repeater>
                 </div>
                 <div class="filter-sidebar">
-                    <h6 class="mb-3">Bộ lọc</h6>
+                    <h6 class="mb-3 sidebar-heading"><i class="fa-solid fa-filter"></i><span>Bộ lọc</span></h6>
                     <asp:Repeater ID="FilterGroupRepeater" runat="server">
                         <ItemTemplate>
                             <div class="filter-group">
@@ -84,7 +84,7 @@
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <h6 class="mb-3 mt-4">Thuộc tính</h6>
+                    <h6 class="mb-3 mt-4 sidebar-heading"><i class="fa-solid fa-tags"></i><span>Thuộc tính</span></h6>
                     <asp:Repeater ID="AttributeGroupRepeater" runat="server">
                         <ItemTemplate>
                             <div class="filter-group">

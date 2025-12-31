@@ -1,11 +1,15 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 public partial class OrderDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Response.ContentEncoding = Encoding.UTF8;
+        Response.Charset = "utf-8";
+
         if (!IsPostBack)
         {
             LoadOrder();
@@ -62,15 +66,22 @@ public partial class OrderDetail : System.Web.UI.Page
             CustomerNameLiteral.Text = order.CustomerName;
             PhoneLiteral.Text = order.Phone;
             AddressLiteral.Text = BuildAddress(order);
-            NoteLiteral.Text = string.IsNullOrWhiteSpace(order.Note) ? "-" : order.Note;
-            ShippingMethodLiteral.Text = order.ShippingMethod;
-            ShippingEtaLiteral.Text = string.IsNullOrWhiteSpace(order.ShippingEta) ? "-" : order.ShippingEta;
-            PaymentMethodLiteral.Text = order.PaymentMethod;
+            NoteLiteral.Text = SafeValue(order.Note);
+            ShippingMethodLiteral.Text = SafeValue(order.ShippingMethod);
+            ShippingEtaLiteral.Text = SafeValue(order.ShippingEta);
+            PaymentMethodLiteral.Text = SafeValue(order.PaymentMethod);
+
+            InvoicePanel.Visible = order.InvoiceRequired;
+            InvoiceCompanyLiteral.Text = SafeValue(order.InvoiceCompanyName);
+            InvoiceTaxLiteral.Text = SafeValue(order.InvoiceTaxCode);
+            InvoiceEmailLiteral.Text = SafeValue(order.InvoiceEmail);
+            InvoiceAddressLiteral.Text = SafeValue(order.InvoiceAddress);
+
             SubtotalLiteral.Text = FormatMoney(order.Subtotal);
             ShippingFeeLiteral.Text = FormatMoney(order.ShippingFee);
             DiscountLiteral.Text = order.Discount > 0 ? "-" + FormatMoney(order.Discount) : FormatMoney(0);
             TotalLiteral.Text = FormatMoney(order.Total);
-            OrderStatusLiteral.Text = order.OrderStatus;
+            OrderStatusLiteral.Text = SafeValue(order.OrderStatus);
 
             OrderItemsRepeater.DataSource = viewItems;
             OrderItemsRepeater.DataBind();
@@ -108,7 +119,7 @@ public partial class OrderDetail : System.Web.UI.Page
     {
         var normalized = (status ?? string.Empty).Trim().ToLowerInvariant();
         var step = 1;
-        if (normalized.Contains("confirm") || normalized.Contains("xac") || normalized.Contains("xác"))
+        if (normalized.Contains("confirm") || normalized.Contains("xác") || normalized.Contains("xac"))
         {
             step = 2;
         }
@@ -116,7 +127,7 @@ public partial class OrderDetail : System.Web.UI.Page
         {
             step = 3;
         }
-        else if (normalized.Contains("complete") || normalized.Contains("done") || normalized.Contains("hoan") || normalized.Contains("hoàn"))
+        else if (normalized.Contains("complete") || normalized.Contains("done") || normalized.Contains("hoàn") || normalized.Contains("hoan"))
         {
             step = 4;
         }
@@ -150,6 +161,11 @@ public partial class OrderDetail : System.Web.UI.Page
     private static string FormatMoney(decimal value)
     {
         return string.Format("{0:N0} đ", value);
+    }
+
+    private static string SafeValue(string value)
+    {
+        return string.IsNullOrWhiteSpace(value) ? "-" : value;
     }
 
     private sealed class OrderItemView

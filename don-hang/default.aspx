@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="OrderDetail" MasterPageFile="~/public/Public.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="OrderDetail" MasterPageFile="~/public/Public.master" ContentType="text/html; charset=utf-8" ResponseEncoding="utf-8" EnableEventValidation="false" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
     Xem đơn hàng | Beauty Story
@@ -21,7 +21,7 @@
                     <div class="order-date">Ngày đặt: <asp:Literal ID="OrderDateLiteral" runat="server" /></div>
                 </div>
                 <div class="order-status">
-                    <span class="status-pill">Đã tiếp nhận</span>
+                    <span class="status-pill"><asp:Literal ID="OrderStatusLiteral" runat="server" /></span>
                 </div>
             </div>
 
@@ -82,6 +82,15 @@
                             <div><span>Ghi chú:</span> <asp:Literal ID="NoteLiteral" runat="server" /></div>
                         </div>
                     </div>
+                    <asp:Panel ID="InvoicePanel" runat="server" CssClass="order-card mt-3" Visible="false">
+                        <div class="order-card__title">Thông tin hóa đơn</div>
+                        <div class="order-info">
+                            <div><span>Tên công ty:</span> <asp:Literal ID="InvoiceCompanyLiteral" runat="server" /></div>
+                            <div><span>Mã số thuế:</span> <asp:Literal ID="InvoiceTaxLiteral" runat="server" /></div>
+                            <div><span>Email nhận hóa đơn:</span> <asp:Literal ID="InvoiceEmailLiteral" runat="server" /></div>
+                            <div><span>Địa chỉ xuất hóa đơn:</span> <asp:Literal ID="InvoiceAddressLiteral" runat="server" /></div>
+                        </div>
+                    </asp:Panel>
                     <div class="order-card mt-3">
                         <div class="order-card__title">Vận chuyển & thanh toán</div>
                         <div class="order-info">

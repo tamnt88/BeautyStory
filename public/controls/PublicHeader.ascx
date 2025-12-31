@@ -14,7 +14,7 @@
                                 <li><a href="tel:0909 221 558"><i class="fa-solid fa-phone"></i>&nbsp;Hotline: 0828 409 096</a></li>
                                 
                                 <li><a href="#"><i class="fa-solid fa-envelope"></i>&nbsp;beautystory0909@gmail.com</a></li>
-                                <li><a href="#"><i class="fa-solid fa-receipt"></i>&nbsp;Tra cứu đơn hàng</a></li>
+                                <li><a href="<%= ResolveUrl("~/tra-cuu-don-hang/default.aspx") %>" title="Tra cứu đơn hàng"><i class="fa-solid fa-receipt"></i>&nbsp;Tra cứu đơn hàng</a></li>
                                 <%--<li><a href="#">Vietnamese</a></li>--%>
                                 <%--<li><a href="#"><i class="flaticon-like flat-mini me-1 text-primary"></i> Yêu thích</a></li>--%>
                                <%-- <li class="my-account-dropdown">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="main-nav py-4 bg-white d-none d-lg-block">
+            <div class="main-nav  bg-white d-none d-lg-block">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-8 col-md-9">
@@ -128,9 +128,10 @@
                         <div class="col-xl-4 col-md-3">
                             <div class="margin-right-1 d-flex align-items-center justify-content-end h-100">
                                 <div class="product-search-one flex-grow-1 global-search touch-screen-view">
-                                    <div class="form-inline search-pill-shape">
-                                        <input type="text" class="form-control search-field js-search-input" name="search" placeholder="Tìm sản phẩm, thương hiệu bạn mong muốn...">
-                                        <button type="submit" name="searchSubmit" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
+                                    <div class="form-inline search-pill-shape search-box">
+                                        <input type="text" class="form-control search-field js-search-input" name="q" placeholder="T&#236;m s&#7843;n ph&#7849;m, th&#432;&#417;ng hi&#7879;u b&#7841;n mong mu&#7889;n...">
+                                        <button type="button" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
+                                        <div class="search-suggest"></div>
                                     </div>
                                 </div>
                                 <div class="search-view d-xl-none">
@@ -144,11 +145,11 @@
                                     </a>
                                 </div>--%>
                                 <div class="header-cart-4">
-                                    <a href="<%= ResolveUrl("~/gio-hang/default.aspx") %>" class="cart has-cart-data" title="Gi? h?ng">
+                                    <a href="<%= ResolveUrl("~/gio-hang/default.aspx") %>" class="cart has-cart-data" title="Giỏ hàng">
                                         <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count"><asp:Literal ID="CartCountLiteral" runat="server" /></span></div>
                                         <div class="cart-wrap">
-                                            <div class="cart-text">Gi? h?ng</div>
-                                            <span class="header-cart-count">(<asp:Literal ID="CartCountTextLiteral" runat="server" />) s?n ph?m</span>
+                                            <div class="cart-text">Giỏ hàng</div>
+                                            <span class="header-cart-count">(<asp:Literal ID="CartCountTextLiteral" runat="server" />) Sản phẩm</span>
                                         </div>
                                     </a>
                                 </div>
@@ -472,7 +473,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-lg-3 col-6 order-lg-3">
                             <div class="margin-right-1 d-flex align-items-center justify-content-end h-100 md-py-10">
-                                <div class="sign-in position-relative font-general my-account-dropdown">
+                                <%--<div class="sign-in position-relative font-general my-account-dropdown">
                                     <a href="my-account.html" class="has-dropdown d-flex align-items-center text-dark text-decoration-none" title="My Account">
                                         <i class="flaticon-user-3 flat-small me-1"></i>
                                     </a>
@@ -486,18 +487,18 @@
                                     <a href="wishlist.html" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none" title="Wishlist">
                                         <i class="flaticon-like flat-small text-dark"></i>
                                     </a>
-                                </div>
+                                </div>--%>
                                 <%--<div class="refresh-view">
                                     <a href="compare.html" class="position-relative top-quantity d-flex align-items-center text-dark text-decoration-none">
                                         <i class="flaticon-shuffle flat-small text-dark"></i>
                                     </a>
                                 </div>--%>
                                 <div class="header-cart-4">
-                                    <a href="<%= ResolveUrl("~/gio-hang/default.aspx") %>" class="cart has-cart-data" title="Gi? h?ng">
+                                    <a href="<%= ResolveUrl("~/gio-hang/default.aspx") %>" class="cart has-cart-data" title="Giỏ hàng">
                                         <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count"><asp:Literal ID="CartCountLiteralSticky" runat="server" /></span></div>
                                         <div class="cart-wrap">
-                                            <div class="cart-text">Gi? h?ng</div>
-                                            <span class="header-cart-count">(<asp:Literal ID="CartCountTextLiteralSticky" runat="server" />) s?n ph?m</span>
+                                            <div class="cart-text">Giỏ hàng</div>
+                                            <span class="header-cart-count">(<asp:Literal ID="CartCountTextLiteralSticky" runat="server" />) sản phẩm</span>
                                         </div>
                                     </a>
                                 </div>
@@ -505,14 +506,30 @@
                         </div>
                         <div class="col-xxl-7 col-xl-6 col-lg-6 col-12 order-lg-2">
                             <div class="product-search-one">
-                                <div class="form-inline search-pill-shape">
-                                    <input type="text" class="form-control search-fieldjs-search-input" name="search" placeholder="Tìm sản phẩm, thương hiệu bạn mong muốn...">
-                                    <button type="submit" name="searchSubmit" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
-                                </div>
+                                <div class="form-inline search-pill-shape search-box">
+                                        <input type="text" class="form-control search-field js-search-input" name="q" placeholder="T&#236;m s&#7843;n ph&#7849;m, th&#432;&#417;ng hi&#7879;u b&#7841;n mong mu&#7889;n...">
+                                        <button type="button" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
+                                        <div class="search-suggest"></div>
+                                    </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
