@@ -6,7 +6,7 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container py-4 cart-page">
-                        <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                                <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
             <ol class="breadcrumb mb-2">
                 <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
@@ -102,6 +102,7 @@
     <script src="<%= ResolveUrl("~/public/assets/js/public-search.js") %>"></script>
     <script src="<%= ResolveUrl("~/public/assets/js/cart.js") %>"></script>
 </asp:Content>
+
 
 
 

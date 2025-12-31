@@ -72,6 +72,16 @@ public partial class AdminMenusDefault : AdminBasePage
             menu.UpdatedAt = DateTime.UtcNow;
             menu.UpdatedBy = Session["AdminUsername"] != null ? Session["AdminUsername"].ToString() : null;
 
+            bool duplicate = db.CfMenus.Any(m =>
+                m.Id != menu.Id &&
+                m.MenuGroup == menu.MenuGroup &&
+                m.MenuName == menu.MenuName);
+            if (duplicate)
+            {
+                FormMessage.Text = "Menu đã tồn tại trong nhóm này. Vui lòng chọn tên khác.";
+                return;
+            }
+
             db.SaveChanges();
         }
 
