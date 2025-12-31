@@ -6,7 +6,7 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container py-4 cart-page">
-        <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+                        <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
             <ol class="breadcrumb mb-2">
                 <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
@@ -15,13 +15,22 @@
         <div class="section-heading">
             <div>
                 <h4>Giỏ hàng</h4>
-                <p>Kiểm tra sản phẩm trước khi đặt hàng</p>
+                <p id="CartSubtitle" runat="server">Kiểm tra sản phẩm trước khi đặt hàng</p>
             </div>
         </div>
 
         <asp:Panel ID="EmptyCartPanel" runat="server" CssClass="cart-empty" Visible="false">
-            <p>Giỏ hàng đang trống.</p>
-            <a class="btn btn-outline-dark" href="/">Tiếp tục mua sắm</a>
+            <div class="cart-empty-card">
+                <div class="cart-empty-icon">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+                <h5>Giỏ hàng đang trống</h5>
+                <p class="cart-empty-note">Hãy khám phá các sản phẩm mới và thêm vào giỏ hàng của bạn.</p>
+                <a class="btn btn-dark btn-with-icon" href="/">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                    Tiếp tục mua sắm
+                </a>
+            </div>
         </asp:Panel>
 
         <asp:Panel ID="CartPanel" runat="server">
@@ -93,3 +102,9 @@
     <script src="<%= ResolveUrl("~/public/assets/js/public-search.js") %>"></script>
     <script src="<%= ResolveUrl("~/public/assets/js/cart.js") %>"></script>
 </asp:Content>
+
+
+
+
+
+

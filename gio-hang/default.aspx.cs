@@ -16,10 +16,17 @@ public partial class CartDefault : System.Web.UI.Page
     private void BindCart()
     {
         var cart = CartService.GetCart();
-        if (cart.Count == 0)
+        var hasItems = cart.Count > 0;
+
+        EmptyCartPanel.Visible = !hasItems;
+        CartPanel.Visible = hasItems;
+        if (CartSubtitle != null)
         {
-            EmptyCartPanel.Visible = true;
-            CartPanel.Visible = false;
+            CartSubtitle.Visible = hasItems;
+        }
+
+        if (!hasItems)
+        {
             return;
         }
 
@@ -36,15 +43,11 @@ public partial class CartDefault : System.Web.UI.Page
             var images = db.CfProductImages
                 .Where(i => productIds.Contains(i.ProductId) && i.Status)
                 .ToList();
-            var slugs = db.CfSeoSlugs
-                .Where(s => s.EntityType == "Product" && productIds.Contains(s.EntityId))
-                .ToList();
             var attributes = db.CfProductVariantAttributes
                 .Where(pva => variantIds.Contains(pva.VariantId))
                 .ToList();
             var attributeLookup = db.CfVariantAttributes.ToDictionary(a => a.Id, a => a.AttributeName);
             var valueLookup = db.CfVariantAttributeValues.ToDictionary(v => v.Id, v => v.ValueName);
-            var productSlugLookup = slugs.ToDictionary(s => s.EntityId, s => s.SeoSlug);
 
             var productLookup = products.ToDictionary(p => p.Id, p => p);
             var variantLookup = variants.ToDictionary(v => v.Id, v => v);
@@ -77,8 +80,8 @@ public partial class CartDefault : System.Web.UI.Page
                     .Where(a => a.VariantId == item.VariantId)
                     .Select(a =>
                     {
-                        var attrName = attributeLookup.ContainsKey(a.AttributeId) ? attributeLookup[a.AttributeId] : "";
-                        var valueName = valueLookup.ContainsKey(a.AttributeValueId) ? valueLookup[a.AttributeValueId] : "";
+                        var attrName = attributeLookup.ContainsKey(a.AttributeId) ? attributeLookup[a.AttributeId] : string.Empty;
+                        var valueName = valueLookup.ContainsKey(a.AttributeValueId) ? valueLookup[a.AttributeValueId] : string.Empty;
                         return string.Format("{0}: {1}", attrName, valueName);
                     })
                     .ToList();
@@ -87,12 +90,11 @@ public partial class CartDefault : System.Web.UI.Page
                 {
                     VariantId = item.VariantId,
                     ProductName = product != null ? product.ProductName : "-",
-                    SeoSlug = product != null && productSlugLookup.ContainsKey(product.Id) ? productSlugLookup[product.Id] : "",
                     ImageUrl = product != null && imageLookup.ContainsKey(product.Id) ? imageLookup[product.Id] : "/images/fav.png",
-                    VariantText = attrs.Count > 0 ? string.Join(", ", attrs) : "M\u1eb7c \u0111\u1ecbnh",
-                    PriceHtml = BuildPriceHtml(variant),
+                    VariantText = attrs.Count > 0 ? string.Join(", ", attrs) : "Mặc định",
+                    Price = price > 0 ? FormatMoney(price) : "Liên hệ",
                     Quantity = item.Quantity,
-                    LineTotal = price > 0 ? string.Format("{0:N0} \u0111", lineTotal) : "Li\u00ean h\u1ec7",
+                    LineTotal = price > 0 ? FormatMoney(lineTotal) : "Liên hệ",
                     LineTotalValue = lineTotal
                 };
             }).ToList();
@@ -101,30 +103,8 @@ public partial class CartDefault : System.Web.UI.Page
             CartRepeater.DataBind();
 
             var total = lines.Sum(x => x.LineTotalValue);
-            CartTotalLiteral.Text = total > 0 ? string.Format("{0:N0} \u0111", total) : "Li\u00ean h\u1ec7";
+            CartTotalLiteral.Text = total > 0 ? FormatMoney(total) : "Liên hệ";
         }
-    }
-
-    private static string BuildPriceHtml(CfProductVariant variant)
-    {
-        if (variant == null)
-        {
-            return "Li\u00ean h\u1ec7";
-        }
-
-        var price = variant.Price;
-        var sale = variant.SalePrice.HasValue ? variant.SalePrice.Value : 0m;
-        if (sale > 0 && sale < price)
-        {
-            return string.Format("<span class=\"cart-price-old\">{0:N0} \u0111</span><span class=\"cart-price-sale\">{1:N0} \u0111</span>", price, sale);
-        }
-
-        if (price > 0)
-        {
-            return string.Format("<span class=\"cart-price-sale\">{0:N0} \u0111</span>", price);
-        }
-
-        return "Li\u00ean h\u1ec7";
     }
 
     protected void UpdateCartButton_Click(object sender, EventArgs e)
@@ -156,11 +136,16 @@ public partial class CartDefault : System.Web.UI.Page
         if (e.CommandName == "remove")
         {
             int variantId;
-            if (int.TryParse(e.CommandArgument.ToString(), out variantId))
+            if (int.TryParse(Convert.ToString(e.CommandArgument), out variantId))
             {
                 CartService.RemoveVariant(variantId);
                 BindCart();
             }
         }
+    }
+
+    private static string FormatMoney(decimal value)
+    {
+        return string.Format("{0:N0} đ", value);
     }
 }

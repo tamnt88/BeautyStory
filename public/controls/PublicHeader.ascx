@@ -14,7 +14,7 @@
                                 <li><a href="tel:0909 221 558"><i class="fa-solid fa-phone"></i>&nbsp;Hotline: 0828 409 096</a></li>
                                 
                                 <li><a href="#"><i class="fa-solid fa-envelope"></i>&nbsp;beautystory0909@gmail.com</a></li>
-                                <li><a href="<%= ResolveUrl("~/tra-cuu-don-hang/default.aspx") %>" title="Tra cứu đơn hàng"><i class="fa-solid fa-receipt"></i>&nbsp;Tra cứu đơn hàng</a></li>
+                                <li><a href="<%= ResolveUrl("~/tra-cuu-don-hang") %>" title="Tra cứu đơn hàng"><i class="fa-solid fa-receipt"></i>&nbsp;Tra cứu đơn hàng</a></li>
                                 <%--<li><a href="#">Vietnamese</a></li>--%>
                                 <%--<li><a href="#"><i class="flaticon-like flat-mini me-1 text-primary"></i> Yêu thích</a></li>--%>
                                <%-- <li class="my-account-dropdown">
@@ -129,7 +129,7 @@
                             <div class="margin-right-1 d-flex align-items-center justify-content-end h-100">
                                 <div class="product-search-one flex-grow-1 global-search touch-screen-view">
                                     <div class="form-inline search-pill-shape search-box">
-                                        <input type="text" class="form-control search-field js-search-input" name="q" placeholder="T&#236;m s&#7843;n ph&#7849;m, th&#432;&#417;ng hi&#7879;u b&#7841;n mong mu&#7889;n...">
+                                        <input type="text" class="form-control search-field js-search-input" name="q" placeholder="Tìm sản phẩm, thương hiệu bạn mong muốn...">
                                         <button type="button" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
                                         <div class="search-suggest"></div>
                                     </div>
@@ -145,7 +145,7 @@
                                     </a>
                                 </div>--%>
                                 <div class="header-cart-4">
-                                    <a href="<%= ResolveUrl("~/gio-hang/default.aspx") %>" class="cart has-cart-data" title="Giỏ hàng">
+                                    <a href="<%= ResolveUrl("~/gio-hang") %>" class="cart has-cart-data" title="Giỏ hàng">
                                         <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count"><asp:Literal ID="CartCountLiteral" runat="server" /></span></div>
                                         <div class="cart-wrap">
                                             <div class="cart-text">Giỏ hàng</div>
@@ -494,7 +494,7 @@
                                     </a>
                                 </div>--%>
                                 <div class="header-cart-4">
-                                    <a href="<%= ResolveUrl("~/gio-hang/default.aspx") %>" class="cart has-cart-data" title="Giỏ hàng">
+                                    <a href="<%= ResolveUrl("~/gio-hang") %>" class="cart has-cart-data" title="Giỏ hàng">
                                         <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count"><asp:Literal ID="CartCountLiteralSticky" runat="server" /></span></div>
                                         <div class="cart-wrap">
                                             <div class="cart-text">Giỏ hàng</div>
@@ -507,7 +507,7 @@
                         <div class="col-xxl-7 col-xl-6 col-lg-6 col-12 order-lg-2">
                             <div class="product-search-one">
                                 <div class="form-inline search-pill-shape search-box">
-                                        <input type="text" class="form-control search-field js-search-input" name="q" placeholder="T&#236;m s&#7843;n ph&#7849;m, th&#432;&#417;ng hi&#7879;u b&#7841;n mong mu&#7889;n...">
+                                        <input type="text" class="form-control search-field js-search-input" name="q" placeholder="Tìm sản phẩm, thương hiệu bạn mong muốn...">
                                         <button type="button" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
                                         <div class="search-suggest"></div>
                                     </div>

@@ -149,25 +149,25 @@
 
 
     // View Cart hover items toggle show hide
-    if ($('[class*="header-cart-"]').has('.cart-popup')) {
-        $('.has-cart-data').on('click', function(e) {
-            e.preventDefault();
-            if ($(this).parent('[class*="header-cart-"]').hasClass('show')) {
-                $(this).parent('[class*="header-cart-"]').removeClass('show');
-            } else {
-                $(this).parent('[class*="header-cart-"]').addClass('show');
-            }
-            e.stopPropagation();
-        });
-        $(document).on('click', function(e) {
-            var container = $('.cart-popup');
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                if ($('[class*="header-cart-"]').hasClass('show')) {
-                    $('[class*="header-cart-"]').removeClass('show');
-                }
-            }
-        });
-    }
+    //if ($('[class*="header-cart-"]').has('.cart-popup')) {
+    //    $('.has-cart-data').on('click', function(e) {
+    //        e.preventDefault();
+    //        if ($(this).parent('[class*="header-cart-"]').hasClass('show')) {
+    //            $(this).parent('[class*="header-cart-"]').removeClass('show');
+    //        } else {
+    //            $(this).parent('[class*="header-cart-"]').addClass('show');
+    //        }
+    //        e.stopPropagation();
+    //    });
+    //    $(document).on('click', function(e) {
+    //        var container = $('.cart-popup');
+    //        if (!container.is(e.target) && container.has(e.target).length === 0) {
+    //            if ($('[class*="header-cart-"]').hasClass('show')) {
+    //                $('[class*="header-cart-"]').removeClass('show');
+    //            }
+    //        }
+    //    });
+    //}
 
 
     // My Account hover items toggle show hide
