@@ -33,14 +33,19 @@ public partial class AdminSystemBannersEdit : AdminBasePage
             TitleLine2Input.Text = banner.TitleLine2;
             TitleLine3Input.Text = banner.TitleLine3;
             ImageUrlInput.Text = banner.ImageUrl;
+            MediaTypeInput.SelectedValue = string.IsNullOrWhiteSpace(banner.MediaType) ? "Image" : banner.MediaType;
+            MediaUrlInput.Text = string.IsNullOrWhiteSpace(banner.MediaUrl) ? banner.ImageUrl : banner.MediaUrl;
+            PosterUrlInput.Text = banner.PosterUrl;
             LinkUrlInput.Text = banner.LinkUrl;
             LinkTextInput.Text = banner.LinkText;
             ShowLinkInput.Checked = banner.ShowLink;
-            PositionInput.SelectedValue = string.IsNullOrWhiteSpace(banner.Position) ? "HomeMain" : banner.Position;
+            PositionInput.SelectedValue = string.IsNullOrWhiteSpace(banner.Position) ? "1" : banner.Position;
             SortOrderInput.Text = banner.SortOrder.ToString();
             StatusInput.Checked = banner.Status;
 
             BindPreview(ImagePreview, banner.ImageUrl);
+            BindMediaPreview(MediaPreview, MediaVideoLink, MediaTypeInput.SelectedValue, MediaUrlInput.Text);
+            BindPreview(PosterPreview, banner.PosterUrl);
         }
     }
 
@@ -79,6 +84,9 @@ public partial class AdminSystemBannersEdit : AdminBasePage
             banner.TitleLine2 = TitleLine2Input.Text.Trim();
             banner.TitleLine3 = TitleLine3Input.Text.Trim();
             banner.ImageUrl = ResolveImageValue(ImageRemove.Checked, ImageUpload, "banners", ImageUrlInput.Text.Trim());
+            string mediaType = MediaTypeInput.SelectedValue;
+            string mediaUrl = ResolveImageValue(MediaRemove.Checked, MediaUpload, "banners", MediaUrlInput.Text.Trim());
+            string posterUrl = ResolveImageValue(PosterRemove.Checked, PosterUpload, "banners", PosterUrlInput.Text.Trim());
             banner.LinkUrl = LinkUrlInput.Text.Trim();
             banner.LinkText = LinkTextInput.Text.Trim();
             banner.ShowLink = ShowLinkInput.Checked;
@@ -87,6 +95,9 @@ public partial class AdminSystemBannersEdit : AdminBasePage
             banner.Status = StatusInput.Checked;
             banner.UpdatedAt = DateTime.Now;
             banner.UpdatedBy = updatedBy;
+            banner.MediaType = string.IsNullOrWhiteSpace(mediaType) ? "Image" : mediaType;
+            banner.MediaUrl = string.IsNullOrWhiteSpace(mediaUrl) ? banner.ImageUrl : mediaUrl;
+            banner.PosterUrl = posterUrl;
 
             db.SaveChanges();
         }
@@ -110,6 +121,33 @@ public partial class AdminSystemBannersEdit : AdminBasePage
 
         image.Visible = true;
         image.ImageUrl = url;
+    }
+
+    private void BindMediaPreview(System.Web.UI.WebControls.Image image, System.Web.UI.WebControls.HyperLink link, string mediaType, string mediaUrl)
+    {
+        if (link != null)
+        {
+            link.Visible = false;
+            link.NavigateUrl = string.Empty;
+        }
+
+        if (string.Equals(mediaType, "Video", StringComparison.OrdinalIgnoreCase))
+        {
+            if (link != null && !string.IsNullOrWhiteSpace(mediaUrl))
+            {
+                link.Visible = true;
+                link.NavigateUrl = mediaUrl;
+            }
+
+            if (image != null)
+            {
+                image.Visible = false;
+                image.ImageUrl = string.Empty;
+            }
+            return;
+        }
+
+        BindPreview(image, mediaUrl);
     }
 
     private string ResolveImageValue(bool remove, System.Web.UI.WebControls.FileUpload upload, string folder, string existingPath)

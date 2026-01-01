@@ -19,6 +19,15 @@ public class CfBanner
     [StringLength(500)]
     public string ImageUrl { get; set; }
 
+    [StringLength(20)]
+    public string MediaType { get; set; }
+
+    [StringLength(500)]
+    public string MediaUrl { get; set; }
+
+    [StringLength(500)]
+    public string PosterUrl { get; set; }
+
     [StringLength(500)]
     public string LinkUrl { get; set; }
 

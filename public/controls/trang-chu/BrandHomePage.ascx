@@ -23,7 +23,7 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="brand-video-card">
                                 <asp:PlaceHolder ID="VideoWrap" runat="server" Visible='<%# (bool)Eval("HasVideo") %>'>
-                                    <video class="brand-video" data-autoposter="1" src='<%# Eval("VideoUrl") %>' poster='<%# Eval("PosterUrl") %>' preload="metadata" controls muted playsinline loop></video>
+                                    <video class="brand-video" data-autoposter="1" src='<%# Eval("VideoUrl") %>' poster='<%# Eval("PosterUrl") %>' preload="metadata" autoplay controls muted playsinline loop></video>
                                 </asp:PlaceHolder>
                                 <asp:PlaceHolder ID="VideoFallback" runat="server" Visible='<%# !(bool)Eval("HasVideo") %>'>
                                     <img class="brand-video-fallback" src='<%# Eval("PosterUrl") %>' alt='<%# Eval("BrandName") %>' />

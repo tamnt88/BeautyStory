@@ -59,6 +59,48 @@
                     <label class="form-check-label" for="ShowLinkInput">Hiển thị liên kết</label>
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="alert alert-light border mb-0">
+                    <strong>Media cho banner vị trí 1</strong>
+                    <div class="text-muted small">Nếu chọn Video, banner trang chủ sẽ hiển thị video thay vì ảnh.</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Loại media</label>
+                <asp:DropDownList ID="MediaTypeInput" runat="server" CssClass="form-select">
+                    <asp:ListItem Text="Hình ảnh" Value="Image" />
+                    <asp:ListItem Text="Video" Value="Video" />
+                </asp:DropDownList>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Media URL (ảnh/video)</label>
+                <asp:TextBox ID="MediaUrlInput" runat="server" CssClass="form-control" placeholder="/upload/banners/..."></asp:TextBox>
+                <div class="mt-2">
+                    <asp:FileUpload ID="MediaUpload" runat="server" CssClass="form-control" />
+                </div>
+                <div class="mt-2 d-flex align-items-center gap-3">
+                    <asp:Image ID="MediaPreview" runat="server" CssClass="border rounded" Style="max-height:80px;" />
+                    <asp:HyperLink ID="MediaVideoLink" runat="server" Target="_blank" CssClass="small text-decoration-underline">Xem video</asp:HyperLink>
+                    <div class="form-check">
+                        <asp:CheckBox ID="MediaRemove" runat="server" CssClass="form-check-input" />
+                        <label class="form-check-label" for="MediaRemove">Xóa media</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Poster (video)</label>
+                <asp:TextBox ID="PosterUrlInput" runat="server" CssClass="form-control" placeholder="/upload/banners/..."></asp:TextBox>
+                <div class="mt-2">
+                    <asp:FileUpload ID="PosterUpload" runat="server" CssClass="form-control" />
+                </div>
+                <div class="mt-2 d-flex align-items-center gap-3">
+                    <asp:Image ID="PosterPreview" runat="server" CssClass="border rounded" Style="max-height:80px;" />
+                    <div class="form-check">
+                        <asp:CheckBox ID="PosterRemove" runat="server" CssClass="form-check-input" />
+                        <label class="form-check-label" for="PosterRemove">Xóa ảnh</label>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-4">
                 <label class="form-label">Vị trí</label>
                 <asp:DropDownList ID="PositionInput" runat="server" CssClass="form-select">

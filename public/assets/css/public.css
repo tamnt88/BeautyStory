@@ -139,6 +139,50 @@ body {
     background-size: cover;
 }
 
+.banner-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.banner-video-only {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-video-only__media {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+@media (max-width: 991.98px) {
+    .banner-video-only {
+        height: 56vw;
+        min-height: 220px;
+        max-height: 420px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .banner-video-only {
+        height: 64vw;
+        min-height: 200px;
+        max-height: 360px;
+    }
+}
+
 .site-header {
     background: #ffffff;
     border-bottom: 1px solid #eee4d6;
