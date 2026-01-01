@@ -14,7 +14,7 @@
 
                     <div class="d-flex align-items-center">
 
-                        <a href="#" class="text-general"><span><i class="fa-solid fa-location-dot"></i>&nbsp;143 &#272;&#432;&#7901;ng s&#7889; 32-CL, Ph&#432;&#7901;ng C&#225;t L&#225;i, TP H&#7891; Ch&#237; Minh, Vi&#7879;t Nam</span></a>
+                        <a href="#" class="text-general"><span><i class="fa-solid fa-location-dot"></i>&nbsp;<asp:Literal ID="AddressLiteral" runat="server" /></span></a>
 
                     </div>
 
@@ -24,11 +24,11 @@
 
                     <ul class="top-links d-flex ms-auto align-items-center">
 
-                        <li><a href="tel:0828409096"><i class="fa-solid fa-phone"></i>&nbsp;Hotline: 0828 409 096</a></li>
+                        <li><a id="HotlineLink" runat="server"><i class="fa-solid fa-phone"></i>&nbsp;Hotline: <asp:Literal ID="HotlineLiteral" runat="server" /></a></li>
 
-                        <li><a href="mailto:beautystory0909@gmail.com"><i class="fa-solid fa-envelope"></i>&nbsp;beautystory0909@gmail.com</a></li>
+                        <li><a id="EmailLink" runat="server"><i class="fa-solid fa-envelope"></i>&nbsp;<asp:Literal ID="EmailLiteral" runat="server" /></a></li>
 
-                        <li><a href="<%= ResolveUrl("~/tra-cuu-don-hang") %>" title="Tra c&#7913;u &#273;&#417;n h&#224;ng"><i class="fa-solid fa-receipt"></i>&nbsp;Tra c&#7913;u &#273;&#417;n h&#224;ng</a></li>
+                        <li><a href="<%= ResolveUrl("~/tra-cuu-don-hang") %>" title="Tra cứu đơn hàng"><i class="fa-solid fa-receipt"></i>&nbsp;Tra cứu đơn hàng</a></li>
 
                     </ul>
 
@@ -50,7 +50,7 @@
 
                     <nav class="navbar navbar-expand-lg nav-general nav-primary-hover">
 
-                        <a class="navbar-brand mobile-logo" href="/"><img class="nav-logo" src="/images/logo_ngang.png" alt="Beauty Story"></a>
+                        <a class="navbar-brand mobile-logo" href="/"><asp:Image ID="LogoMainImage" runat="server" CssClass="nav-logo" AlternateText="Beauty Story" /></a>
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -66,7 +66,7 @@
 
                                     <i class="fas fa-bars"></i>
 
-                                    <span>Danh m&#7909;c</span>
+                                    <span>Danh mục</span>
 
                                 </div>
 
@@ -78,7 +78,7 @@
 
                                             <ItemTemplate>
 
-                                                <a class="category-parent <%# GetMenuItemActiveClass(Container.ItemIndex) %>" data-target="cat-panel-<%# Container.ItemIndex %>" href="/danh-muc/<%# Eval("SeoSlug") %>">
+                                                <a title="<%# Eval("CategoryName") %>" class="category-parent <%# GetMenuItemActiveClass(Container.ItemIndex) %>" data-target="cat-panel-<%# Container.ItemIndex %>" href="/danh-muc/<%# Eval("SeoSlug") %>">
 
                                                     <%# Eval("CategoryName") %>
 
@@ -112,7 +112,7 @@
 
                                                                     <li class="panel-group">
 
-                                                                        <a class="panel-title" href="/danh-muc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
+                                                                        <a title="<%# Eval("CategoryName") %>" class="panel-title" href="/danh-muc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
 
                                                                         <ul class="panel-sub">
 
@@ -122,7 +122,7 @@
 
                                                                                     <li>
 
-                                                                                        <a class="nav-link dropdown-toggle" href="/danh-muc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
+                                                                                        <a class="nav-link dropdown-toggle" href="/danh-muc/<%# Eval("SeoSlug") %>" title="<%# Eval("CategoryName") %>"><%# Eval("CategoryName") %></a>
 
                                                                                     </li>
 
@@ -156,11 +156,11 @@
 
                             <ul class="navbar-nav mx-auto">
 
-                                <li class="nav-item"><a class="nav-link" href="/thuong-hieu">Th&#432;&#417;ng hi&#7879;u</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/thuong-hieu">Thương hiệu</a></li>
 
-                                <li class="nav-item"><a class="nav-link" href="/">H&#224;ng m&#7899;i v&#7873;</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/">Hàng mới về</a></li>
 
-                                <li class="nav-item"><a class="nav-link" href="/">B&#225;n ch&#7841;y</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/">Bán chạy</a></li>
 
                                 <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Blog</a>
@@ -191,7 +191,7 @@
                                             </ul>
                                         </li>
 
-                                <li class="nav-item"><a class="nav-link" href="/">Li&#234;n h&#7879;</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/">Liên hệ</a></li>
 
                             </ul>
 
@@ -209,7 +209,7 @@
 
                             <div class="form-inline search-pill-shape search-box">
 
-                                <input type="text" class="form-control search-field js-search-input" name="q" placeholder="T&#236;m s&#7843;n ph&#7849;m, th&#432;&#417;ng hi&#7879;u b&#7841;n mong mu&#7889;n...">
+                                <input type="text" class="form-control search-field js-search-input" name="q" placeholder="Tìm sản phẩm, thương hiệu bạn mong muốn...">
 
                                 <button type="button" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
 
@@ -231,15 +231,15 @@
 
                         <div class="header-cart-4">
 
-                            <a href="<%= ResolveUrl("~/gio-hang") %>" class="cart has-cart-data" title="Gi&#7887; h&#224;ng">
+                            <a href="<%= ResolveUrl("~/gio-hang") %>" class="cart has-cart-data" title="Giỏ hàng">
 
                                 <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count"><asp:Literal ID="CartCountLiteral" runat="server" /></span></div>
 
                                 <div class="cart-wrap">
 
-                                    <div class="cart-text">Gi&#7887; h&#224;ng</div>
+                                    <div class="cart-text">Giỏ hàng</div>
 
-                                    <span class="header-cart-count">(<asp:Literal ID="CartCountTextLiteral" runat="server" />) s&#7843;n ph&#7849;m</span>
+                                    <span class="header-cart-count">(<asp:Literal ID="CartCountTextLiteral" runat="server" />) sản phẩm</span>
 
                                 </div>
 
@@ -285,7 +285,7 @@
 
                                             <i class="flaticon-user flat-small me-1"></i>
 
-                                            <span>&#272;&#259;ng nh&#7853;p / &#272;&#259;ng k&#253;</span>
+                                            <span>Đăng nhập / Đăng ký</span>
 
                                         </a>
 
@@ -321,11 +321,11 @@
 
                                                     <ul class="navbar-nav">
 
-                                                        <li class="nav-item"><a class="nav-link" href="/thuong-hieu">Th&#432;&#417;ng hi&#7879;u</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/thuong-hieu">Thương hiệu</a></li>
 
-                                                        <li class="nav-item"><a class="nav-link" href="/">H&#224;ng m&#7899;i v&#7873;</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/">Hàng mới về</a></li>
 
-                                                        <li class="nav-item"><a class="nav-link" href="/">B&#225;n ch&#7841;y</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/">Bán chạy</a></li>
 
                                                        <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Blog</a>
@@ -356,7 +356,7 @@
                                             </ul>
                                         </li>
 
-                                                        <li class="nav-item"><a class="nav-link" href="/">Li&#234;n h&#7879;</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/">Liên hệ</a></li>
 
                                                     </ul>
 
@@ -376,7 +376,7 @@
 
                                                                 <li class="dropdown menu-item-has-children">
 
-                                                                    <a class="nav-link dropdown-toggle" href="/danh-muc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
+                                                                    <a class="nav-link dropdown-toggle" href="/danh-muc/<%# Eval("SeoSlug") %>" title="<%# Eval("CategoryName") %>"><%# Eval("CategoryName") %></a>
 
                                                                     <ul class="dropdown-menu">
 
@@ -386,7 +386,7 @@
 
                                                                                 <li class="dropdown menu-item-has-children">
 
-                                                                                    <a class="dropdown-item dropdown-toggle" href="/danh-muc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
+                                                                                    <a class="dropdown-item dropdown-toggle" href="/danh-muc/<%# Eval("SeoSlug") %>" title="<%# Eval("CategoryName") %>"><%# Eval("CategoryName") %></a>
 
                                                                                     <ul class="dropdown-menu">
 
@@ -396,7 +396,7 @@
 
                                                                                                 <li>
 
-                                                                                                    <a class="dropdown-item" href="/danh-muc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
+                                                                                                    <a class="dropdown-item" href="/danh-muc/<%# Eval("SeoSlug") %>" title="<%# Eval("CategoryName") %>"><%# Eval("CategoryName") %></a>
 
                                                                                                 </li>
 
@@ -436,7 +436,7 @@
 
                         </div>
 
-                        <a class="navbar-brand mobile-logo" href="/"><img class="nav-logo" src="/images/logo_ngang.png" alt="Beauty Story"></a>
+                        <a class="navbar-brand mobile-logo" href="/"><asp:Image ID="LogoStickyImage" runat="server" CssClass="nav-logo" AlternateText="Beauty Story" /></a>
 
                     </div>
 
@@ -448,7 +448,7 @@
 
                         <div class="form-inline search-pill-shape search-box">
 
-                            <input type="text" class="form-control search-field js-search-input" name="q" placeholder="T&#236;m s&#7843;n ph&#7849;m, th&#432;&#417;ng hi&#7879;u b&#7841;n mong mu&#7889;n...">
+                            <input type="text" class="form-control search-field js-search-input" name="q" placeholder="Tìm sản phẩm, thương hiệu bạn mong muốn...">
 
                             <button type="button" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
 
@@ -464,7 +464,7 @@
 
                     <div class="header-cart-4 d-flex justify-content-end">
 
-                        <a href="<%= ResolveUrl("~/gio-hang") %>" class="cart has-cart-data" title="Gi&#7887; h&#224;ng">
+                        <a href="<%= ResolveUrl("~/gio-hang") %>" class="cart has-cart-data" title="Giỏ hàng">
 
                             <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count"><asp:Literal ID="CartCountTextLiteralMobile" runat="server" /></span></div>
 

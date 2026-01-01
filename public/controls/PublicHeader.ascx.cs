@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Web;
+using System.Web.UI.HtmlControls;
 
 public partial class PublicHeader : System.Web.UI.UserControl
 {
@@ -8,8 +10,61 @@ public partial class PublicHeader : System.Web.UI.UserControl
     {
         if (!IsPostBack)
         {
+            BindContactInfo();
             BindCartCount();
             BindCategoryMenu();
+        }
+    }
+
+    private void BindContactInfo()
+    {
+        using (var db = new BeautyStoryContext())
+        {
+            var info = PublicCache.GetOrCreate("contact_info", 10, () => db.CfContactInfos
+                .Where(i => i.Status)
+                .OrderBy(i => i.SortOrder)
+                .ThenBy(i => i.Id)
+                .FirstOrDefault());
+
+            var address = info != null && !string.IsNullOrWhiteSpace(info.Address)
+                ? info.Address
+                : "143 \u0110\u01b0\u1eddng s\u1ed1 32-CL, Ph\u01b0\u1eddng C\u00e1t L\u00e1i, TP H\u1ed3 Ch\u00ed Minh, Vi\u1ec7t Nam";
+
+            var hotline = info != null && !string.IsNullOrWhiteSpace(info.Hotline)
+                ? info.Hotline
+                : "0828 409 096";
+
+            var email = info != null && !string.IsNullOrWhiteSpace(info.Email)
+                ? info.Email
+                : "beautystory0909@gmail.com";
+
+            AddressLiteral.Text = HttpUtility.HtmlEncode(address);
+            HotlineLiteral.Text = HttpUtility.HtmlEncode(hotline);
+            EmailLiteral.Text = HttpUtility.HtmlEncode(email);
+
+            if (HotlineLink != null)
+            {
+                HotlineLink.HRef = "tel:" + hotline.Replace(" ", string.Empty);
+            }
+
+            if (EmailLink != null)
+            {
+                EmailLink.HRef = "mailto:" + email;
+            }
+
+            var logoUrl = info != null && !string.IsNullOrWhiteSpace(info.LogoHorizontalUrl)
+                ? info.LogoHorizontalUrl
+                : "/images/logo_ngang.png";
+
+            if (LogoMainImage != null)
+            {
+                LogoMainImage.ImageUrl = ResolveUrl(logoUrl);
+            }
+
+            if (LogoStickyImage != null)
+            {
+                LogoStickyImage.ImageUrl = ResolveUrl(logoUrl);
+            }
         }
     }
 
