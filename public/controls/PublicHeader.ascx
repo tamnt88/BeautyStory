@@ -163,7 +163,7 @@
                                 <li class="nav-item"><a class="nav-link" href="/">Bán chạy</a></li>
 
                                 <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Blog</a>
+                                            <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Tin tức</a>
                                             <ul class="dropdown-menu">
                                                 <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-grid-modern.html">Blog Grid</a>
                                                     <ul class="dropdown-menu">
@@ -325,7 +325,7 @@
                                                         <li class="nav-item"><a class="nav-link" href="/">Bán chạy</a></li>
 
                                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Blog</a>
+                                            <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Tin tức</a>
                                             <ul class="dropdown-menu">
                                                 <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-grid-modern.html">Blog Grid</a>
                                                     <ul class="dropdown-menu">
