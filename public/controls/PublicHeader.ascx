@@ -283,7 +283,8 @@
 
                                         <a href="#" class="d-flex align-items-center text-white">
                                             <i class="fa-solid fa-phone"></i>&nbsp;Hotline:&nbsp;<asp:Literal ID="Literal1" runat="server" /></a>
-
+                                        |
+                                        <a href="<%= ResolveUrl("~/tra-cuu-don-hang") %>" title="Tra cứu đơn hàng"><i class="fa-solid fa-receipt"></i>&nbsp;Tra cứu đơn hàng</a>
 
                                         <span class="slide-nav-close"><i class="flaticon-cancel flat-mini text-white"></i></span>
 

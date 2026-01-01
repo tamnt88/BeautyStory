@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="BrandDefault" MasterPageFile="~/public/Public.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="BrandDefault" MasterPageFile="~/public/Public.master" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
     <asp:Literal ID="SeoTitleLiteral" runat="server" />

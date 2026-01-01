@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row g-4">
-            <aside class="col-lg-3">
+            <aside class="col-lg-3 order-2 order-lg-1">
                 <div class="category-sidebar">
                     <h6 class="mb-3 sidebar-heading"><i class="fa-solid fa-list"></i><span>Danh mục</span></h6>
                     <asp:Repeater ID="SidebarRepeater" runat="server">
@@ -104,7 +104,7 @@
                     </asp:Repeater>
                 </div>
             </aside>
-            <section class="col-lg-9">
+            <section class="col-lg-9 order-1 order-lg-2">
                 <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
                     <ol class="breadcrumb mb-2">
                         <asp:Literal ID="CategoryBreadcrumb" runat="server" />
