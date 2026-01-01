@@ -38,8 +38,8 @@ public partial class PublicHeader : System.Web.UI.UserControl
                 ? info.Email
                 : "beautystory0909@gmail.com";
 
-            AddressLiteral.Text = HttpUtility.HtmlEncode(address);
-            HotlineLiteral.Text = HttpUtility.HtmlEncode(hotline);
+            AddressLiteral.Text =  HttpUtility.HtmlEncode(address);
+            HotlineLiteral.Text = Literal1.Text = HttpUtility.HtmlEncode(hotline);
             EmailLiteral.Text = HttpUtility.HtmlEncode(email);
 
             if (HotlineLink != null)

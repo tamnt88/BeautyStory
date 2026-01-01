@@ -263,7 +263,7 @@
 
             <div class="row align-items-center">
 
-                <div class="col-xxl-2 col-xl-2 col-lg-3 col-6 order-lg-1">
+                <div class="col-xxl-2 col-xl-2 col-lg-3 col-12 order-lg-1">
 
                     <div class="d-flex align-items-center h-100 md-py-10">
 
@@ -281,13 +281,9 @@
 
                                     <div class="login-signup bg-secondary d-flex justify-content-between py-10 px-20 align-items-center">
 
-                                        <a href="/admin" class="d-flex align-items-center text-white">
+                                        <a href="#" class="d-flex align-items-center text-white">
+                                            <i class="fa-solid fa-phone"></i>&nbsp;Hotline:&nbsp;<asp:Literal ID="Literal1" runat="server" /></a>
 
-                                            <i class="flaticon-user flat-small me-1"></i>
-
-                                            <span>Đăng nhập / Đăng ký</span>
-
-                                        </a>
 
                                         <span class="slide-nav-close"><i class="flaticon-cancel flat-mini text-white"></i></span>
 
@@ -444,7 +440,7 @@
 
                 <div class="col-xxl-8 col-xl-8 col-lg-6 order-lg-2">
 
-                    <div class="product-search-one flex-grow-1 global-search py-10 px-15 w-100">
+                    <div class="product-search-one flex-grow-1 global-search py-10 px-15 w-70">
 
                         <div class="form-inline search-pill-shape search-box">
 
@@ -457,22 +453,14 @@
                         </div>
 
                     </div>
-
-                </div>
-
-                <div class="col-xxl-2 col-xl-2 col-lg-3 col-6 order-lg-3">
-
-                    <div class="header-cart-4 d-flex justify-content-end">
-
+                    <div class="header-cart-4 product-search-one-cart">
                         <a href="<%= ResolveUrl("~/gio-hang") %>" class="cart has-cart-data" title="Giỏ hàng">
-
                             <div class="cart-icon"><i class="flaticon-shopping-cart flat-small"></i> <span class="header-cart-count"><asp:Literal ID="CartCountTextLiteralMobile" runat="server" /></span></div>
-
                         </a>
-
                     </div>
-
                 </div>
+
+                
 
             </div>
 

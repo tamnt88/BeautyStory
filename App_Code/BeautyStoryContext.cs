@@ -47,6 +47,10 @@ public class BeautyStoryContext : DbContext
     public DbSet<CfBanner> CfBanners { get; set; }
     public DbSet<CfBrandShowcase> CfBrandShowcases { get; set; }
     public DbSet<CfBrandShowcaseBanner> CfBrandShowcaseBanners { get; set; }
+    public DbSet<CfPostCategory> CfPostCategories { get; set; }
+    public DbSet<CfPost> CfPosts { get; set; }
+    public DbSet<CfPostTag> CfPostTags { get; set; }
+    public DbSet<CfPostTagMap> CfPostTagMaps { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
@@ -176,6 +180,12 @@ public class BeautyStoryContext : DbContext
             .HasRequired(b => b.Showcase)
             .WithMany(s => s.Banners)
             .HasForeignKey(b => b.ShowcaseId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfPostCategory>()
+            .HasOptional(c => c.Parent)
+            .WithMany(p => p.Children)
+            .HasForeignKey(c => c.ParentId)
             .WillCascadeOnDelete(false);
     }
 }
