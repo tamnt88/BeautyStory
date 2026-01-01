@@ -43,6 +43,7 @@ public class BeautyStoryContext : DbContext
     public DbSet<CfEmailAccount> CfEmailAccounts { get; set; }
     public DbSet<CfSocialLink> CfSocialLinks { get; set; }
     public DbSet<CfTrackingCode> CfTrackingCodes { get; set; }
+    public DbSet<CfFooterMenu> CfFooterMenus { get; set; }
     public DbSet<CfBanner> CfBanners { get; set; }
     public DbSet<CfBrandShowcase> CfBrandShowcases { get; set; }
     public DbSet<CfBrandShowcaseBanner> CfBrandShowcaseBanners { get; set; }

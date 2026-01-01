@@ -72,7 +72,7 @@
 <footer class="full-row bg-dark">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <div class="footer-widget mb-5">
                     <div class="footer-logo mb-4">
                         <a href="<%= ResolveUrl("~/") %>"><img src="<%= ResolveUrl("~/images/logo_doc.png") %>" alt="Beauty Story" /></a>
@@ -91,42 +91,22 @@
                     <a href="#"><i class="fab fa-pinterest-p"></i></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-widget category-widget mb-5">
-                    <h6 class="widget-title mb-4">Dịch vụ</h6>
-                    <ul>
-                        <li><a href="#">Hướng dẫn lắp ráp</a></li>
-                        <li><a href="#">Gói nội thất</a></li>
-                        <li><a href="#">Chương trình thương mại</a></li>
-                        <li><a href="#">Doanh thu</a></li>
-                        <li><a href="#">Thiết kế mới</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-widget category-widget mb-5">
-                    <h6 class="widget-title mb-4 xs-mx-none">Trang website</h6>
-                    <ul>
-                        <li><a href="#">Về chúng tôi</a></li>
-                        <li><a href="#">Hỗ trợ</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                        <li><a href="#">So sánh</a></li>
-                        <li><a href="#">Câu hỏi thường gặp</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="footer-widget widget-nav mb-5">
-                    <h6 class="widget-title mb-4">Hỗ trợ</h6>
-                    <ul>
-                        <li><a href="#">Tài khoản của tôi</a></li>
-                        <li><a href="#">Theo dõi đơn hàng của bạn</a></li>
-                        <li><a href="#">Dịch vụ khách hàng</a></li>
-                        <li><a href="#">Trả hàng/Đổi hàng</a></li>
-                        <li><a href="#">Hỗ trợ sản phẩm</a></li>
-                    </ul>
-                </div>
-            </div>
+            <asp:Repeater ID="FooterGroupRepeater" runat="server" OnItemDataBound="FooterGroupRepeater_ItemDataBound">
+                <ItemTemplate>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget category-widget mb-5">
+                            <h6 class="widget-title mb-4"><%# Eval("GroupName") %></h6>
+                            <ul>
+                                <asp:Repeater ID="FooterItemRepeater" runat="server">
+                                    <ItemTemplate>
+                                        <li><a href="<%# GetFooterUrl(Eval("Url")) %>"><%# Eval("Title") %></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
 </footer>

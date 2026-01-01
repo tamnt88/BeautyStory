@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="edit.aspx.cs" Inherits="AdminProductsEdit" MasterPageFile="~/admin/admin.master" ValidateRequest="false" ResponseEncoding="utf-8" Culture="vi-VN" UICulture="vi-VN" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="edit.aspx.cs" Inherits="AdminProductsEdit" MasterPageFile="~/admin/admin.master" ValidateRequest="false" ContentType="text/html; charset=utf-8" CodePage="65001" Culture="vi-VN" UICulture="vi-VN" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="PageTitle" runat="server">
 
@@ -555,7 +555,7 @@
                             <div class="d-flex align-items-center gap-2 mt-2">
                                 <span class="text-muted small">Hi&#7879;n t&#7841;i</span>
                                 <asp:LinkButton ID="OgRemoveButton" runat="server" CssClass="btn btn-sm btn-outline-danger btn-with-icon" OnClick="OgRemoveButton_Click">
-                                    <i class="fa-solid fa-trash"></i> Xa
+                                    <i class="fa-solid fa-trash"></i> X?a
                                 </asp:LinkButton>
                             </div>
                             <asp:Image ID="OgImagePreview" runat="server" CssClass="img-thumbnail mt-2 category-preview" Visible="false" />
@@ -572,7 +572,7 @@
                                 <div class="d-flex align-items-center gap-2 mt-2">
                                     <span class="text-muted small">Hi&#7879;n t&#7841;i</span>
                                     <asp:LinkButton ID="TwitterRemoveButton" runat="server" CssClass="btn btn-sm btn-outline-danger btn-with-icon" OnClick="TwitterRemoveButton_Click">
-                                        <i class="fa-solid fa-trash"></i> Xa
+                                        <i class="fa-solid fa-trash"></i> X?a
                                     </asp:LinkButton>
                                 </div>
                                 <asp:Image ID="TwitterImagePreview" runat="server" CssClass="img-thumbnail mt-2 category-preview" Visible="false" />

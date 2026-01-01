@@ -1159,7 +1159,13 @@ body {
     cursor: not-allowed;
     opacity: 0.8;
 }
-
+#MainContent_CartPanel .cart-row .price-original {
+    color: #b7a99a;
+    text-decoration: line-through;
+    font-weight: normal;
+    margin-left: 6px;
+    font-size: 16px;
+}
 .product-detail .product-summary {
     color: #6c5b4b;
     background: transparent;
