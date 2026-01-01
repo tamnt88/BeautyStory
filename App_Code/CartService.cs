@@ -37,10 +37,39 @@ public static class CartService
         if (existing != null)
         {
             existing.Quantity += quantity;
+            IncrementAddToCartCount(variantId, quantity);
             return;
         }
 
         cart.Add(new CartItem { VariantId = variantId, Quantity = quantity });
+        IncrementAddToCartCount(variantId, quantity);
+    }
+
+    private static void IncrementAddToCartCount(int variantId, int quantity)
+    {
+        try
+        {
+            using (var db = new BeautyStoryContext())
+            {
+                var variant = db.CfProductVariants.FirstOrDefault(v => v.Id == variantId);
+                if (variant == null)
+                {
+                    return;
+                }
+
+                var product = db.CfProducts.FirstOrDefault(p => p.Id == variant.ProductId);
+                if (product == null)
+                {
+                    return;
+                }
+
+                product.AddToCartCount += quantity;
+                db.SaveChanges();
+            }
+        }
+        catch
+        {
+        }
     }
 
     public static void UpdateQuantities(Dictionary<int, int> quantities)

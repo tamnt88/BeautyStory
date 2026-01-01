@@ -38,7 +38,7 @@ public partial class CheckoutDefault : System.Web.UI.Page
         using (var db = new BeautyStoryContext())
         {
             var provinces = db.CfProvinces
-                .OrderBy(p => p.ProvinceName)
+                .OrderBy(p => p.SortOrder)
                 .Select(p => new { p.Id, p.ProvinceName })
                 .ToList();
 

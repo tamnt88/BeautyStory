@@ -50,6 +50,7 @@
         $four_carousel = $('.four-carousel'),
         $five_carousel = $('.five-carousel'),
         $five_carousel2 = $('.five-carousel2'),
+        $new_arrival_carousel = $('.new-arrival-carousel'),
         $six_carousel = $('.six-carousel'),
         $eight_carousel = $('.eight-carousel'),
         $ten_carousel = $('.ten-carousel'),
@@ -811,6 +812,41 @@
                 },
                 1200: {
                     items: 5
+                }
+            }
+        });
+    }
+    // New arrival slide (5.5 items)
+    if ($new_arrival_carousel.length) {
+        $new_arrival_carousel.owlCarousel({
+            loop: false,
+            nav: true,
+            navText: ["<div class='nav-btn prev-slide'><i class='fas fa-chevron-left'></i></div>", "<div class='nav-btn next-slide'><i class='fas fa-chevron-right'></i></div>"],
+            dots: false,
+            smartSpeed: 500,
+            autoplay: false,
+            margin: 16,
+            stagePadding: 40,
+            responsive: {
+                0: {
+                    items: 1,
+                    stagePadding: 16
+                },
+                576: {
+                    items: 2,
+                    stagePadding: 24
+                },
+                768: {
+                    items: 3,
+                    stagePadding: 32
+                },
+                992: {
+                    items: 4,
+                    stagePadding: 36
+                },
+                1200: {
+                    items: 5,
+                    stagePadding: 40
                 }
             }
         });

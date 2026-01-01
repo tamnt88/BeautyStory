@@ -44,6 +44,8 @@ public class BeautyStoryContext : DbContext
     public DbSet<CfSocialLink> CfSocialLinks { get; set; }
     public DbSet<CfTrackingCode> CfTrackingCodes { get; set; }
     public DbSet<CfBanner> CfBanners { get; set; }
+    public DbSet<CfBrandShowcase> CfBrandShowcases { get; set; }
+    public DbSet<CfBrandShowcaseBanner> CfBrandShowcaseBanners { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
@@ -167,6 +169,12 @@ public class BeautyStoryContext : DbContext
             .HasRequired(h => h.Order)
             .WithMany(o => o.Histories)
             .HasForeignKey(h => h.OrderId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfBrandShowcaseBanner>()
+            .HasRequired(b => b.Showcase)
+            .WithMany(s => s.Banners)
+            .HasForeignKey(b => b.ShowcaseId)
             .WillCascadeOnDelete(false);
     }
 }

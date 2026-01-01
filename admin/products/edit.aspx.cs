@@ -44,7 +44,7 @@ public partial class AdminProductsEdit : AdminBasePage
                 .ToList();
 
             CategoryInput.Items.Clear();
-            CategoryInput.Items.Add(new ListItem("-- Chon danh muc --", ""));
+            CategoryInput.Items.Add(new ListItem("-- Chọn danh mục --", ""));
             AddCategoryOptions(CategoryInput, categories, null, 0);
 
             var brands = db.CfBrands
@@ -104,7 +104,7 @@ public partial class AdminProductsEdit : AdminBasePage
         {
             FilterGroupRepeater.DataSource = null;
             FilterGroupRepeater.DataBind();
-            FilterMessage.Text = "Vui long chon danh muc de hien bo loc.";
+            FilterMessage.Text = "Vui lòng chọn danh mục để hiển thị bộ lọc.";
             return;
         }
 
@@ -173,7 +173,7 @@ public partial class AdminProductsEdit : AdminBasePage
 
             if (!hasMapping)
             {
-                FilterMessage.Text = "Danh muc chua duoc gan bo loc. Dang hien tat ca bo loc.";
+                FilterMessage.Text = "Danh mục chưa được gán bộ lọc. Đang hiển thị tất cả bộ lọc.";
             }
         }
     }
@@ -202,6 +202,9 @@ public partial class AdminProductsEdit : AdminBasePage
         string canonicalUrl = (CanonicalUrlInput.Text ?? string.Empty).Trim();
         string robots = (RobotsInput.Text ?? string.Empty).Trim();
         string sortText = (SortOrderInput.Text ?? string.Empty).Trim();
+        bool isNewArrival = NewArrivalInput.Checked;
+        bool isTrending = TrendingInput.Checked;
+        bool isBestSelling = BestSellingInput.Checked;
         bool status = StatusInput.Checked;
 
         if (string.IsNullOrWhiteSpace(name))
@@ -286,6 +289,9 @@ public partial class AdminProductsEdit : AdminBasePage
             product.CanonicalUrl = string.IsNullOrWhiteSpace(canonicalUrl) ? null : canonicalUrl;
             product.Robots = string.IsNullOrWhiteSpace(robots) ? null : robots;
             product.SortOrder = sortOrder;
+            product.IsNewArrival = isNewArrival;
+            product.IsTrending = isTrending;
+            product.IsBestSelling = isBestSelling;
             product.Status = status;
             product.UpdatedAt = DateTime.UtcNow;
             product.UpdatedBy = Session["AdminUsername"] != null ? Session["AdminUsername"].ToString() : null;
@@ -361,14 +367,14 @@ public partial class AdminProductsEdit : AdminBasePage
         int productId;
         if (!int.TryParse(ProductId.Value, out productId) || productId <= 0)
         {
-            FilterMessage.Text = "Vui long luu san pham truoc khi chon bo loc.";
+            FilterMessage.Text = "Vui lòng lưu sản phẩm trước khi chọn bộ lọc.";
             return;
         }
 
         int categoryId;
         if (!int.TryParse(CategoryInput.SelectedValue, out categoryId) || categoryId <= 0)
         {
-            FilterMessage.Text = "Vui long chon danh muc.";
+            FilterMessage.Text = "Vui lòng chọn danh mục.";
             return;
         }
 
@@ -430,7 +436,7 @@ public partial class AdminProductsEdit : AdminBasePage
         }
 
         FilterMessage.CssClass = "text-success small d-block mb-2";
-        FilterMessage.Text = "&#272;&#227; l&#432;u b&#7897; l&#7885;c th&#224;nh c&#244;ng.";
+        FilterMessage.Text = "Đã lưu bộ lọc thành công.";
         BindFilterGroups();
     }
 
@@ -441,7 +447,7 @@ public partial class AdminProductsEdit : AdminBasePage
         int attrId;
         if (!int.TryParse(MatrixAttributeSelect.SelectedValue, out attrId) || attrId <= 0)
         {
-            MatrixMessage.Text = "Vui l&#242;ng ch&#7885;n thu&#7897;c t&#237;nh.";
+            MatrixMessage.Text = "Vui lòng chọn thuộc tính.";
             return;
         }
 
@@ -452,20 +458,20 @@ public partial class AdminProductsEdit : AdminBasePage
 
         if (selectedValueIds.Count == 0)
         {
-            MatrixMessage.Text = "Vui l&#242;ng ch&#7885;n gi&#225; tr&#7883; thu&#7897;c t&#237;nh.";
+            MatrixMessage.Text = "Vui lòng chọn giá trị thuộc tính.";
             return;
         }
 
         var selectedAttrIds = ParseSelectedAttributeIds();
         if (selectedAttrIds.Contains(attrId))
         {
-            MatrixMessage.Text = "Thu&#7897;c t&#237;nh &#273;&#227; &#273;&#432;&#7907;c ch&#7885;n.";
+            MatrixMessage.Text = "Thuộc tính đã được chọn.";
             return;
         }
 
         if (selectedAttrIds.Count >= 5)
         {
-            MatrixMessage.Text = "T&#7889;i &#273;a 5 thu&#7897;c t&#237;nh cho m&#7897;t matrix.";
+            MatrixMessage.Text = "Tối đa 5 thuộc tính cho một matrix.";
             return;
         }
 
@@ -565,7 +571,7 @@ public partial class AdminProductsEdit : AdminBasePage
         int productId;
         if (!int.TryParse(ProductId.Value, out productId) || productId <= 0)
         {
-            MatrixMessage.Text = "Vui l&#242;ng l&#432;u s&#7843;n ph&#7849;m tr&#432;&#7899;c khi t&#7841;o bi&#7871;n th&#7875;.";
+            MatrixMessage.Text = "Vui lòng lưu sản phẩm trước khi tạo biến thể.";
             return;
         }
 
@@ -573,13 +579,13 @@ public partial class AdminProductsEdit : AdminBasePage
 
         if (selectedAttrIds.Count == 0)
         {
-            MatrixMessage.Text = "Vui l&#242;ng ch&#7885;n &#237;t nh&#7845;t 1 thu&#7897;c t&#237;nh.";
+            MatrixMessage.Text = "Vui lòng chọn ít nhất 1 thuộc tính.";
             return;
         }
 
         if (selectedAttrIds.Count > 5)
         {
-            MatrixMessage.Text = "T&#7889;i &#273;a 5 thu&#7897;c t&#237;nh cho m&#7897;t matrix.";
+            MatrixMessage.Text = "Tối đa 5 thuộc tính cho một matrix.";
             return;
         }
 
@@ -678,7 +684,7 @@ public partial class AdminProductsEdit : AdminBasePage
         }
 
         MatrixMessage.CssClass = "text-success small d-block mb-2";
-        MatrixMessage.Text = "L&#432;u bi&#7871;n th&#7875; theo matrix th&#224;nh c&#244;ng.";
+        MatrixMessage.Text = "Lưu biến thể theo matrix thành công.";
         BindVariants();
         BindMatrixRows();
     }
@@ -952,6 +958,9 @@ public partial class AdminProductsEdit : AdminBasePage
             CanonicalUrlInput.Text = product.CanonicalUrl;
             RobotsInput.Text = product.Robots;
             SortOrderInput.Text = product.SortOrder.ToString();
+            NewArrivalInput.Checked = product.IsNewArrival;
+            TrendingInput.Checked = product.IsTrending;
+            BestSellingInput.Checked = product.IsBestSelling;
             StatusInput.Checked = product.Status;
 
             var slug = db.CfSeoSlugs.FirstOrDefault(s => s.EntityType == "Product" && s.EntityId == product.Id);
@@ -1053,7 +1062,7 @@ public partial class AdminProductsEdit : AdminBasePage
                 .ToList();
 
             MatrixAttributeSelect.Items.Clear();
-            MatrixAttributeSelect.Items.Add(new ListItem(HttpUtility.HtmlDecode("-- Ch&#7885;n thu&#7897;c t&#237;nh --"), ""));
+            MatrixAttributeSelect.Items.Add(new ListItem(HttpUtility.HtmlDecode("-- Chọn thuộc tính. --"), ""));
 
             foreach (var item in attributes)
             {
@@ -1245,13 +1254,13 @@ public partial class AdminProductsEdit : AdminBasePage
 
         if (selectedAttrIds.Count == 0)
         {
-            MatrixMessage.Text = "Vui l&#242;ng ch&#7885;n &#237;t nh&#7845;t 1 thu&#7897;c t&#237;nh.";
+            MatrixMessage.Text = "Vui lòng chọn ít nhất 1 thuộc tính.";
             return;
         }
 
         if (selectedAttrIds.Count > 5)
         {
-            MatrixMessage.Text = "T&#7889;i &#273;a 5 thu&#7897;c t&#237;nh cho m&#7897;t matrix.";
+            MatrixMessage.Text = "Tối đa 5 thuộc tính cho một matrix.";
             return;
         }
 
@@ -1291,7 +1300,7 @@ public partial class AdminProductsEdit : AdminBasePage
 
         if (valueIdsByAttr.Any(list => list.Count == 0))
         {
-            MatrixMessage.Text = "Vui l&#242;ng ch&#7885;n gi&#225; tr&#7883; cho t&#7845;t c&#7843; thu&#7897;c t&#237;nh.";
+            MatrixMessage.Text = "Vui lòng chọn giá trị cho tất cả thuộc tính.";
             MatrixRepeater.DataSource = null;
             MatrixRepeater.DataBind();
             return;
@@ -1847,6 +1856,9 @@ public partial class AdminProductsEdit : AdminBasePage
         CanonicalUrlInput.Text = string.Empty;
         RobotsInput.Text = string.Empty;
         SortOrderInput.Text = "0";
+        NewArrivalInput.Checked = false;
+        TrendingInput.Checked = false;
+        BestSellingInput.Checked = false;
         StatusInput.Checked = true;
         FormMessage.Text = string.Empty;
         FormMessage.CssClass = "text-danger small d-block mb-2";

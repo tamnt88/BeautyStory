@@ -248,7 +248,7 @@ public partial class ProductDefault : System.Web.UI.Page
         string twitterDescription = !string.IsNullOrWhiteSpace(product.TwitterDescription) ? product.TwitterDescription : description;
         string twitterImage = !string.IsNullOrWhiteSpace(product.TwitterImage) ? product.TwitterImage : ogImage;
 
-        SeoTitleLiteral.Text = HttpUtility.HtmlEncode(title) + " | Beauty Story";
+        SeoTitleLiteral.Text = (title) + " | Beauty Story";//HttpUtility.HtmlEncode(title) + " | Beauty Story";
 
         SeoMetaLiteral.Text = string.Format(
             "<meta name=\"description\" content=\"{0}\" />\n<meta name=\"keywords\" content=\"{1}\" />\n<meta name=\"robots\" content=\"{2}\" />\n<link rel=\"canonical\" href=\"{3}\" />\n",

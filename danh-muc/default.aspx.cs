@@ -128,7 +128,7 @@ public partial class CategoryDefault : System.Web.UI.Page
             string twitterDescription = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.TwitterDescription) ? activeCategory.TwitterDescription : description;
             string twitterImage = activeCategory != null && !string.IsNullOrWhiteSpace(activeCategory.TwitterImage) ? activeCategory.TwitterImage : bannerUrl;
 
-            SeoTitleLiteral.Text = HttpUtility.HtmlEncode(title + " | Beauty Story");
+            SeoTitleLiteral.Text = title + " | Beauty Story";// HttpUtility.HtmlEncode(title + " | Beauty Story");
             SeoMetaLiteral.Text = string.Join(Environment.NewLine, BuildSeoMeta(canonical, description, keywords, robots, ogTitle, ogDescription, ogImage, ogType, twitterTitle, twitterDescription, twitterImage));
 
             var categoryIds = new List<int> { _activeCategoryId };

@@ -71,6 +71,16 @@ public class CfProduct
     [StringLength(50)]
     public string Robots { get; set; }
 
+    public bool IsNewArrival { get; set; }
+
+    public bool IsTrending { get; set; }
+
+    public bool IsBestSelling { get; set; }
+
+    public int ViewCount { get; set; }
+
+    public int AddToCartCount { get; set; }
+
     public bool Status { get; set; }
 
     public DateTime CreatedAt { get; set; }

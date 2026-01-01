@@ -1,19 +1,30 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="edit.aspx.cs" Inherits="AdminProductsEdit" MasterPageFile="~/admin/admin.master" ValidateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="edit.aspx.cs" Inherits="AdminProductsEdit" MasterPageFile="~/admin/admin.master" ValidateRequest="false" ResponseEncoding="utf-8" Culture="vi-VN" UICulture="vi-VN" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="PageTitle" runat="server">
+
     Thêm / Sửa sản phẩm
+
 </asp:Content>
 <asp:Content ID="HeadingContent" ContentPlaceHolderID="PageHeading" runat="server">
+
     Thêm / Sửa sản phẩm
+
 </asp:Content>
 <asp:Content ID="SubHeadingContent" ContentPlaceHolderID="PageSubHeading" runat="server">
+
     Cập nhật thông tin sản phẩm
+
 </asp:Content>
 <asp:Content ID="BreadcrumbContent" ContentPlaceHolderID="PageBreadcrumb" runat="server">
+
     <li class="breadcrumb-item"><a href="/admin/default.aspx">Trang chủ</a></li>
+
     <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
+
     <li class="breadcrumb-item"><a href="/admin/products/default.aspx">Danh sách sản phẩm</a></li>
+
     <li class="breadcrumb-item active" aria-current="page">Cập nhật</li>
+
 </asp:Content>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="/admin/assets/vendor/select2/select2.min.css" rel="stylesheet" />
@@ -29,19 +40,19 @@
 
                 <ul class="nav nav-tabs" id="productTab" role="tablist">
     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="tab-basic" data-bs-toggle="tab" data-bs-target="#tab-basic-pane" type="button" role="tab"><i class="fa-solid fa-circle-info"></i> C&#417; b&#7843;n</button>
+                        <button class="nav-link active" id="tab-basic" data-bs-toggle="tab" data-bs-target="#tab-basic-pane" type="button" role="tab"><i class="fa-solid fa-circle-info"></i> Cơ bản</button>
     </li>
     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-content" data-bs-toggle="tab" data-bs-target="#tab-content-pane" type="button" role="tab"><i class="fa-solid fa-align-left"></i> N&#7897;i dung</button>
+                        <button class="nav-link" id="tab-content" data-bs-toggle="tab" data-bs-target="#tab-content-pane" type="button" role="tab"><i class="fa-solid fa-align-left"></i> Nội dung</button>
     </li>
     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-images" data-bs-toggle="tab" data-bs-target="#tab-images-pane" type="button" role="tab"><i class="fa-regular fa-image"></i> H&#236;nh &#7843;nh</button>
+                        <button class="nav-link" id="tab-images" data-bs-toggle="tab" data-bs-target="#tab-images-pane" type="button" role="tab"><i class="fa-regular fa-image"></i> Hình ảnh</button>
     </li>
     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-variants" data-bs-toggle="tab" data-bs-target="#tab-variants-pane" type="button" role="tab"><i class="fa-solid fa-layer-group"></i> Bi&#7871;n th&#7875;</button>
+                        <button class="nav-link" id="tab-variants" data-bs-toggle="tab" data-bs-target="#tab-variants-pane" type="button" role="tab"><i class="fa-solid fa-layer-group"></i> Biến thể</button>
     </li>
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="tab-filters" data-bs-toggle="tab" data-bs-target="#tab-filters-pane" type="button" role="tab"><i class="fa-solid fa-filter"></i> B&#7897; l&#7885;c</button>
+        <button class="nav-link" id="tab-filters" data-bs-toggle="tab" data-bs-target="#tab-filters-pane" type="button" role="tab"><i class="fa-solid fa-filter"></i> Bộ lọc</button>
     </li>
     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="tab-seo" data-bs-toggle="tab" data-bs-target="#tab-seo-pane" type="button" role="tab"><i class="fa-solid fa-magnifying-glass"></i> SEO</button>
@@ -50,7 +61,7 @@
                         <button class="nav-link" id="tab-social" data-bs-toggle="tab" data-bs-target="#tab-social-pane" type="button" role="tab"><i class="fa-solid fa-share-nodes"></i> Social</button>
     </li>
     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-setting" data-bs-toggle="tab" data-bs-target="#tab-setting-pane" type="button" role="tab"><i class="fa-solid fa-gear"></i> Thi&#7871;t l&#7853;p</button>
+                        <button class="nav-link" id="tab-setting" data-bs-toggle="tab" data-bs-target="#tab-setting-pane" type="button" role="tab"><i class="fa-solid fa-gear"></i> Thiết lập</button>
     </li>
 </ul>
 
@@ -94,7 +105,7 @@
                             <asp:TextBox ID="IngredientsInput" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Hướng dẫn sử dụng</label>
+                            <label class="form-label">H&#432;&#7899;ng d&#7851;n s&#7917; d&#7909;ng</label>
                             <asp:TextBox ID="UsageInput" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                         </div>
                     </div>
@@ -103,7 +114,7 @@
                         <div class="row g-3">
                             <div class="col-lg-6">
                                 <div class="card-kpi p-3 bg-white h-100">
-                                    <h6 class="mb-3 section-title">H&#236;nh &#7843;nh s&#7843;n ph&#7849;m</h6>
+                                    <h6 class="mb-3 section-title">Th&#244;ng tin s&#7843;n ph&#7849;m</h6>
                                     <asp:Label ID="ImageMessage" runat="server" CssClass="text-danger small d-block mb-2"></asp:Label>
                                     <div class="row g-2">
                                         <div class="col-12">
@@ -139,7 +150,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="card-kpi p-3 bg-white h-100">
-                                    <h6 class="mb-3 section-title">Danh s&#225;ch &#7843;nh</h6>
+                                    <h6 class="mb-3 section-title">Th&#244;ng tin s&#7843;n ph&#7849;m</h6>
                                     <div class="table-responsive">
                                         <asp:Repeater ID="ImageRepeater" runat="server" OnItemCommand="ImageRepeater_ItemCommand">
                                             <HeaderTemplate>
@@ -165,7 +176,7 @@
                                                         <asp:LinkButton ID="ImageSetPrimaryButton" runat="server" CssClass="btn btn-sm btn-outline-success btn-with-icon" CommandName="SetPrimary" CommandArgument='<%# Eval("Id") %>'>
                                                             <i class="fa-solid fa-star"></i> Ch&#237;nh
                                                         </asp:LinkButton>
-                                                        <asp:LinkButton ID="ImageDeleteButton" runat="server" CssClass="btn btn-sm btn-outline-danger btn-with-icon" CommandName="DeleteImage" CommandArgument='<%# Eval("Id") %>' OnClientClick="return confirm('X?a ?nh n?y?');">
+                                                        <asp:LinkButton ID="ImageDeleteButton" runat="server" CssClass="btn btn-sm btn-outline-danger btn-with-icon" CommandName="DeleteImage" CommandArgument='<%# Eval("Id") %>' OnClientClick="return confirm('X&#243;a &#7843;nh n&#224;y?');">
                                                             <i class="fa-solid fa-trash"></i> X&#243;a
                                                         </asp:LinkButton>
                                                     </td>
@@ -182,7 +193,7 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-variants-pane" role="tabpanel">
-                        <h6 class="mb-3 section-title">Matrix bi&#7871;n th&#7875;</h6>
+                        <h6 class="mb-3 section-title">Th&#244;ng tin s&#7843;n ph&#7849;m</h6>
                         <asp:Label ID="MatrixMessage" runat="server" CssClass="text-danger small d-block mb-2"></asp:Label>
                         <asp:HiddenField ID="ActiveTabInput" runat="server" />
                         <div class="row g-3 align-items-stretch">
@@ -287,7 +298,7 @@
                             <div class="row g-3">
                                 <div class="col-lg-4">
                                     <div class="card-kpi p-3 bg-white h-100">
-                                        <h6 class="mb-3 section-title">Th&#234;m / S&#7917;a bi&#7871;n th&#7875;</h6>
+                                        <h6 class="mb-3 section-title">Th&#244;ng tin s&#7843;n ph&#7849;m</h6>
                                         <asp:Label ID="VariantMessage" runat="server" CssClass="text-danger small d-block mb-2"></asp:Label>
                                         <asp:HiddenField ID="VariantEditId" runat="server" />
                                         <div class="mb-3">
@@ -334,7 +345,7 @@
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="card-kpi p-3 bg-white h-100">
-                                        <h6 class="mb-3 section-title">Danh s&#225;ch bi&#7871;n th&#7875;</h6>
+                                        <h6 class="mb-3 section-title">Th&#244;ng tin s&#7843;n ph&#7849;m</h6>
                                         <asp:Repeater ID="VariantRepeater" runat="server" OnItemCommand="VariantRepeater_ItemCommand">
                                             <HeaderTemplate>
                                                 <div class="menu-table">
@@ -381,7 +392,7 @@
                             <div class="row g-3 mt-3">
                                 <div class="col-lg-4">
                                     <div class="card-kpi p-3 bg-white h-100">
-                                        <h6 class="mb-3 section-title">Thu&#7897;c t&#237;nh bi&#7871;n th&#7875;</h6>
+                                        <h6 class="mb-3 section-title">Th&#244;ng tin s&#7843;n ph&#7849;m</h6>
                                         <asp:Label ID="VariantAttrMessage" runat="server" CssClass="text-danger small d-block mb-2"></asp:Label>
                                         <asp:HiddenField ID="VariantAttrEditId" runat="server" />
                                         <div class="mb-3">
@@ -420,7 +431,7 @@
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="card-kpi p-3 bg-white h-100">
-                                        <h6 class="mb-3 section-title">Danh s&#225;ch thu&#7897;c t&#237;nh</h6>
+                                        <h6 class="mb-3 section-title">Th&#244;ng tin s&#7843;n ph&#7849;m</h6>
                                         <asp:Repeater ID="VariantAttrRepeater" runat="server" OnItemCommand="VariantAttrRepeater_ItemCommand">
                                             <HeaderTemplate>
                                                 <div class="menu-table">
@@ -542,9 +553,9 @@
                             <asp:FileUpload ID="OgImageUpload" runat="server" CssClass="form-control" />
                             <asp:HiddenField ID="OgImageValue" runat="server" />
                             <div class="d-flex align-items-center gap-2 mt-2">
-                                <span class="text-muted small">Hiện tại</span>
+                                <span class="text-muted small">Hi&#7879;n t&#7841;i</span>
                                 <asp:LinkButton ID="OgRemoveButton" runat="server" CssClass="btn btn-sm btn-outline-danger btn-with-icon" OnClick="OgRemoveButton_Click">
-                                    <i class="fa-solid fa-trash"></i> Xóa
+                                    <i class="fa-solid fa-trash"></i> Xa
                                 </asp:LinkButton>
                             </div>
                             <asp:Image ID="OgImagePreview" runat="server" CssClass="img-thumbnail mt-2 category-preview" Visible="false" />
@@ -559,9 +570,9 @@
                                 <asp:FileUpload ID="TwitterImageUpload" runat="server" CssClass="form-control" />
                                 <asp:HiddenField ID="TwitterImageValue" runat="server" />
                                 <div class="d-flex align-items-center gap-2 mt-2">
-                                    <span class="text-muted small">Hiện tại</span>
+                                    <span class="text-muted small">Hi&#7879;n t&#7841;i</span>
                                     <asp:LinkButton ID="TwitterRemoveButton" runat="server" CssClass="btn btn-sm btn-outline-danger btn-with-icon" OnClick="TwitterRemoveButton_Click">
-                                        <i class="fa-solid fa-trash"></i> Xóa
+                                        <i class="fa-solid fa-trash"></i> Xa
                                     </asp:LinkButton>
                                 </div>
                                 <asp:Image ID="TwitterImagePreview" runat="server" CssClass="img-thumbnail mt-2 category-preview" Visible="false" />
@@ -576,13 +587,27 @@
                     <div class="tab-pane fade" id="tab-setting-pane" role="tabpanel">
                         <div class="row g-2 align-items-end">
                             <div class="col-md-4">
-                                <label class="form-label">Thứ tự</label>
+                                <label class="form-label">Th&#7913; t&#7921;</label>
                                 <asp:TextBox ID="SortOrderInput" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
                             </div>
-                            <div class="col-md-8">
+                                                        <div class="col-md-8">
+                                <div class="d-flex flex-wrap gap-3 mb-2">
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="NewArrivalInput" runat="server" CssClass="form-check-input" />
+                                        <label class="form-check-label" for="<%= NewArrivalInput.ClientID %>">New Arrival</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="TrendingInput" runat="server" CssClass="form-check-input" />
+                                        <label class="form-check-label" for="<%= TrendingInput.ClientID %>">Trending</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="BestSellingInput" runat="server" CssClass="form-check-input" />
+                                        <label class="form-check-label" for="<%= BestSellingInput.ClientID %>">Best Selling</label>
+                                    </div>
+                                </div>
                                 <div class="form-check mb-2">
                                     <asp:CheckBox ID="StatusInput" runat="server" CssClass="form-check-input" Checked="true" />
-                                    <label class="form-check-label" for="<%= StatusInput.ClientID %>">Hiển thị</label>
+                                    <label class="form-check-label" for="<%= StatusInput.ClientID %>">Hi&#7875;n th&#7883;</label>
                                 </div>
                             </div>
                         </div>
@@ -591,7 +616,7 @@
 
                 <div class="d-flex gap-2 mt-3">
                     <asp:LinkButton ID="SaveButton" runat="server" CssClass="btn btn-primary btn-with-icon" OnClick="SaveButton_Click">
-                        <i class="fa-solid fa-floppy-disk"></i> Lưu
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lại
                     </asp:LinkButton>
                     <asp:LinkButton ID="ResetButton" runat="server" CssClass="btn btn-outline-secondary btn-with-icon" OnClick="ResetButton_Click">
                         <i class="fa-solid fa-rotate-right"></i> Làm mới
@@ -691,6 +716,9 @@
         })(jQuery);
     </script>
 </asp:Content>
+
+
+
 
 
 

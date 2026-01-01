@@ -3,6 +3,142 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+.new-arrival-wrap {
+    position: relative;
+}
+
+.new-arrival-swiper {
+    overflow: visible;
+}
+
+.new-arrival-swiper .swiper-slide {
+    height: auto;
+}
+
+.new-arrival-swiper .product {
+    padding: 6px 8px;
+}
+
+.new-arrival-swiper .product-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f5efe6;
+}
+
+.new-arrival-swiper .product-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.new-arrival-swiper .product-title a {
+    color: #1f1b16;
+    text-decoration: none;
+}
+
+.new-arrival-swiper .product-title a:hover {
+    color: #b07a49;
+}
+
+    .new-arrival-swiper .swiper-button-prev,
+    .new-arrival-swiper .swiper-button-next {
+        top: 45%;
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        background: #ffffff;
+        border: 1px solid #eadfd2;
+        color: #3f3226;
+        box-shadow: 0 6px 18px rgba(34, 27, 20, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+    }
+
+.new-arrival-swiper .swiper-button-prev::after,
+.new-arrival-swiper .swiper-button-next::after {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.new-arrival-swiper .swiper-button-prev:hover,
+.new-arrival-swiper .swiper-button-next:hover {
+    background: #f5efe6;
+}
+
+    .new-arrival-swiper .swiper-button-prev {
+        left: 10px;
+        right: 52px;
+    }
+
+.new-arrival-swiper .swiper-button-next {
+    right: 0;
+}
+
+.best-selling-grid .product-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f5efe6;
+}
+
+.best-selling-grid .product-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.best-selling-grid .product-title a {
+    color: #1f1b16;
+    text-decoration: none;
+}
+
+.best-selling-grid .product-title a:hover {
+    color: #b07a49;
+}
+
+.trending-grid .product-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f5efe6;
+}
+
+.trending-grid .product-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.trending-grid .product-title a {
+    color: #1f1b16;
+    text-decoration: none;
+}
+
+.trending-grid .product-title a:hover {
+    color: #b07a49;
+}
+
+.banner-two-section {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .site-header {
     background: #ffffff;
     border-bottom: 1px solid #eee4d6;
@@ -346,12 +482,21 @@ body {
     color: #7b6c5d;
 }
 
-.product-card {
+/*.product-card {
     background: #ffffff;
     border-radius: 14px;
     padding: 12px;
     height: 100%;
     box-shadow: 0 8px 18px rgba(34, 27, 20, 0.06);
+    display: flex;
+    flex-direction: column;
+}*/
+.product-card {
+    background: #ffffff;
+    /*border-radius: 14px;*/
+    /*padding: 12px;*/
+    height: 100%;
+    /*box-shadow: 0 8px 18px rgba(34, 27, 20, 0.06);*/
     display: flex;
     flex-direction: column;
 }
@@ -716,12 +861,16 @@ body {
     background: #f4efe7;
 }
 
-.related-name {
-    /*font-weight: 600;*/
+/*.related-name {
+    font-weight: 600;
     font-size: 0.95rem;
     color: #2f241a;
+}*/
+.related-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #0B1F3B;
 }
-
 .related-price {
     font-weight: 600;
     color: #a1552c;
@@ -783,11 +932,18 @@ body {
     max-height: 100%;
     object-fit: contain;
 }
-.suggested-name {
-    /*font-weight: 600;*/
+/*.suggested-name {
+    font-weight: 600;
     font-size: 14px;
     line-height: 1.4;
     margin-bottom: 6px;
+}*/
+.suggested-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 6px;
+    color: #0B1F3B;
 }
 .suggested-price {
     font-weight: 700;
@@ -2097,7 +2253,10 @@ input#MainContent_PlaceOrderButton {
 button.search-submit {
     background: #B8743B !important;
 }
-.nav-general .navbar-nav .nav-link {
+.ecommerce-header .top-header {
+    text-transform: none;
+}
+#navbarSupportedContent .navbar-nav .nav-link {
     color: #fff;
 }
 #tra_cuu_don_hang_content .form-control {
@@ -2187,5 +2346,101 @@ button.search-submit {
 @media (max-width: 576px) {
     .cart-empty-note {
         white-space: normal;
+    }
+}
+
+.brand-showcase-section .section-head h3 {
+    font-weight: 700;
+    color: #2f241a;
+}
+
+.brand-showcase-item {
+    /*border-radius: 18px;
+    padding: 18px;
+    background: #ffffff;
+    box-shadow: none;*/
+}
+
+.brand-showcase-item + .brand-showcase-item {
+    margin-top: 30px;
+}
+
+.brand-showcase-title {
+    margin-bottom: 12px;
+}
+
+.brand-showcase-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #f4efe7;
+    color: #2f241a;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+}
+
+.brand-video-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #f4efe7;
+    min-height: 340px;
+    aspect-ratio: 9 / 16;
+}
+
+.brand-video,
+.brand-video-fallback {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.brand-banner {
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f6f1e9;
+    /*aspect-ratio: 16 / 9;*/
+}
+
+.brand-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.product-wrapper .product-info .product-price .price ins {
+    color: #a1552c;
+}
+.product-wrapper .product-info .product-title, .product-wrapper .product-info .product-title a {
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: var(--theme-highlight-font);
+}
+
+.category-dropdown .panel-links li::after,
+.category-dropdown .panel-links a::after {
+    content: none !important;
+}
+
+.category-dropdown .panel-links a {
+    background-image: none !important;
+}
+
+@media (max-width: 991.98px) {
+    .header-sticky .navbar-brand.mobile-logo {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .header-sticky .nav-logo {
+        height: 48px;
+        width: auto;
+        max-width: 140px;
+        object-fit: contain;
     }
 }

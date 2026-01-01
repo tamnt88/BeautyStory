@@ -7309,7 +7309,7 @@ Footer Section Style Start
 
 @media screen and (max-width: 420px) {
     .navbar-brand {
-        display: none;
+        /*display: none;*/
     }
     .xxs-text-primary {
         color: var(--theme-primary-color) !important;

@@ -43,12 +43,15 @@ public partial class CartDefault : System.Web.UI.Page
             var images = db.CfProductImages
                 .Where(i => productIds.Contains(i.ProductId) && i.Status)
                 .ToList();
+            var slugs = db.CfSeoSlugs
+               .Where(s => s.EntityType == "Product" && productIds.Contains(s.EntityId))
+               .ToList();
             var attributes = db.CfProductVariantAttributes
                 .Where(pva => variantIds.Contains(pva.VariantId))
                 .ToList();
             var attributeLookup = db.CfVariantAttributes.ToDictionary(a => a.Id, a => a.AttributeName);
             var valueLookup = db.CfVariantAttributeValues.ToDictionary(v => v.Id, v => v.ValueName);
-
+            var productSlugLookup = slugs.ToDictionary(s => s.EntityId, s => s.SeoSlug);
             var productLookup = products.ToDictionary(p => p.Id, p => p);
             var variantLookup = variants.ToDictionary(v => v.Id, v => v);
 
@@ -90,9 +93,10 @@ public partial class CartDefault : System.Web.UI.Page
                 {
                     VariantId = item.VariantId,
                     ProductName = product != null ? product.ProductName : "-",
+                    SeoSlug = product != null && productSlugLookup.ContainsKey(product.Id) ? productSlugLookup[product.Id] : "",
                     ImageUrl = product != null && imageLookup.ContainsKey(product.Id) ? imageLookup[product.Id] : "/images/fav.png",
                     VariantText = attrs.Count > 0 ? string.Join(", ", attrs) : "Mặc định",
-                    Price = price > 0 ? FormatMoney(price) : "Liên hệ",
+                    PriceHtml = BuildPriceHtml(variant),
                     Quantity = item.Quantity,
                     LineTotal = price > 0 ? FormatMoney(lineTotal) : "Liên hệ",
                     LineTotalValue = lineTotal
@@ -106,7 +110,7 @@ public partial class CartDefault : System.Web.UI.Page
             CartTotalLiteral.Text = total > 0 ? FormatMoney(total) : "Liên hệ";
         }
     }
-
+    
     protected void UpdateCartButton_Click(object sender, EventArgs e)
     {
         var quantities = new Dictionary<int, int>();
@@ -147,5 +151,27 @@ public partial class CartDefault : System.Web.UI.Page
     private static string FormatMoney(decimal value)
     {
         return string.Format("{0:N0} đ", value);
+    }
+
+    private static string BuildPriceHtml(CfProductVariant variant)
+    {
+        if (variant == null)
+        {
+            return "Liên hệ";
+        }
+
+        var price = variant.Price;
+        var sale = variant.SalePrice.HasValue ? variant.SalePrice.Value : 0;
+        if (sale > 0 && sale < price)
+        {
+            return string.Format("<span class=\"price-original\">{0}</span><span class=\"price-sale\">{1}</span>", FormatMoney(price), FormatMoney(sale));
+        }
+
+        if (price > 0)
+        {
+            return FormatMoney(price);
+        }
+
+        return "Liên hệ";
     }
 }

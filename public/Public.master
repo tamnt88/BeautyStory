@@ -1,15 +1,15 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Public.master.cs" Inherits="PublicMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Public.master.cs" Inherits="PublicMaster" %>
 
 <%@ Register Src="~/public/controls/PublicHeader.ascx" TagPrefix="bs" TagName="PublicHeader" %>
 <%@ Register Src="~/public/controls/PublicFooter.ascx" TagPrefix="bs" TagName="PublicFooter" %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">
+<%--<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">--%>
+<html lang="vi" dir="ltr">
 <head runat="server">
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Beauty Story" />
     <title>
         <asp:ContentPlaceHolder ID="TitleContent" runat="server">Beauty Story</asp:ContentPlaceHolder>
     </title>

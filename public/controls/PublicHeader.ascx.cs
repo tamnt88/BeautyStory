@@ -19,8 +19,7 @@ public partial class PublicHeader : System.Web.UI.UserControl
         var count = cart.Sum(item => item.Quantity);
         CartCountLiteral.Text = count.ToString();
         CartCountTextLiteral.Text = count.ToString();
-        CartCountLiteralSticky.Text = count.ToString();
-        CartCountTextLiteralSticky.Text = count.ToString();
+        CartCountTextLiteralMobile.Text = count.ToString();
     }
 
     private void BindCategoryMenu()
@@ -78,6 +77,9 @@ public partial class PublicHeader : System.Web.UI.UserControl
 
             CategoryPanelRepeater.DataSource = menuItems;
             CategoryPanelRepeater.DataBind();
+
+            MobileCategoryRepeater.DataSource = menuItems;
+            MobileCategoryRepeater.DataBind();
         }
     }
 
