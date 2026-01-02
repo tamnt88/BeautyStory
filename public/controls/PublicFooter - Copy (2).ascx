@@ -1,4 +1,30 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PublicFooter.ascx.cs" Inherits="PublicFooter" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PublicFooter - Copy (2).ascx.cs" Inherits="PublicFooter" %>
+
+<%--<div class="full-row bg-dark p-0">
+    <div class="container py-50 border-white border-2 border-bottom">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="d-flex align-items-center border-2 border-end border-gray pr-50">
+                    <i class="flaticon-email flat-large text-primary mr-20"></i>
+                    <div class="h5 text-white mb-0">Join now and get 10% off your next purchase!</div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <div class="sm-my-30 font-400 h6 text-white">Subscribe to the weekly newsletter for all the latest updates</div>
+                    </div>
+                    <div class="col-md-8">
+                        <form action="#" class="subscribe-form position-relative">
+                            <input class="form-control bg-white" type="text" placeholder="Your email address" aria-label="Address" />
+                            <button class="btn btn-primary" type="submit">SUBMIT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>--%>
 
 <div class="footer-benefits">
     <div class="container">
@@ -45,14 +71,14 @@
 
 <footer class="full-row bg-dark">
     <div class="container">
-        <div class="footer-main">
-            <div class="footer-contact-col">
-                <div class="footer-contact-card">
-                    <div class="footer-logo mb-3">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 footer-contact-col">
+                <div class="footer-widget mb-5">
+                    <div class="footer-logo mb-4">
                         <a href="<%= ResolveUrl("~/") %>"><img src="<%= GetContactLogoUrl() %>" alt="Beauty Story" /></a>
                     </div>
-                    <div class="footer-contact">
-                        <span class="footer-contact__headline">Bạn cần tư vấn?</span>
+                    <div class="widget-ecommerce-contact footer-contact">
+                        <span class="font-medium font-500 text-primary">Bạn cần tư vấn? Gọi cho chúng tôi 24/7</span>
                         <a class="footer-contact__phone" href="tel:<%= ContactHotlineTelText %>">
                             <i class="fa-solid fa-phone"></i>
                             <span><%= ContactHotlineText %></span>
@@ -67,65 +93,60 @@
                         </div>
                     </div>
                 </div>
+                <div class="footer-widget media-widget mb-5">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
             </div>
-            <div class="footer-menu-col">
-                <div class="row g-4">
-                    
-                    <asp:Repeater ID="FooterGroupRepeater" runat="server" OnItemDataBound="FooterGroupRepeater_ItemDataBound">
-                        <ItemTemplate>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="footer-widget category-widget footer-accordion">
-                                    <button type="button" class="footer-accordion-toggle">
-                                        <span><%# Eval("GroupName") %></span>
-                                        <i class="fa-solid fa-chevron-down"></i>
-                                    </button>
-                                    <div class="footer-accordion-body">
-                                        <ul>
-                                            <asp:Repeater ID="FooterItemRepeater" runat="server">
-                                                <ItemTemplate>
-                                                    <li><a href="<%# GetFooterUrl(Eval("Url")) %>"><%# Eval("Title") %></a></li>
-                                                </ItemTemplate>
-                                            </asp:Repeater>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
+            <asp:Repeater ID="FooterGroupRepeater" runat="server" OnItemDataBound="FooterGroupRepeater_ItemDataBound">
+                <ItemTemplate>
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget category-widget footer-accordion">
                             <button type="button" class="footer-accordion-toggle">
-                                <span>Giờ làm việc</span>
+                                <span><%# Eval("GroupName") %></span>
                                 <i class="fa-solid fa-chevron-down"></i>
                             </button>
                             <div class="footer-accordion-body">
-                                <ul class="footer-hours">
-                                    <li><span class="footer-hours-label">Thứ 2 - 6:</span><span class="footer-hours-value">08.00 am - 17.00 pm</span></li>
-                                    <li><span class="footer-hours-label">Thứ 7:</span><span class="footer-hours-value">08.00 am - 12.00 am</span></li>
-                                    <li><span class="footer-hours-label">Chủ nhật:</span><span class="footer-hours-value">Nghĩ</span></li>
+                                <ul>
+                                    <asp:Repeater ID="FooterItemRepeater" runat="server">
+                                        <ItemTemplate>
+                                            <li><a href="<%# GetFooterUrl(Eval("Url")) %>"><%# Eval("Title") %></a></li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
 </footer>
 
-<div class="footer-bottom">
+<div class="full-row copyright py-3" style="background-color: #101112;">
     <div class="container">
-        <div class="footer-bottom-inner">
-            <span class="footer-bottom-copy">Copyright © 2025 by Beauty Story. All Rights Reserved</span>
-            <div class="footer-bottom-social">
-                <asp:Repeater ID="FooterSocialRepeater" runat="server">
-                    <ItemTemplate>
-                        <a class="footer-social-pill" href="<%# GetFooterUrl(Eval("Url")) %>" target="_blank" rel="noopener">
-                            <i class="<%# Eval("IconClass") %>"></i>
-                            <span><%# Eval("DisplayName") %></span>
-                        </a>
-                    </ItemTemplate>
-                </asp:Repeater>
+        <div class="row">
+            <div class="col-md-6">
+                <span class="text-white font-500 sm-mb-10 d-block">Copyright (c) 2025 Beauty Story. All rights reserved.</span>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-ml-30 d-flex align-items-center justify-content-md-end">
+                    <li>
+                        <a href="#"><img src="<%= ResolveUrl("~/public/theme/assets/images/cards/1.png") %>" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="<%= ResolveUrl("~/public/theme/assets/images/cards/2.png") %>" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="<%= ResolveUrl("~/public/theme/assets/images/cards/3.png") %>" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="<%= ResolveUrl("~/public/theme/assets/images/cards/4.png") %>" alt="" /></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

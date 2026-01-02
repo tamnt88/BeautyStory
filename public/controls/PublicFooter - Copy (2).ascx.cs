@@ -17,7 +17,6 @@ public partial class PublicFooter : System.Web.UI.UserControl
         {
             BindContactInfo();
             BindFooterMenus();
-            BindSocialLinks();
         }
     }
 
@@ -91,21 +90,6 @@ public partial class PublicFooter : System.Web.UI.UserControl
                 ? "143 đường số 32-CL, Phường Cát Lái, TP Hồ Chí Minh, Việt Nam"
                 : info.Address.Trim();
             ContactLogoUrl = info == null || string.IsNullOrWhiteSpace(info.LogoVerticalUrl) ? "/images/logo_doc.png" : info.LogoVerticalUrl.Trim();
-        }
-    }
-
-    private void BindSocialLinks()
-    {
-        using (var db = new BeautyStoryContext())
-        {
-            var links = db.CfSocialLinks
-                .Where(l => l.Status)
-                .OrderBy(l => l.SortOrder)
-                .ThenBy(l => l.Id)
-                .ToList();
-
-            FooterSocialRepeater.DataSource = links;
-            FooterSocialRepeater.DataBind();
         }
     }
 

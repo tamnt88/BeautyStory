@@ -18,5 +18,8 @@ public partial class Global : HttpApplication
         routes.MapPageRoute("BrandBySlug", "thuong-hieu/{slug}", "~/thuong-hieu/default.aspx");
         routes.MapPageRoute("OriginRoot", "xuat-xu", "~/xuat-xu/default.aspx");
         routes.MapPageRoute("OriginBySlug", "xuat-xu/{slug}", "~/xuat-xu/default.aspx");
+        routes.MapPageRoute("NewsRoot", "tin-tuc", "~/tin-tuc/default.aspx");
+        routes.MapPageRoute("NewsByCategory", "tin-tuc/{slug}", "~/tin-tuc/default.aspx");
+        routes.MapPageRoute("PostDetail", "bai-viet/{slug}", "~/bai-viet/default.aspx");
     }
 }
