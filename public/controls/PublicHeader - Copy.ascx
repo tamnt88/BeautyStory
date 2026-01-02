@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PublicHeader.ascx.cs" Inherits="PublicHeader" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PublicHeader - Copy.ascx.cs" Inherits="PublicHeader" %>
 
 
 
@@ -163,26 +163,33 @@
                                 <li class="nav-item"><a class="nav-link" href="/">Bán chạy</a></li>
 
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="/tin-tuc">Tin tức</a>
-                                    <ul class="dropdown-menu">
-                                        <asp:Repeater ID="PostCategoryMenuRepeater" runat="server">
-                                            <ItemTemplate>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-toggle dropdown-item" href="/tin-tuc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
-                                                    <asp:PlaceHolder ID="PostChildWrap" runat="server" Visible='<%# ((System.Collections.Generic.List<PostCategoryMenuItem>)Eval("Children")).Count > 0 %>'>
-                                                        <ul class="dropdown-menu">
-                                                            <asp:Repeater ID="PostCategoryChildRepeater" runat="server" DataSource='<%# Eval("Children") %>'>
-                                                                <ItemTemplate>
-                                                                    <li><a class="dropdown-item" href="/tin-tuc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a></li>
-                                                                </ItemTemplate>
-                                                            </asp:Repeater>
-                                                        </ul>
-                                                    </asp:PlaceHolder>
+                                            <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Tin tức</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-grid-modern.html">Blog Grid</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="blog-grid-modern.html">Grid Modern</a></li>
+                                                        <li><a class="dropdown-item" href="blog-grid-left-sidebar.html">Left Sidebar Grid</a></li>
+                                                        <li><a class="dropdown-item" href="blog-grid-right-sidebar.html">Right Sidebar Grid</a></li>
+                                                    </ul>
                                                 </li>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
-                                    </ul>
-                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-list-modern.html">Blog List</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="blog-list-modern.html">List Modern</a></li>
+                                                        <li><a class="dropdown-item" href="blog-list-left-sidebar.html">Left Sidebar List</a></li>
+                                                        <li><a class="dropdown-item" href="blog-list-right-sidebar.html">Right Sidebar List</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-single-modern.html">Blog Single</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="blog-single-modern.html">Blog Single Modern</a></li>
+                                                        <li><a class="dropdown-item" href="blog-single-left-sidebar.html">Blog Single Left Sidebar</a></li>
+                                                        <li><a class="dropdown-item" href="blog-single-right-sidebar.html">Blog Single Right Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a class="dropdown-item" href="blog-missionary-grid.html">Missionary Grid</a></li>
+                                                <li><a class="dropdown-item" href="blog-video-grid.html">Video Grid</a></li>
+                                            </ul>
+                                        </li>
 
                                 <li class="nav-item"><a class="nav-link" href="/">Liên hệ</a></li>
 
@@ -318,26 +325,33 @@
                                                         <li class="nav-item"><a class="nav-link" href="/">Bán chạy</a></li>
 
                                                        <li class="nav-item dropdown">
-                                                            <a class="nav-link dropdown-toggle" href="/tin-tuc">Tin tức</a>
-                                                            <ul class="dropdown-menu">
-                                                                <asp:Repeater ID="PostCategoryMobileRepeater" runat="server">
-                                                                    <ItemTemplate>
-                                                                        <li class="dropdown menu-item-has-children">
-                                                                            <a class="dropdown-item dropdown-toggle" href="/tin-tuc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
-                                                                            <asp:PlaceHolder ID="PostChildMobileWrap" runat="server" Visible='<%# ((System.Collections.Generic.List<PostCategoryMenuItem>)Eval("Children")).Count > 0 %>'>
-                                                                                <ul class="dropdown-menu">
-                                                                                    <asp:Repeater ID="PostCategoryMobileChildRepeater" runat="server" DataSource='<%# Eval("Children") %>'>
-                                                                                        <ItemTemplate>
-                                                                                            <li><a class="dropdown-item" href="/tin-tuc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a></li>
-                                                                                        </ItemTemplate>
-                                                                                    </asp:Repeater>
-                                                                                </ul>
-                                                                            </asp:PlaceHolder>
-                                                                        </li>
-                                                                    </ItemTemplate>
-                                                                </asp:Repeater>
-                                                            </ul>
-                                                       </li>
+                                            <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">Tin tức</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-grid-modern.html">Blog Grid</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="blog-grid-modern.html">Grid Modern</a></li>
+                                                        <li><a class="dropdown-item" href="blog-grid-left-sidebar.html">Left Sidebar Grid</a></li>
+                                                        <li><a class="dropdown-item" href="blog-grid-right-sidebar.html">Right Sidebar Grid</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-list-modern.html">Blog List</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="blog-list-modern.html">List Modern</a></li>
+                                                        <li><a class="dropdown-item" href="blog-list-left-sidebar.html">Left Sidebar List</a></li>
+                                                        <li><a class="dropdown-item" href="blog-list-right-sidebar.html">Right Sidebar List</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"> <a class="dropdown-toggle dropdown-item" href="blog-single-modern.html">Blog Single</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="blog-single-modern.html">Blog Single Modern</a></li>
+                                                        <li><a class="dropdown-item" href="blog-single-left-sidebar.html">Blog Single Left Sidebar</a></li>
+                                                        <li><a class="dropdown-item" href="blog-single-right-sidebar.html">Blog Single Right Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a class="dropdown-item" href="blog-missionary-grid.html">Missionary Grid</a></li>
+                                                <li><a class="dropdown-item" href="blog-video-grid.html">Video Grid</a></li>
+                                            </ul>
+                                        </li>
 
                                                         <li class="nav-item"><a class="nav-link" href="/">Liên hệ</a></li>
 

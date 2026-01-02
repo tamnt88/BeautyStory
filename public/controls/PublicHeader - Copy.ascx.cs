@@ -13,7 +13,6 @@ public partial class PublicHeader : System.Web.UI.UserControl
             BindContactInfo();
             BindCartCount();
             BindCategoryMenu();
-            BindPostCategoryMenu();
         }
     }
 
@@ -139,53 +138,6 @@ public partial class PublicHeader : System.Web.UI.UserControl
         }
     }
 
-    private void BindPostCategoryMenu()
-    {
-        using (var db = new BeautyStoryContext())
-        {
-            var allCategories = PublicCache.GetOrCreate("post_categories_all", 5, () => db.CfPostCategories
-                .Where(c => c.Status)
-                .OrderBy(c => c.SortOrder)
-                .ThenBy(c => c.CategoryName)
-                .ToList());
-
-            var slugs = PublicCache.GetOrCreate("post_slugs_all", 5, () => db.CfSeoSlugs
-                .Where(s => s.EntityType == "PostCategory")
-                .ToList());
-
-            var slugLookup = slugs.ToDictionary(s => s.EntityId, s => s.SeoSlug);
-
-            var menuItems = allCategories
-                .Where(c => !c.ParentId.HasValue)
-                .Select(c => new PostCategoryMenuItem
-                {
-                    Id = c.Id,
-                    CategoryName = c.CategoryName,
-                    SeoSlug = slugLookup.ContainsKey(c.Id) ? slugLookup[c.Id] : string.Empty,
-                    Children = allCategories
-                        .Where(child => child.ParentId == c.Id && child.Status)
-                        .OrderBy(child => child.SortOrder)
-                        .ThenBy(child => child.CategoryName)
-                        .Select(child => new PostCategoryMenuItem
-                        {
-                            Id = child.Id,
-                            CategoryName = child.CategoryName,
-                            SeoSlug = slugLookup.ContainsKey(child.Id) ? slugLookup[child.Id] : string.Empty
-                        })
-                        .Where(item => !string.IsNullOrWhiteSpace(item.SeoSlug))
-                        .ToList()
-                })
-                .Where(item => !string.IsNullOrWhiteSpace(item.SeoSlug))
-                .ToList();
-
-            PostCategoryMenuRepeater.DataSource = menuItems;
-            PostCategoryMenuRepeater.DataBind();
-
-            PostCategoryMobileRepeater.DataSource = menuItems;
-            PostCategoryMobileRepeater.DataBind();
-        }
-    }
-
     private static string GetSlug(Dictionary<string, Dictionary<int, string>> lookup, string entityType, int entityId)
     {
         if (!lookup.ContainsKey(entityType))
@@ -213,13 +165,5 @@ public partial class PublicHeader : System.Web.UI.UserControl
         public string CategoryName { get; set; }
         public string SeoSlug { get; set; }
         public List<CategoryMenuItem> Children { get; set; }
-    }
-
-    public class PostCategoryMenuItem
-    {
-        public int Id { get; set; }
-        public string CategoryName { get; set; }
-        public string SeoSlug { get; set; }
-        public List<PostCategoryMenuItem> Children { get; set; }
     }
 }
