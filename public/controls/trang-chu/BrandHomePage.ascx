@@ -13,7 +13,7 @@
                     <div class="row">
             <div class="col-12">
                 <div class="section-head d-flex justify-content-between align-items-center pb-20">
-                    <h3 class="text-secondary mb-0">Thương hiệu <%# Eval("BrandName") %></h3>
+                    <h3 class="text-secondary mb-0">Thương hiệu <span class="brand-title"><%# Eval("BrandName") %></span></h3>
                 </div>
             </div>
         </div>

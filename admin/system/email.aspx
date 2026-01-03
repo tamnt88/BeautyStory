@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="email.aspx.cs" Inherits="AdminSystemEmail" MasterPageFile="~/admin/admin.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="email.aspx.cs" Inherits="AdminSystemEmail" MasterPageFile="~/admin/admin.master" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="PageTitle" runat="server">
     Tài khoản gửi email
@@ -25,11 +25,21 @@
             </div>
             <div class="col-md-6">
                 <label class="form-label">Mật khẩu</label>
-                <asp:TextBox ID="SenderPasswordInput" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="SenderPasswordInput" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-12">
                 <label class="form-label">Tên hiển thị</label>
                 <asp:TextBox ID="SenderNameInput" runat="server" CssClass="form-control" placeholder="Beauty Story"></asp:TextBox>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Email nhận liên hệ</label>
+                <asp:TextBox ID="ContactRecipientInput" runat="server" CssClass="form-control" placeholder="email1@gmail.com, email2@gmail.com"></asp:TextBox>
+                <div class="form-text">Nhập nhiều email, ngăn cách bằng dấu phẩy.</div>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Email nhận đơn hàng</label>
+                <asp:TextBox ID="OrderRecipientInput" runat="server" CssClass="form-control" placeholder="email1@gmail.com, email2@gmail.com"></asp:TextBox>
+                <div class="form-text">Nhập nhiều email, ngăn cách bằng dấu phẩy.</div>
             </div>
         </div>
         <div class="mt-3">

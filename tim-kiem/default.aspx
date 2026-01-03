@@ -1,10 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="SearchDefault" MasterPageFile="~/public/Public.master" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
-    Tìm kiếm | Beauty Story
+    <asp:Literal ID="SeoTitleLiteral" runat="server" />
 </asp:Content>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+    <asp:Literal ID="SeoMetaLiteral" runat="server" />
     <asp:Literal ID="SchemaLiteral" runat="server" />
 </asp:Content>
 
@@ -23,10 +24,14 @@
             </div>
         </div>
 
-        <asp:Panel ID="EmptyResultPanel" runat="server" Visible="false" CssClass="cart-empty">
-            <p>Không tìm thấy sản phẩm phù hợp.</p>
-            <a class="btn btn-outline-dark" href="/">Quay về trang chủ</a>
-        </asp:Panel>
+        <asp:Panel ID="EmptyResultPanel" runat="server" Visible="false" CssClass="cart-empty search-empty">
+    <div class="cart-empty-card">
+        <div class="cart-empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h5>Không tìm thấy sản phẩm phù hợp.</h5>
+        <p class="cart-empty-note">Hãy thử từ khóa khách hoặc xem theo danh mục.</p>
+        <a class="btn btn-danger" href="/">Quay về trang chủ</a>
+    </div>
+</asp:Panel>
 
         <div class="row g-3">
             <asp:Repeater ID="SearchRepeater" runat="server">
@@ -35,6 +40,7 @@
                         <div class="product-card">
                             <a class="product-thumb" href="/san-pham/<%# Eval("SeoSlug") %>">
                                 <img src="<%# Eval("ImageUrl") %>" alt="<%# Eval("ProductName") %>" />
+                                <%# Eval("SaleBadge") %>
                             </a>
                             <div class="product-body">
                                 <a class="product-category" href="/danh-muc/<%# Eval("CategorySlug") %>"><%# Eval("CategoryName") %></a>

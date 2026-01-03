@@ -194,13 +194,15 @@ public partial class ProductDefault : System.Web.UI.Page
             var imageUrl = images.ContainsKey(product.Id) ? images[product.Id] : "/images/fav.png";
             var variantList = variants.ContainsKey(product.Id) ? variants[product.Id] : new List<CfProductVariant>();
             var priceHtml = variantList.Any() ? GetDisplayPriceHtml(variantList) : "Liên hệ";
+            var saleBadge = BuildSaleBadgeHtml(variantList);
 
             items.Add(new RelatedProductItem
             {
                 ProductName = product.ProductName,
                 Url = url,
                 ImageUrl = imageUrl,
-                PriceHtml = priceHtml
+                PriceHtml = priceHtml,
+                SaleBadge = saleBadge
             });
         }
 
@@ -219,12 +221,38 @@ public partial class ProductDefault : System.Web.UI.Page
         SuggestedRepeater.DataBind();
     }
 
+    private static string BuildSaleBadgeHtml(List<CfProductVariant> variants)
+    {
+        if (variants == null || variants.Count == 0)
+        {
+            return string.Empty;
+        }
+
+        var saleVariant = variants
+            .Where(v => v.SalePrice.HasValue && v.SalePrice.Value > 0 && v.SalePrice.Value < v.Price)
+            .OrderByDescending(v => (v.Price - v.SalePrice.Value) / v.Price)
+            .FirstOrDefault();
+        if (saleVariant == null)
+        {
+            return string.Empty;
+        }
+
+        var percent = (int)Math.Round((saleVariant.Price - saleVariant.SalePrice.Value) / saleVariant.Price * 100m, 0);
+        if (percent <= 0)
+        {
+            return string.Empty;
+        }
+
+        return string.Format("<span class=\"sale-badge\">-{0}%</span>", percent);
+    }
+
     private class RelatedProductItem
     {
         public string ProductName { get; set; }
         public string ImageUrl { get; set; }
         public string Url { get; set; }
         public string PriceHtml { get; set; }
+        public string SaleBadge { get; set; }
     }
 
     private void BindSeoMeta(CfProduct product, string slug, List<CfProductVariant> variants, string brandName)

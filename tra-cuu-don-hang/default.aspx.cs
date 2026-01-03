@@ -8,6 +8,7 @@ public partial class OrderLookup : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            ApplySeo();
             var code = Request.QueryString["code"];
             var phone = Request.QueryString["phone"];
             if (!string.IsNullOrWhiteSpace(code))
@@ -19,6 +20,12 @@ public partial class OrderLookup : System.Web.UI.Page
                 PhoneInput.Text = phone.Trim();
             }
         }
+    }
+
+    private void ApplySeo()
+    {
+        string canonical = Request.Url != null ? Request.Url.GetLeftPart(UriPartial.Path) : string.Empty;
+        SystemPageSeoApplier.Apply("order-tracking", SeoTitleLiteral, SeoMetaLiteral, "Tra cứu đơn hàng | Beauty Story", canonical);
     }
 
     protected void LookupButton_Click(object sender, EventArgs e)

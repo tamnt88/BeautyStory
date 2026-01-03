@@ -18,11 +18,12 @@
 
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitleContent" runat="server">
-    Beauty Story
+    <asp:Literal ID="SeoTitleLiteral" runat="server" />
 </asp:Content>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
     <link rel="stylesheet" href="/public/assets/vendor/swiper/swiper-bundle.min.css" />
+    <asp:Literal ID="SeoMetaLiteral" runat="server" />
 </asp:Content>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">

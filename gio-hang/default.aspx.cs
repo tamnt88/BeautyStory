@@ -9,8 +9,15 @@ public partial class CartDefault : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            ApplySeo();
             BindCart();
         }
+    }
+
+    private void ApplySeo()
+    {
+        string canonical = Request.Url != null ? Request.Url.GetLeftPart(UriPartial.Path) : string.Empty;
+        SystemPageSeoApplier.Apply("cart", SeoTitleLiteral, SeoMetaLiteral, "Giỏ hàng | Beauty Story", canonical);
     }
 
     private void BindCart()
@@ -74,9 +81,7 @@ public partial class CartDefault : System.Web.UI.Page
             {
                 var variant = variantLookup.ContainsKey(item.VariantId) ? variantLookup[item.VariantId] : null;
                 var product = variant != null && productLookup.ContainsKey(variant.ProductId) ? productLookup[variant.ProductId] : null;
-                var price = variant != null && (variant.SalePrice.HasValue || variant.Price > 0)
-                    ? (variant.SalePrice.HasValue ? variant.SalePrice.Value : variant.Price)
-                    : 0;
+                var price = GetEffectivePrice(variant);
                 var lineTotal = price * item.Quantity;
 
                 var attrs = attributes
@@ -173,5 +178,22 @@ public partial class CartDefault : System.Web.UI.Page
         }
 
         return "Liên hệ";
+    }
+
+    private static decimal GetEffectivePrice(CfProductVariant variant)
+    {
+        if (variant == null)
+        {
+            return 0;
+        }
+
+        var price = variant.Price;
+        var sale = variant.SalePrice.HasValue ? variant.SalePrice.Value : 0;
+        if (sale > 0 && sale < price)
+        {
+            return sale;
+        }
+
+        return price > 0 ? price : 0;
     }
 }

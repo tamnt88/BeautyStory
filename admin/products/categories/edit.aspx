@@ -38,6 +38,9 @@
         <button class="nav-link" id="tab-seo" data-bs-toggle="tab" data-bs-target="#tab-seo-pane" type="button" role="tab"><i class="fa-solid fa-magnifying-glass"></i> SEO</button>
     </li>
     <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-filters" data-bs-toggle="tab" data-bs-target="#tab-filters-pane" type="button" role="tab"><i class="fa-solid fa-filter"></i> Bộ lọc</button>
+    </li>
+    <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-social" data-bs-toggle="tab" data-bs-target="#tab-social-pane" type="button" role="tab"><i class="fa-solid fa-share-nodes"></i> Social</button>
     </li>
     <li class="nav-item" role="presentation">
@@ -129,6 +132,13 @@
                                 <asp:TextBox ID="RobotsInput" runat="server" CssClass="form-control" placeholder="index,follow"></asp:TextBox>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab-filters-pane" role="tabpanel">
+                        <asp:Label ID="FilterMessage" runat="server" CssClass="text-danger small d-block mb-2"></asp:Label>
+                        <label class="form-label">Nhóm bộ lọc</label>
+                        <asp:ListBox ID="FilterGroupInput" runat="server" CssClass="form-select" SelectionMode="Multiple" Rows="6"></asp:ListBox>
+                        <div class="form-text">Chọn các nhóm bộ lọc áp dụng cho danh mục.</div>
                     </div>
 
                     <div class="tab-pane fade" id="tab-social-pane" role="tabpanel">
@@ -224,9 +234,9 @@
 
             CKEDITOR.plugins.addExternal("moxiemanager", "/admin/moxiemanager/", "plugin.js");
             CKEDITOR.replace("<%= DescriptionInput.ClientID %>", {
-                extraPlugins: "moxiemanager",
+                extraPlugins: "moxiemanager,justify,colorbutton",
                 height: 220,
-                removeButtons: "PasteFromWord",
+                toolbar: "Full",
                 versionCheck: false,
                 filebrowserBrowseUrl: "/admin/moxiemanager/api.ashx",
                 filebrowserImageBrowseUrl: "/admin/moxiemanager/api.ashx?type=image",
@@ -241,6 +251,7 @@
             }
 
             $("#<%= ParentIdInput.ClientID %>").select2({ width: "100%" });
+            $("#<%= FilterGroupInput.ClientID %>").select2({ width: "100%", placeholder: "Chọn nhóm bộ lọc" });
         })(jQuery);
     </script>
 </asp:Content>

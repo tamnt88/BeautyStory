@@ -40,6 +40,7 @@ public class BeautyStoryContext : DbContext
     public DbSet<CfOrderHistory> CfOrderHistories { get; set; }
     public DbSet<CfSystemSetting> CfSystemSettings { get; set; }
     public DbSet<CfContactInfo> CfContactInfos { get; set; }
+    public DbSet<CfContactMessage> CfContactMessages { get; set; }
     public DbSet<CfEmailAccount> CfEmailAccounts { get; set; }
     public DbSet<CfSocialLink> CfSocialLinks { get; set; }
     public DbSet<CfTrackingCode> CfTrackingCodes { get; set; }
@@ -51,6 +52,8 @@ public class BeautyStoryContext : DbContext
     public DbSet<CfPost> CfPosts { get; set; }
     public DbSet<CfPostTag> CfPostTags { get; set; }
     public DbSet<CfPostTagMap> CfPostTagMaps { get; set; }
+    public DbSet<CfStaticPage> CfStaticPages { get; set; }
+    public DbSet<CfSystemPage> CfSystemPages { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
@@ -186,6 +189,12 @@ public class BeautyStoryContext : DbContext
             .HasOptional(c => c.Parent)
             .WithMany(p => p.Children)
             .HasForeignKey(c => c.ParentId)
+            .WillCascadeOnDelete(false);
+
+        modelBuilder.Entity<CfSystemPage>()
+            .HasOptional(p => p.StaticPage)
+            .WithMany(s => s.SystemPages)
+            .HasForeignKey(p => p.StaticPageId)
             .WillCascadeOnDelete(false);
     }
 }

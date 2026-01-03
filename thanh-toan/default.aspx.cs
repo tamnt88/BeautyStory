@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Web;
 using System.Text;
+using System.Web.Configuration;
 using System.Web.UI.WebControls;
 
 public partial class CheckoutDefault : System.Web.UI.Page
@@ -25,12 +29,19 @@ public partial class CheckoutDefault : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+            ApplySeo();
             BindProvinces();
             BindWards(null);
             BindShippingMethods();
             BindPaymentMethods();
             BindSummary();
         }
+    }
+
+    private void ApplySeo()
+    {
+        string canonical = Request.Url != null ? Request.Url.GetLeftPart(UriPartial.Path) : string.Empty;
+        SystemPageSeoApplier.Apply("checkout", SeoTitleLiteral, SeoMetaLiteral, "Thanh toán | Beauty Story", canonical);
     }
 
     private void BindProvinces()
@@ -157,9 +168,7 @@ public partial class CheckoutDefault : System.Web.UI.Page
             {
                 var variant = variantLookup.ContainsKey(item.VariantId) ? variantLookup[item.VariantId] : null;
                 var product = variant != null && productLookup.ContainsKey(variant.ProductId) ? productLookup[variant.ProductId] : null;
-                var price = variant != null && (variant.SalePrice.HasValue || variant.Price > 0)
-                    ? (variant.SalePrice.HasValue ? variant.SalePrice.Value : variant.Price)
-                    : 0;
+                var price = GetEffectivePrice(variant);
                 var lineTotal = price * item.Quantity;
 
                 var attrs = attributes
@@ -307,7 +316,7 @@ public partial class CheckoutDefault : System.Web.UI.Page
                     continue;
                 }
 
-                var price = variant.SalePrice.HasValue ? variant.SalePrice.Value : variant.Price;
+                var price = GetEffectivePrice(variant);
                 var lineTotal = price * item.Quantity;
                 subtotal += lineTotal;
 
@@ -410,6 +419,8 @@ public partial class CheckoutDefault : System.Web.UI.Page
             });
 
             db.SaveChanges();
+
+            SendOrderNotification(order, orderItems);
         }
 
         CartService.ClearCart();
@@ -420,6 +431,267 @@ public partial class CheckoutDefault : System.Web.UI.Page
     {
         var random = new Random();
         return "BS" + DateTime.Now.ToString("yyyyMMddHHmmss") + random.Next(100, 999).ToString();
+    }
+
+    private static decimal GetEffectivePrice(CfProductVariant variant)
+    {
+        if (variant == null)
+        {
+            return 0;
+        }
+
+        return GetEffectivePrice(variant.Price, variant.SalePrice);
+    }
+
+    private static decimal GetEffectivePrice(decimal price, decimal? salePrice)
+    {
+        var sale = salePrice.HasValue ? salePrice.Value : 0;
+        if (sale > 0 && sale < price)
+        {
+            return sale;
+        }
+
+        return price > 0 ? price : 0;
+    }
+
+    private static void SendOrderNotification(CfOrder order, List<CfOrderItem> items)
+    {
+        if (order == null)
+        {
+            return;
+        }
+
+        try
+        {
+            var smtpSection = WebConfigurationManager.GetSection("system.net/mailSettings/smtp") as System.Net.Configuration.SmtpSection;
+            if (smtpSection == null)
+            {
+                return;
+            }
+
+            CfEmailAccount account;
+            using (var db = new BeautyStoryContext())
+            {
+                account = db.CfEmailAccounts.Where(a => a.Status).OrderBy(a => a.SortOrder).ThenBy(a => a.Id).FirstOrDefault();
+            }
+
+            if (account == null || string.IsNullOrWhiteSpace(account.Email) || string.IsNullOrWhiteSpace(account.Password))
+            {
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(account.OrderRecipientEmails))
+            {
+                return;
+            }
+
+            var fromAddress = new MailAddress(account.Email, string.IsNullOrWhiteSpace(account.DisplayName) ? "Beauty Story" : account.DisplayName);
+            var subject = string.Format("Đơn hàng mới: {0}", order.OrderCode);
+
+            var baseUrl = string.Empty;
+            var context = System.Web.HttpContext.Current;
+            if (context != null && context.Request != null && context.Request.Url != null)
+            {
+                baseUrl = context.Request.Url.GetLeftPart(UriPartial.Authority);
+            }
+
+            CfContactInfo contactInfo;
+            using (var db = new BeautyStoryContext())
+            {
+                contactInfo = db.CfContactInfos
+                    .Where(i => i.Status)
+                    .OrderBy(i => i.SortOrder)
+                    .ThenBy(i => i.Id)
+                    .FirstOrDefault();
+            }
+
+            var logoUrl = contactInfo != null && !string.IsNullOrWhiteSpace(contactInfo.LogoVerticalUrl)
+                ? contactInfo.LogoVerticalUrl
+                : (contactInfo != null && !string.IsNullOrWhiteSpace(contactInfo.LogoHorizontalUrl) ? contactInfo.LogoHorizontalUrl : string.Empty);
+            logoUrl = BuildAbsoluteUrl(baseUrl, logoUrl);
+
+            var productIds = items != null ? items.Select(i => i.ProductId).Distinct().ToList() : new List<int>();
+            var imageLookup = new Dictionary<int, string>();
+            if (productIds.Count > 0)
+            {
+                using (var db = new BeautyStoryContext())
+                {
+                    var images = db.CfProductImages
+                        .Where(i => productIds.Contains(i.ProductId) && i.Status)
+                        .ToList();
+
+                    imageLookup = images
+                        .GroupBy(i => i.ProductId)
+                        .ToDictionary(
+                            g => g.Key,
+                            g =>
+                            {
+                                var primary = g.FirstOrDefault(i => i.IsPrimary);
+                                var imageUrl = primary != null ? primary.ImageUrl : g.FirstOrDefault() != null ? g.First().ImageUrl : string.Empty;
+                                return BuildAbsoluteUrl(baseUrl, imageUrl);
+                            });
+                }
+            }
+
+            var bodyBuilder = new StringBuilder();
+            bodyBuilder.AppendLine("<!DOCTYPE html>");
+            bodyBuilder.AppendLine("<html><head><meta charset=\"UTF-8\"></head><body style=\"margin:0;padding:0;background:#f6f6f6;font-family:Arial,sans-serif;color:#1f1f1f;\">");
+            bodyBuilder.AppendLine("<div style=\"max-width:720px;margin:0 auto;padding:24px;\">");
+            bodyBuilder.AppendLine("<div style=\"background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #eee;\">");
+            bodyBuilder.AppendLine("<div style=\"padding:20px 24px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:16px;\">");
+            if (!string.IsNullOrWhiteSpace(logoUrl))
+            {
+                bodyBuilder.AppendLine("<img src=\"" + logoUrl + "\" alt=\"Beauty Story\" style=\"height:48px;\" />");
+            }
+            bodyBuilder.AppendLine("<div>");
+            bodyBuilder.AppendLine("<div style=\"font-size:18px;font-weight:bold;\">Đơn hàng mới</div>");
+            bodyBuilder.AppendLine("<div style=\"color:#666;\">Mã đơn: <strong>" + HttpUtility.HtmlEncode(order.OrderCode) + "</strong></div>");
+            bodyBuilder.AppendLine("</div></div>");
+
+            bodyBuilder.AppendLine("<div style=\"padding:24px;\">");
+            bodyBuilder.AppendLine("<div style=\"margin-bottom:16px;\">");
+            bodyBuilder.AppendLine("<div style=\"font-weight:bold;margin-bottom:6px;\">Thông tin khách hàng</div>");
+            bodyBuilder.AppendLine("<div>Họ tên: " + HttpUtility.HtmlEncode(order.CustomerName) + "</div>");
+            bodyBuilder.AppendLine("<div>Điện thoại: " + HttpUtility.HtmlEncode(order.Phone) + "</div>");
+            bodyBuilder.AppendLine("<div>Địa chỉ: " + HttpUtility.HtmlEncode(order.AddressLine) + "</div>");
+            if (!string.IsNullOrWhiteSpace(order.WardName) || !string.IsNullOrWhiteSpace(order.ProvinceName))
+            {
+                bodyBuilder.AppendLine("<div>Khu vực: " + HttpUtility.HtmlEncode(string.Format("{0} {1}", order.WardName, order.ProvinceName).Trim()) + "</div>");
+            }
+            bodyBuilder.AppendLine("</div>");
+
+            bodyBuilder.AppendLine("<div style=\"margin-bottom:16px;\">");
+            bodyBuilder.AppendLine("<div style=\"font-weight:bold;margin-bottom:6px;\">Thông tin đơn hàng</div>");
+            bodyBuilder.AppendLine("<div>Thanh toán: " + HttpUtility.HtmlEncode(order.PaymentMethod) + "</div>");
+            bodyBuilder.AppendLine("<div>Vận chuyển: " + HttpUtility.HtmlEncode(order.ShippingMethod) + "</div>");
+            bodyBuilder.AppendLine("<div>Ghi chú: " + HttpUtility.HtmlEncode(order.Note ?? string.Empty) + "</div>");
+            bodyBuilder.AppendLine("</div>");
+
+            bodyBuilder.AppendLine("<div style=\"margin-bottom:16px;\">");
+            bodyBuilder.AppendLine("<div style=\"font-weight:bold;margin-bottom:10px;\">Sản phẩm</div>");
+            bodyBuilder.AppendLine("<table style=\"width:100%;border-collapse:collapse;font-size:14px;\">");
+            bodyBuilder.AppendLine("<thead><tr>");
+            bodyBuilder.AppendLine("<th style=\"text-align:left;padding:8px;border-bottom:1px solid #eee;\">Sản phẩm</th>");
+            bodyBuilder.AppendLine("<th style=\"text-align:center;padding:8px;border-bottom:1px solid #eee;\">SL</th>");
+            bodyBuilder.AppendLine("<th style=\"text-align:right;padding:8px;border-bottom:1px solid #eee;\">Thành tiền</th>");
+            bodyBuilder.AppendLine("</tr></thead><tbody>");
+
+            if (items != null && items.Count > 0)
+            {
+                foreach (var item in items)
+                {
+                    var imageUrl = imageLookup.ContainsKey(item.ProductId) ? imageLookup[item.ProductId] : string.Empty;
+                    bodyBuilder.AppendLine("<tr>");
+                    bodyBuilder.AppendLine("<td style=\"padding:10px 8px;border-bottom:1px solid #f3f3f3;\">");
+                    bodyBuilder.AppendLine("<div style=\"display:flex;gap:10px;align-items:center;\">");
+                    if (!string.IsNullOrWhiteSpace(imageUrl))
+                    {
+                        bodyBuilder.AppendLine("<img src=\"" + imageUrl + "\" alt=\"\" style=\"width:48px;height:48px;border-radius:6px;object-fit:cover;\" />");
+                    }
+                    bodyBuilder.AppendLine("<div>");
+                    bodyBuilder.AppendLine("<div style=\"font-weight:600;\">" + HttpUtility.HtmlEncode(item.ProductName) + "</div>");
+                    if (!string.IsNullOrWhiteSpace(item.VariantName))
+                    {
+                        bodyBuilder.AppendLine("<div style=\"color:#666;font-size:12px;\">" + HttpUtility.HtmlEncode(item.VariantName) + "</div>");
+                    }
+                    bodyBuilder.AppendLine("</div></div>");
+                    bodyBuilder.AppendLine("</td>");
+                    bodyBuilder.AppendLine("<td style=\"text-align:center;padding:10px 8px;border-bottom:1px solid #f3f3f3;\">" + item.Quantity + "</td>");
+                    bodyBuilder.AppendLine("<td style=\"text-align:right;padding:10px 8px;border-bottom:1px solid #f3f3f3;\">" + item.LineTotal.ToString("n0") + " đ</td>");
+                    bodyBuilder.AppendLine("</tr>");
+                }
+            }
+
+            bodyBuilder.AppendLine("</tbody></table>");
+            bodyBuilder.AppendLine("</div>");
+
+            bodyBuilder.AppendLine("<div style=\"border-top:1px solid #f0f0f0;padding-top:12px;display:flex;justify-content:flex-end;\">");
+            bodyBuilder.AppendLine("<div style=\"min-width:240px;\">");
+            bodyBuilder.AppendLine("<div style=\"display:flex;justify-content:space-between;padding:4px 0;\"><span>Tạm tính</span><strong>" + order.Subtotal.ToString("n0") + " đ</strong></div>");
+            bodyBuilder.AppendLine("<div style=\"display:flex;justify-content:space-between;padding:4px 0;\"><span>Phí vận chuyển</span><strong>" + order.ShippingFee.ToString("n0") + " đ</strong></div>");
+            bodyBuilder.AppendLine("<div style=\"display:flex;justify-content:space-between;padding:6px 0;font-size:16px;\">");
+            bodyBuilder.AppendLine("<span>Tổng cộng</span><strong style=\"color:#f09a2f;\">" + order.Total.ToString("n0") + " đ</strong></div>");
+            bodyBuilder.AppendLine("</div></div>");
+
+            bodyBuilder.AppendLine("</div>");
+
+            bodyBuilder.AppendLine("<div style=\"padding:18px 24px;border-top:1px solid #f0f0f0;background:#fafafa;color:#666;font-size:12px;\">");
+            if (contactInfo != null)
+            {
+                bodyBuilder.AppendLine("<div style=\"font-weight:600;color:#333;margin-bottom:4px;\">" + HttpUtility.HtmlEncode(contactInfo.CompanyName ?? "Beauty Story") + "</div>");
+                if (!string.IsNullOrWhiteSpace(contactInfo.Address))
+                {
+                    bodyBuilder.AppendLine("<div>Địa chỉ: " + HttpUtility.HtmlEncode(contactInfo.Address) + "</div>");
+                }
+                if (!string.IsNullOrWhiteSpace(contactInfo.Email))
+                {
+                    bodyBuilder.AppendLine("<div>Email: " + HttpUtility.HtmlEncode(contactInfo.Email) + "</div>");
+                }
+                if (!string.IsNullOrWhiteSpace(contactInfo.Hotline))
+                {
+                    bodyBuilder.AppendLine("<div>Hotline: " + HttpUtility.HtmlEncode(contactInfo.Hotline) + "</div>");
+                }
+            }
+            bodyBuilder.AppendLine("</div></div></div></body></html>");
+
+            using (var mail = new MailMessage())
+            {
+                mail.From = fromAddress;
+                AddRecipients(mail, account.OrderRecipientEmails);
+                mail.Subject = subject;
+                mail.Body = bodyBuilder.ToString();
+                mail.IsBodyHtml = true;
+
+                using (var client = new SmtpClient(smtpSection.Network.Host, smtpSection.Network.Port))
+                {
+                    client.EnableSsl = smtpSection.Network.EnableSsl;
+                    client.Credentials = new NetworkCredential(account.Email, account.Password);
+                    client.Timeout = 10000;
+                    client.Send(mail);
+                }
+            }
+        }
+        catch
+        {
+        }
+    }
+
+    private static void AddRecipients(MailMessage mail, string recipients)
+    {
+        if (mail == null || string.IsNullOrWhiteSpace(recipients))
+        {
+            return;
+        }
+
+        var items = recipients.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var item in items)
+        {
+            var address = item.Trim();
+            if (!string.IsNullOrWhiteSpace(address))
+            {
+                mail.To.Add(address);
+            }
+        }
+    }
+
+    private static string BuildAbsoluteUrl(string baseUrl, string url)
+    {
+        if (string.IsNullOrWhiteSpace(url))
+        {
+            return string.Empty;
+        }
+
+        if (url.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+        {
+            return url;
+        }
+
+        if (string.IsNullOrWhiteSpace(baseUrl))
+        {
+            return url;
+        }
+
+        return baseUrl.TrimEnd('/') + "/" + url.TrimStart('/');
     }
 
     [System.Web.Services.WebMethod]
@@ -461,7 +733,7 @@ public partial class CheckoutDefault : System.Web.UI.Page
                     }
 
                     var variant = variantLookup[item.VariantId];
-                    var price = variant.SalePrice.HasValue ? variant.SalePrice.Value : variant.Price;
+                    var price = GetEffectivePrice(variant.Price, variant.SalePrice);
                     subtotal += price * item.Quantity;
                 }
             }
@@ -507,3 +779,4 @@ public partial class CheckoutDefault : System.Web.UI.Page
         };
     }
 }
+

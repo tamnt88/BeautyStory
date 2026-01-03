@@ -156,19 +156,19 @@
 
                             <ul class="navbar-nav mx-auto">
 
-                                <li class="nav-item"><a class="nav-link" href="/thuong-hieu">Thương hiệu</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/thuong-hieu/danh-sach">Thương hiệu</a></li>
 
-                                <li class="nav-item"><a class="nav-link" href="/">Hàng mới về</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/hang-moi-ve">Hàng mới về</a></li>
 
-                                <li class="nav-item"><a class="nav-link" href="/">Bán chạy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/ban-chay">Bán chạy</a></li>
 
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="/tin-tuc">Tin tức</a>
                                     <ul class="dropdown-menu">
                                         <asp:Repeater ID="PostCategoryMenuRepeater" runat="server">
                                             <ItemTemplate>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-toggle dropdown-item" href="/tin-tuc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
+                                                <li class="<%# ((System.Collections.Generic.List<PostCategoryMenuItem>)Eval("Children")).Count > 0 ? "dropdown" : string.Empty %>">
+                                                    <a class="<%# ((System.Collections.Generic.List<PostCategoryMenuItem>)Eval("Children")).Count > 0 ? "dropdown-toggle dropdown-item" : "dropdown-item" %>" href="/tin-tuc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
                                                     <asp:PlaceHolder ID="PostChildWrap" runat="server" Visible='<%# ((System.Collections.Generic.List<PostCategoryMenuItem>)Eval("Children")).Count > 0 %>'>
                                                         <ul class="dropdown-menu">
                                                             <asp:Repeater ID="PostCategoryChildRepeater" runat="server" DataSource='<%# Eval("Children") %>'>
@@ -184,7 +184,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-item"><a class="nav-link" href="/">Liên hệ</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/lien-he">Liên hệ</a></li>
 
                             </ul>
 
@@ -311,19 +311,19 @@
 
                                                     <ul class="navbar-nav">
 
-                                                        <li class="nav-item"><a class="nav-link" href="/thuong-hieu">Thương hiệu</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/thuong-hieu/danh-sach">Thương hiệu</a></li>
 
-                                                        <li class="nav-item"><a class="nav-link" href="/">Hàng mới về</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/hang-moi-ve">Hàng mới về</a></li>
 
-                                                        <li class="nav-item"><a class="nav-link" href="/">Bán chạy</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/ban-chay">Bán chạy</a></li>
 
                                                        <li class="nav-item dropdown">
                                                             <a class="nav-link dropdown-toggle" href="/tin-tuc">Tin tức</a>
                                                             <ul class="dropdown-menu">
                                                                 <asp:Repeater ID="PostCategoryMobileRepeater" runat="server">
                                                                     <ItemTemplate>
-                                                                        <li class="dropdown menu-item-has-children">
-                                                                            <a class="dropdown-item dropdown-toggle" href="/tin-tuc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
+                                                                        <li class="<%# ((System.Collections.Generic.List<PostCategoryMenuItem>)Eval("Children")).Count > 0 ? "dropdown menu-item-has-children" : string.Empty %>">
+                                                                            <a class="<%# ((System.Collections.Generic.List<PostCategoryMenuItem>)Eval("Children")).Count > 0 ? "dropdown-item dropdown-toggle" : "dropdown-item" %>" href="/tin-tuc/<%# Eval("SeoSlug") %>"><%# Eval("CategoryName") %></a>
                                                                             <asp:PlaceHolder ID="PostChildMobileWrap" runat="server" Visible='<%# ((System.Collections.Generic.List<PostCategoryMenuItem>)Eval("Children")).Count > 0 %>'>
                                                                                 <ul class="dropdown-menu">
                                                                                     <asp:Repeater ID="PostCategoryMobileChildRepeater" runat="server" DataSource='<%# Eval("Children") %>'>
@@ -339,7 +339,7 @@
                                                             </ul>
                                                        </li>
 
-                                                        <li class="nav-item"><a class="nav-link" href="/">Liên hệ</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/lien-he">Liên hệ</a></li>
 
                                                     </ul>
 

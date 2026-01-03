@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="address.aspx.cs" Inherits="AdminSystemAddress" MasterPageFile="~/admin/admin.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="address.aspx.cs" Inherits="AdminSystemAddress" MasterPageFile="~/admin/admin.master" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="PageTitle" runat="server">
     Quản lý tỉnh/phường
@@ -72,10 +72,10 @@
                             </select>
                         </div>
                         <div class="col-md-5 d-flex align-items-end gap-2">
-                            <button type="button" class="btn btn-outline-dark btn-with-icon flex-fill" id="applyProvinceFilters">
+                            <button type="button" class="btn btn-outline-dark btn-with-icon" id="applyProvinceFilters">
                                 <i class="fa-solid fa-filter"></i> Lọc
                             </button>
-                            <button type="button" class="btn btn-outline-secondary btn-with-icon flex-fill" id="resetProvinceFilters">
+                            <button type="button" class="btn btn-outline-secondary btn-with-icon" id="resetProvinceFilters">
                                 <i class="fa-solid fa-rotate-left"></i> Làm mới
                             </button>
                         </div>
@@ -153,10 +153,10 @@
                             </select>
                         </div>
                         <div class="col-md-2 d-flex align-items-end gap-2">
-                            <button type="button" class="btn btn-outline-dark btn-with-icon flex-fill" id="applyWardFilters">
+                            <button type="button" class="btn btn-outline-dark btn-with-icon" id="applyWardFilters">
                                 <i class="fa-solid fa-filter"></i>
                             </button>
-                            <button type="button" class="btn btn-outline-secondary btn-with-icon flex-fill" id="resetWardFilters">
+                            <button type="button" class="btn btn-outline-secondary btn-with-icon" id="resetWardFilters">
                                 <i class="fa-solid fa-rotate-left"></i>
                             </button>
                         </div>
@@ -373,3 +373,4 @@
         })(jQuery);
     </script>
 </asp:Content>
+

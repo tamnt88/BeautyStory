@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="AdminProductBrandsDefault" MasterPageFile="~/admin/admin.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="AdminProductBrandsDefault" MasterPageFile="~/admin/admin.master" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="PageTitle" runat="server">
     Quản lý thương hiệu
@@ -32,10 +32,10 @@
                     </select>
                 </div>
                 <div class="col-md-5 d-flex align-items-end gap-2">
-                    <button type="button" class="btn btn-outline-dark btn-with-icon flex-fill" id="applyFilters">
+                    <button type="button" class="btn btn-outline-dark btn-with-icon" id="applyFilters">
                         <i class="fa-solid fa-filter"></i> Lọc
                     </button>
-                    <button type="button" class="btn btn-outline-secondary btn-with-icon flex-fill" id="resetFilters">
+                    <button type="button" class="btn btn-outline-secondary btn-with-icon" id="resetFilters">
                         <i class="fa-solid fa-rotate-left"></i> Làm mới
                     </button>
                 </div>
@@ -174,3 +174,4 @@
         })(jQuery);
     </script>
 </asp:Content>
+

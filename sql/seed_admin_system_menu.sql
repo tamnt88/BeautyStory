@@ -28,7 +28,13 @@ BEGIN
         VALUES (N'Tài khoản gửi email', N'Admin', N'/admin/system/email.aspx', @SystemParentId, N'fa-solid fa-envelope', 1, GETDATE(), N'Seed', 2);
     END
 
-    IF NOT EXISTS (SELECT 1 FROM dbo.cf_menu WHERE MenuName = N'Địa chỉ (tỉnh/phường)' AND ParentId = @SystemParentId)
+    
+    IF NOT EXISTS (SELECT 1 FROM dbo.cf_menu WHERE MenuName = N'Tin nhan lien he' AND ParentId = @SystemParentId)
+    BEGIN
+        INSERT INTO dbo.cf_menu (MenuName, MenuGroup, Url, ParentId, Icon, Status, CreatedAt, CreatedBy, SortOrder)
+        VALUES (N'Tin nhan lien he', N'Admin', N'/admin/system/contact-messages.aspx', @SystemParentId, N'fa-solid fa-inbox', 1, GETDATE(), N'Seed', 2);
+    END
+IF NOT EXISTS (SELECT 1 FROM dbo.cf_menu WHERE MenuName = N'Địa chỉ (tỉnh/phường)' AND ParentId = @SystemParentId)
     BEGIN
         INSERT INTO dbo.cf_menu (MenuName, MenuGroup, Url, ParentId, Icon, Status, CreatedAt, CreatedBy, SortOrder)
         VALUES (N'Địa chỉ (tỉnh/phường)', N'Admin', N'/admin/system/address.aspx', @SystemParentId, N'fa-solid fa-map-location-dot', 1, GETDATE(), N'Seed', 3);

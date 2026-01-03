@@ -167,7 +167,11 @@
         </div>
     </div>
 </asp:Content>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+    <link href="/admin/assets/vendor/select2/select2.min.css" rel="stylesheet" />
+</asp:Content>
 <asp:Content ID="PageScripts" ContentPlaceHolderID="PageScripts" runat="server">
+    <script src="/admin/assets/vendor/select2/select2.min.js"></script>
     <script src="/admin/assets/vendor/ckeditor/ckeditor.js"></script>
     <script>
         (function () {
@@ -194,14 +198,21 @@
             }
             CKEDITOR.plugins.addExternal("moxiemanager", "/admin/moxiemanager/", "plugin.js");
             CKEDITOR.replace("<%= ContentInput.ClientID %>", {
-                extraPlugins: "moxiemanager",
+                extraPlugins: "moxiemanager,justify,colorbutton",
                 height: 320,
-                removeButtons: "PasteFromWord",
+                toolbar: "Full",
                 versionCheck: false,
                 filebrowserBrowseUrl: "/admin/moxiemanager/api.ashx",
                 filebrowserImageBrowseUrl: "/admin/moxiemanager/api.ashx?type=image",
                 filebrowserUploadUrl: "/admin/moxiemanager/api.ashx"
             });
+
+            if (window.jQuery && $.fn.select2) {
+                $("#<%= TagListInput.ClientID %>").select2({
+                    width: "100%",
+                    placeholder: "Chọn tag"
+                });
+            }
         })();
     </script>
 </asp:Content>

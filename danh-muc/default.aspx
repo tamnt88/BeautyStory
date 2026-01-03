@@ -123,6 +123,7 @@
                                 <div class="product-card">
                                     <a class="product-thumb" href="/san-pham/<%# Eval("SeoSlug") %>">
                                         <img src="<%# Eval("ImageUrl") %>" alt="<%# Eval("ProductName") %>" />
+                                        <%# Eval("SaleBadge") %>
                                     </a>
                                     <div class="product-body">
                                         <a class="product-category" href="/danh-muc/<%# Eval("CategorySlug") %>"><%# Eval("CategoryName") %></a>

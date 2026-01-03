@@ -258,6 +258,7 @@
                                     <a class="suggested-item" href="<%# Eval("Url") %>">
                                         <div class="suggested-image">
                                             <img src="<%# Eval("ImageUrl") %>" alt="<%# Eval("ProductName") %>" />
+                                            <%# Eval("SaleBadge") %>
                                         </div>
                                         <div class="suggested-name"><%# Eval("ProductName") %></div>
                                         <div class="suggested-price"><%# Eval("PriceHtml") %></div>

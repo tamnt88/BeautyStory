@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,6 +18,7 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
             else
             {
                 BindParentCategories(null, null);
+                BindFilterGroups(null);
             }
         }
     }
@@ -49,13 +50,13 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
 
         if (string.IsNullOrWhiteSpace(name))
         {
-            FormMessage.Text = "Vui lòng nh?p tên danh m?c.";
+            FormMessage.Text = "Vui lï¿½ng nh?p tï¿½n danh m?c.";
             return;
         }
 
         if (string.IsNullOrWhiteSpace(seoSlug))
         {
-            FormMessage.Text = "Vui lòng nh?p slug cho danh m?c.";
+            FormMessage.Text = "Vui lï¿½ng nh?p slug cho danh m?c.";
             return;
         }
 
@@ -81,13 +82,13 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
                 category = db.CfCategories.FirstOrDefault(c => c.Id == id);
                 if (category == null)
                 {
-                    FormMessage.Text = "Danh m?c không t?n t?i.";
+                    FormMessage.Text = "Danh m?c khï¿½ng t?n t?i.";
                     return;
                 }
 
                 if (parentId.HasValue && parentId.Value == category.Id)
                 {
-                    FormMessage.Text = "Danh m?c cha không h?p l?.";
+                    FormMessage.Text = "Danh m?c cha khï¿½ng h?p l?.";
                     return;
                 }
             }
@@ -104,7 +105,7 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
                 var parent = db.CfCategories.FirstOrDefault(c => c.Id == parentId.Value);
                 if (parent == null)
                 {
-                    FormMessage.Text = "Danh m?c cha không t?n t?i.";
+                    FormMessage.Text = "Danh m?c cha khï¿½ng t?n t?i.";
                     return;
                 }
             }
@@ -136,7 +137,7 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
             bool slugExists = db.CfSeoSlugs.Any(s => s.SeoSlug == normalizedSlug && (s.EntityType != "Category" || s.EntityId != category.Id));
             if (slugExists)
             {
-                FormMessage.Text = "Slug dã t?n t?i. Vui lòng ch?n slug khác.";
+                FormMessage.Text = "Slug dï¿½ t?n t?i. Vui lï¿½ng ch?n slug khï¿½c.";
                 return;
             }
 
@@ -161,10 +162,11 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
             slug.UpdatedAt = DateTime.UtcNow;
             slug.UpdatedBy = Session["AdminUsername"] != null ? Session["AdminUsername"].ToString() : null;
             db.SaveChanges();
+            SaveCategoryFilterGroups(db, category.Id);
         }
 
         FormMessage.CssClass = "text-success small d-block mb-2";
-        FormMessage.Text = "Luu thành công.";
+        FormMessage.Text = "Luu thï¿½nh cï¿½ng.";
     }
 
     protected void ResetButton_Click(object sender, EventArgs e)
@@ -259,9 +261,88 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
             SeoSlugInput.Text = slug != null ? slug.SeoSlug : string.Empty;
 
             BindParentCategories(category.ParentId, category.Id);
+            BindFilterGroups(category.Id);
         }
     }
 
+    private void BindFilterGroups(int? categoryId)
+    {
+        FilterMessage.Text = string.Empty;
+
+        using (var db = new BeautyStoryContext())
+        {
+            var groups = db.CfFilterGroups
+                .Where(g => g.Status)
+                .OrderBy(g => g.SortOrder)
+                .ThenBy(g => g.GroupName)
+                .Select(g => new { g.Id, g.GroupName })
+                .ToList();
+
+            FilterGroupInput.Items.Clear();
+            foreach (var group in groups)
+            {
+                FilterGroupInput.Items.Add(new ListItem(group.GroupName, group.Id.ToString()));
+            }
+
+            if (!categoryId.HasValue || categoryId.Value <= 0)
+            {
+                FilterGroupInput.Enabled = false;
+                FilterMessage.Text = "Vui lÃ²ng lÆ°u danh má»¥c trÆ°á»›c khi cáº¥u hÃ¬nh bá»™ lá»c.";
+                return;
+            }
+
+            var selectedIds = db.CfCategoryFilterGroups
+                .Where(c => c.CategoryId == categoryId.Value && c.Status)
+                .Select(c => c.GroupId)
+                .ToList();
+
+            foreach (ListItem item in FilterGroupInput.Items)
+            {
+                item.Selected = selectedIds.Contains(int.Parse(item.Value));
+            }
+
+            FilterGroupInput.Enabled = true;
+        }
+    }
+
+    private void SaveCategoryFilterGroups(BeautyStoryContext db, int categoryId)
+    {
+        if (FilterGroupInput == null || !FilterGroupInput.Enabled)
+        {
+            return;
+        }
+
+        var selectedIds = FilterGroupInput.Items.Cast<ListItem>()
+            .Where(i => i.Selected)
+            .Select(i => int.Parse(i.Value))
+            .ToList();
+
+        var existing = db.CfCategoryFilterGroups.Where(c => c.CategoryId == categoryId).ToList();
+        if (existing.Count > 0)
+        {
+            db.CfCategoryFilterGroups.RemoveRange(existing);
+        }
+
+        var now = DateTime.UtcNow;
+        var admin = Session["AdminUsername"] != null ? Session["AdminUsername"].ToString() : null;
+        int sortOrder = 0;
+        foreach (var groupId in selectedIds)
+        {
+            db.CfCategoryFilterGroups.Add(new CfCategoryFilterGroup
+            {
+                CategoryId = categoryId,
+                GroupId = groupId,
+                Status = true,
+                SortOrder = sortOrder++,
+                CreatedAt = now,
+                CreatedBy = admin,
+                UpdatedAt = now,
+                UpdatedBy = admin
+            });
+        }
+
+        db.SaveChanges();
+    }
     private void ResetForm()
     {
         CategoryId.Value = string.Empty;
@@ -412,6 +493,13 @@ public partial class AdminProductCategoriesEdit : AdminBasePage
         }
     }
 }
+
+
+
+
+
+
+
 
 
 

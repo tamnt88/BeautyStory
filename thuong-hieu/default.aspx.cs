@@ -123,6 +123,12 @@ public partial class BrandDefault : System.Web.UI.Page
                 .ToDictionary(
                     g => g.Key,
                     g => FormatPriceHtml(g.ToList()));
+            var saleBadgeLookup = variants
+                .GroupBy(v => v.ProductId)
+                .ToDictionary(
+                    g => g.Key,
+                    g => BuildSaleBadgeHtml(g.ToList()));
+
 
             var primaryImageLookup = images
                 .GroupBy(i => i.ProductId)
@@ -150,7 +156,8 @@ public partial class BrandDefault : System.Web.UI.Page
                     CategorySlug = GetSlug(slugLookup, "Category", p.CategoryId),
                     SeoSlug = GetSlug(slugLookup, "Product", p.Id),
                     ImageUrl = primaryImageLookup.ContainsKey(p.Id) && !string.IsNullOrWhiteSpace(primaryImageLookup[p.Id]) ? primaryImageLookup[p.Id] : "/images/fav.png",
-                    PriceLabel = priceLookup.ContainsKey(p.Id) ? priceLookup[p.Id] : "Liên hệ"
+                    PriceLabel = priceLookup.ContainsKey(p.Id) ? priceLookup[p.Id] : "Liên hệ",
+                    SaleBadge = saleBadgeLookup.ContainsKey(p.Id) ? saleBadgeLookup[p.Id] : string.Empty
                 })
                 .ToList();
             BrandProductRepeater.DataBind();
@@ -325,6 +332,31 @@ public partial class BrandDefault : System.Web.UI.Page
         };
 
         return string.Join("", links);
+    }
+
+    private static string BuildSaleBadgeHtml(List<CfProductVariant> variants)
+    {
+        if (variants == null || variants.Count == 0)
+        {
+            return string.Empty;
+        }
+
+        var saleVariant = variants
+            .Where(v => v.SalePrice.HasValue && v.SalePrice.Value > 0 && v.SalePrice.Value < v.Price)
+            .OrderByDescending(v => (v.Price - v.SalePrice.Value) / v.Price)
+            .FirstOrDefault();
+        if (saleVariant == null)
+        {
+            return string.Empty;
+        }
+
+        var percent = (int)Math.Round((saleVariant.Price - saleVariant.SalePrice.Value) / saleVariant.Price * 100m, 0);
+        if (percent <= 0)
+        {
+            return string.Empty;
+        }
+
+        return string.Format("<span class=\"sale-badge\">-{0}%</span>", percent);
     }
 
     private class SchemaItem

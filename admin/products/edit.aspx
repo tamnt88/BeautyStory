@@ -2,28 +2,28 @@
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="PageTitle" runat="server">
 
-    Thêm / S?a s?n ph?m
+    Thêm / Sửa sản phẩm
 
 </asp:Content>
 <asp:Content ID="HeadingContent" ContentPlaceHolderID="PageHeading" runat="server">
 
-    Thêm / S?a s?n ph?m
+    Thêm / Sửa sản phẩm
 
 </asp:Content>
 <asp:Content ID="SubHeadingContent" ContentPlaceHolderID="PageSubHeading" runat="server">
 
-    C?p nh?t thông tin s?n ph?m
+    Cập nhật thông tin sản phẩm
 
 </asp:Content>
 <asp:Content ID="BreadcrumbContent" ContentPlaceHolderID="PageBreadcrumb" runat="server">
 
-    <li class="breadcrumb-item"><a href="/admin/default.aspx">Trang ch?</a></li>
+    <li class="breadcrumb-item"><a href="/admin/default.aspx">Trang chủ</a></li>
 
-    <li class="breadcrumb-item"><a href="#">S?n ph?m</a></li>
+    <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
 
-    <li class="breadcrumb-item"><a href="/admin/products/default.aspx">Danh sách s?n ph?m</a></li>
+    <li class="breadcrumb-item"><a href="/admin/products/default.aspx">Danh sách sản phẩm</a></li>
 
-    <li class="breadcrumb-item active" aria-current="page">C?p nh?t</li>
+    <li class="breadcrumb-item active" aria-current="page">Cập nhật</li>
 
 </asp:Content>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
@@ -34,25 +34,25 @@
     <div class="row g-3">
         <div class="col-lg-12">
             <div class="card-kpi p-3 bg-white">
-                <h6 class="mb-3 section-title">Thông tin s?n ph?m</h6>
+                <h6 class="mb-3 section-title">Thông tin sản phẩm</h6>
                 <asp:Label ID="FormMessage" runat="server" CssClass="text-danger small d-block mb-2"></asp:Label>
                 <asp:HiddenField ID="ProductId" runat="server" />
 
                 <ul class="nav nav-tabs" id="productTab" role="tablist">
     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="tab-basic" data-bs-toggle="tab" data-bs-target="#tab-basic-pane" type="button" role="tab"><i class="fa-solid fa-circle-info"></i> Co b?n</button>
+                        <button class="nav-link active" id="tab-basic" data-bs-toggle="tab" data-bs-target="#tab-basic-pane" type="button" role="tab"><i class="fa-solid fa-circle-info"></i> Cơ bản</button>
     </li>
     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-content" data-bs-toggle="tab" data-bs-target="#tab-content-pane" type="button" role="tab"><i class="fa-solid fa-align-left"></i> N?i dung</button>
+                        <button class="nav-link" id="tab-content" data-bs-toggle="tab" data-bs-target="#tab-content-pane" type="button" role="tab"><i class="fa-solid fa-align-left"></i> Nội dung</button>
     </li>
     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-images" data-bs-toggle="tab" data-bs-target="#tab-images-pane" type="button" role="tab"><i class="fa-regular fa-image"></i> Hình ?nh</button>
+                        <button class="nav-link" id="tab-images" data-bs-toggle="tab" data-bs-target="#tab-images-pane" type="button" role="tab"><i class="fa-regular fa-image"></i> Hình ảnh</button>
     </li>
     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-variants" data-bs-toggle="tab" data-bs-target="#tab-variants-pane" type="button" role="tab"><i class="fa-solid fa-layer-group"></i> Bi?n th?</button>
+                        <button class="nav-link" id="tab-variants" data-bs-toggle="tab" data-bs-target="#tab-variants-pane" type="button" role="tab"><i class="fa-solid fa-layer-group"></i> Biến thể</button>
     </li>
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="tab-filters" data-bs-toggle="tab" data-bs-target="#tab-filters-pane" type="button" role="tab"><i class="fa-solid fa-filter"></i> B? l?c</button>
+        <button class="nav-link" id="tab-filters" data-bs-toggle="tab" data-bs-target="#tab-filters-pane" type="button" role="tab"><i class="fa-solid fa-filter"></i> Bộ lọc</button>
     </li>
     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="tab-seo" data-bs-toggle="tab" data-bs-target="#tab-seo-pane" type="button" role="tab"><i class="fa-solid fa-magnifying-glass"></i> SEO</button>
@@ -61,47 +61,47 @@
                         <button class="nav-link" id="tab-social" data-bs-toggle="tab" data-bs-target="#tab-social-pane" type="button" role="tab"><i class="fa-solid fa-share-nodes"></i> Social</button>
     </li>
     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="tab-setting" data-bs-toggle="tab" data-bs-target="#tab-setting-pane" type="button" role="tab"><i class="fa-solid fa-gear"></i> Thi?t l?p</button>
+                        <button class="nav-link" id="tab-setting" data-bs-toggle="tab" data-bs-target="#tab-setting-pane" type="button" role="tab"><i class="fa-solid fa-gear"></i> Thiết lập</button>
     </li>
 </ul>
 
                 <div class="tab-content border border-top-0 rounded-bottom p-3">
                     <div class="tab-pane fade show active" id="tab-basic-pane" role="tabpanel">
                         <div class="mb-3">
-                            <label class="form-label">Tên s?n ph?m</label>
+                            <label class="form-label">Tên sản phẩm</label>
                             <asp:TextBox ID="ProductNameInput" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="row g-2">
                             <div class="col-md-4">
-                                <label class="form-label">Danh m?c</label>
+                                <label class="form-label">Danh mục</label>
                                 <asp:DropDownList ID="CategoryInput" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="CategoryInput_SelectedIndexChanged"></asp:DropDownList>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Thuong hi?u</label>
+                                <label class="form-label">Thương hiệu</label>
                                 <asp:DropDownList ID="BrandInput" runat="server" CssClass="form-select"></asp:DropDownList>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label">Xu?t x?</label>
+                                <label class="form-label">Xuất xứ</label>
                                 <asp:DropDownList ID="OriginInput" runat="server" CssClass="form-select"></asp:DropDownList>
                             </div>
                         </div>
                         <div class="mt-3">
-                            <label class="form-label">Mô t? ng?n</label>
+                            <label class="form-label">Mô tả ngắn</label>
                             <asp:TextBox ID="ShortDescriptionInput" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="tab-content-pane" role="tabpanel">
                         <div class="mb-3">
-                            <label class="form-label">Mô t?</label>
+                            <label class="form-label">Mô tả</label>
                             <asp:TextBox ID="DescriptionInput" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="6"></asp:TextBox>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Thông s?</label>
+                            <label class="form-label">Thông số</label>
                             <asp:TextBox ID="SpecificationInput" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Thành ph?n</label>
+                            <label class="form-label">Thành phần</label>
                             <asp:TextBox ID="IngredientsInput" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                         </div>
                         <div class="mb-3">
@@ -555,7 +555,7 @@
                             <div class="d-flex align-items-center gap-2 mt-2">
                                 <span class="text-muted small">Hi&#7879;n t&#7841;i</span>
                                 <asp:LinkButton ID="OgRemoveButton" runat="server" CssClass="btn btn-sm btn-outline-danger btn-with-icon" OnClick="OgRemoveButton_Click">
-                                    <i class="fa-solid fa-trash"></i> X?a
+                                    <i class="fa-solid fa-trash"></i> Xóa
                                 </asp:LinkButton>
                             </div>
                             <asp:Image ID="OgImagePreview" runat="server" CssClass="img-thumbnail mt-2 category-preview" Visible="false" />
@@ -572,7 +572,7 @@
                                 <div class="d-flex align-items-center gap-2 mt-2">
                                     <span class="text-muted small">Hi&#7879;n t&#7841;i</span>
                                     <asp:LinkButton ID="TwitterRemoveButton" runat="server" CssClass="btn btn-sm btn-outline-danger btn-with-icon" OnClick="TwitterRemoveButton_Click">
-                                        <i class="fa-solid fa-trash"></i> X?a
+                                        <i class="fa-solid fa-trash"></i> Xóa
                                     </asp:LinkButton>
                                 </div>
                                 <asp:Image ID="TwitterImagePreview" runat="server" CssClass="img-thumbnail mt-2 category-preview" Visible="false" />
@@ -616,13 +616,13 @@
 
                 <div class="d-flex gap-2 mt-3">
                     <asp:LinkButton ID="SaveButton" runat="server" CssClass="btn btn-primary btn-with-icon" OnClick="SaveButton_Click">
-                        <i class="fa-solid fa-floppy-disk"></i> Luu l?i
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lại
                     </asp:LinkButton>
                     <asp:LinkButton ID="ResetButton" runat="server" CssClass="btn btn-outline-secondary btn-with-icon" OnClick="ResetButton_Click">
-                        <i class="fa-solid fa-rotate-right"></i> Làm m?i
+                        <i class="fa-solid fa-rotate-right"></i> Làm mới
                     </asp:LinkButton>
                     <a href="/admin/products/default.aspx" class="btn btn-outline-dark btn-with-icon">
-                        <i class="fa-solid fa-arrow-left"></i> Quay l?i
+                        <i class="fa-solid fa-arrow-left"></i> Quay lại
                     </a>
                 </div>
             </div>
@@ -648,13 +648,13 @@
 
             editorIds.forEach(function (id) {
                 CKEDITOR.replace(id, {
-                extraPlugins: "moxiemanager",
-                height: 220,
-                removeButtons: "PasteFromWord",
-                versionCheck: false,
-                filebrowserBrowseUrl: "/admin/moxiemanager/api.ashx",
-                filebrowserImageBrowseUrl: "/admin/moxiemanager/api.ashx?type=image",
-                filebrowserUploadUrl: "/admin/moxiemanager/api.ashx"
+                    extraPlugins: "moxiemanager,justify,colorbutton",
+                    height: 220,
+                    toolbar: "Full",
+                    versionCheck: false,
+                    filebrowserBrowseUrl: "/admin/moxiemanager/api.ashx",
+                    filebrowserImageBrowseUrl: "/admin/moxiemanager/api.ashx?type=image",
+                    filebrowserUploadUrl: "/admin/moxiemanager/api.ashx"
                 });
             });
         })();
@@ -716,6 +716,8 @@
         })(jQuery);
     </script>
 </asp:Content>
+
+
 
 
 

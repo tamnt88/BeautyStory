@@ -190,9 +190,9 @@
             }
             CKEDITOR.plugins.addExternal("moxiemanager", "/admin/moxiemanager/", "plugin.js");
             CKEDITOR.replace("<%= DescriptionInput.ClientID %>", {
-                extraPlugins: "moxiemanager",
+                extraPlugins: "moxiemanager,justify,colorbutton",
                 height: 220,
-                removeButtons: "PasteFromWord",
+                toolbar: "Full",
                 versionCheck: false,
                 filebrowserBrowseUrl: "/admin/moxiemanager/api.ashx",
                 filebrowserImageBrowseUrl: "/admin/moxiemanager/api.ashx?type=image",

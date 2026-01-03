@@ -11,8 +11,15 @@ public partial class SearchDefault : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            ApplySeo();
             BindSearch();
         }
+    }
+
+    private void ApplySeo()
+    {
+        string canonical = Request.Url != null ? Request.Url.GetLeftPart(UriPartial.Path) : string.Empty;
+        SystemPageSeoApplier.Apply("search", SeoTitleLiteral, SeoMetaLiteral, "Tìm kiếm | Beauty Story", canonical);
     }
 
     private void BindSearch()
@@ -86,6 +93,11 @@ public partial class SearchDefault : System.Web.UI.Page
                 .ToDictionary(
                     g => g.Key,
                     g => FormatPriceHtml(g.ToList()));
+            var saleBadgeLookup = variants
+                .GroupBy(v => v.ProductId)
+                .ToDictionary(
+                    g => g.Key,
+                    g => BuildSaleBadgeHtml(g.ToList()));
 
             SearchRepeater.DataSource = products
                 .Select(p => new
@@ -96,7 +108,8 @@ public partial class SearchDefault : System.Web.UI.Page
                     CategorySlug = categorySlugs.ContainsKey(p.CategoryId) ? categorySlugs[p.CategoryId] : "",
                     SeoSlug = productSlugs.ContainsKey(p.Id) ? productSlugs[p.Id] : "",
                     ImageUrl = primaryImageLookup.ContainsKey(p.Id) ? primaryImageLookup[p.Id] : "/images/fav.png",
-                    PriceLabel = priceLookup.ContainsKey(p.Id) ? priceLookup[p.Id] : "Liên hệ"
+                    PriceLabel = priceLookup.ContainsKey(p.Id) ? priceLookup[p.Id] : "Liên hệ",
+                    SaleBadge = saleBadgeLookup.ContainsKey(p.Id) ? saleBadgeLookup[p.Id] : string.Empty
                 })
                 .Where(p => !string.IsNullOrWhiteSpace(p.SeoSlug))
                 .ToList();
@@ -189,6 +202,31 @@ public partial class SearchDefault : System.Web.UI.Page
         }
 
         return string.Format("<span class=\"price-current\">{0:N0} đ</span>", variant.Price);
+    }
+
+    private static string BuildSaleBadgeHtml(List<CfProductVariant> variants)
+    {
+        if (variants == null || variants.Count == 0)
+        {
+            return string.Empty;
+        }
+
+        var saleVariant = variants
+            .Where(v => v.SalePrice.HasValue && v.SalePrice.Value > 0 && v.SalePrice.Value < v.Price)
+            .OrderByDescending(v => (v.Price - v.SalePrice.Value) / v.Price)
+            .FirstOrDefault();
+        if (saleVariant == null)
+        {
+            return string.Empty;
+        }
+
+        var percent = (int)Math.Round((saleVariant.Price - saleVariant.SalePrice.Value) / saleVariant.Price * 100m, 0);
+        if (percent <= 0)
+        {
+            return string.Empty;
+        }
+
+        return string.Format("<span class=\"sale-badge\">-{0}%</span>", percent);
     }
 
     private class SchemaItem

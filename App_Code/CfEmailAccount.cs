@@ -16,6 +16,10 @@ public class CfEmailAccount
     [StringLength(200)]
     public string DisplayName { get; set; }
 
+    public string ContactRecipientEmails { get; set; }
+
+    public string OrderRecipientEmails { get; set; }
+
     public bool Status { get; set; }
     public DateTime CreatedAt { get; set; }
     public string CreatedBy { get; set; }
