@@ -478,6 +478,48 @@ body {
     height: auto;
 }
 
+.not-found {
+    display: flex;
+    justify-content: center;
+}
+
+.not-found-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #eee4d6;
+    padding: 32px;
+    max-width: 520px;
+    text-align: center;
+    box-shadow: 0 14px 30px rgba(34, 24, 14, 0.08);
+}
+
+.not-found-code {
+    font-size: 72px;
+    font-weight: 800;
+    color: #b78955;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.not-found-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #2a1f16;
+    margin-bottom: 8px;
+}
+
+.not-found-text {
+    color: #6f5f4e;
+    margin-bottom: 20px;
+}
+
+.not-found-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .post-related-title a:hover {
     color: #b07a49;
 }
