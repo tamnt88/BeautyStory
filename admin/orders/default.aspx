@@ -65,6 +65,7 @@
         </div>
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h6 class="mb-0 section-title">Danh sách đơn hàng</h6>
+            <a class="btn btn-sm btn-primary" href="/admin/orders/create.aspx"><i class="fa-solid fa-plus"></i> Tạo đơn hàng</a>
         </div>
         <asp:Label ID="ListMessage" runat="server" CssClass="text-danger small d-block mb-2"></asp:Label>
         <div class="table-responsive">

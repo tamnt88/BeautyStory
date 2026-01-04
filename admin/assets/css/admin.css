@@ -293,6 +293,31 @@ body.admin-dashboard {
     color: #b42318;
 }
 
+.status-success {
+    background: #e6f6ef;
+    color: #1f7a5a;
+}
+
+.status-warning {
+    background: #fff4e5;
+    color: #a36100;
+}
+
+.status-danger {
+    background: #fbeaea;
+    color: #b42318;
+}
+
+.status-info {
+    background: #e8f0fe;
+    color: #1e40af;
+}
+
+.status-neutral {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
 .slug-wrap {
     margin-top: 4px;
 }
@@ -511,6 +536,41 @@ body.admin-dashboard {
 
 .card-kpi .table-responsive {
     overflow-x: hidden !important;
+}
+
+.dashboard-card {
+    min-height: 120px;
+}
+
+.dashboard-table th {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.dashboard-table td {
+    font-size: 0.9rem;
+}
+
+.dashboard-list {
+    display: grid;
+    gap: 10px;
+}
+
+.dashboard-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid #eee4d6;
+    border-radius: 12px;
+    padding: 10px 12px;
+    background: #ffffff;
+}
+
+.dashboard-list-item .info-tag {
+    min-width: 42px;
+    justify-content: center;
 }
 
 @media (max-width: 992px) {

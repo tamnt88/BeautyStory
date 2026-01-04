@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text;
 using System.Linq;
 using System.Web.Services;
 using System.Web.Script.Services;
@@ -204,7 +205,61 @@ public partial class AdminOrdersDefault : AdminBasePage
             label = lookup[statusId.Value];
         }
 
-        return string.Format("<span class=\"status-tag status-on\">{0}</span>", label);
+        var cssClass = GetStatusCssClass(label);
+        return string.Format("<span class=\"status-tag {0}\">{1}</span>", cssClass, label);
+    }
+
+    private static string GetStatusCssClass(string label)
+    {
+        if (string.IsNullOrWhiteSpace(label))
+        {
+            return "status-neutral";
+        }
+
+        var key = RemoveDiacritics(label).ToLowerInvariant();
+
+        if (key.Contains("da thanh toan") || key.Contains("hoan tat") || key.Contains("thanh cong"))
+        {
+            return "status-success";
+        }
+
+        if (key.Contains("chua thanh toan") || key.Contains("cho") || key.Contains("dang xu ly") || key.Contains("dang"))
+        {
+            return "status-warning";
+        }
+
+        if (key.Contains("huy") || key.Contains("tu choi") || key.Contains("that bai") || key.Contains("hoan tien"))
+        {
+            return "status-danger";
+        }
+
+        if (key.Contains("xac nhan") || key.Contains("dat hang") || key.Contains("moi"))
+        {
+            return "status-info";
+        }
+
+        return "status-neutral";
+    }
+
+    private static string RemoveDiacritics(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return string.Empty;
+        }
+
+        var normalized = value.Normalize(NormalizationForm.FormD);
+        var builder = new System.Text.StringBuilder();
+        foreach (var ch in normalized)
+        {
+            var category = CharUnicodeInfo.GetUnicodeCategory(ch);
+            if (category != UnicodeCategory.NonSpacingMark)
+            {
+                builder.Append(ch);
+            }
+        }
+
+        return builder.ToString().Normalize(NormalizationForm.FormC);
     }
 
     private static string FormatMoney(decimal value)
