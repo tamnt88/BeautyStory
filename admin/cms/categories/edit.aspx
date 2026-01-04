@@ -190,9 +190,11 @@
             }
             CKEDITOR.plugins.addExternal("moxiemanager", "/admin/moxiemanager/", "plugin.js");
             CKEDITOR.replace("<%= DescriptionInput.ClientID %>", {
-                extraPlugins: "moxiemanager,justify,colorbutton",
+                extraPlugins: "moxiemanager,justify,colorbutton,font,embed,embedbase,embedsemantic,iframe",
                 height: 220,
                 toolbar: "Full",
+                font_names: "Arial/Arial, Helvetica, sans-serif;Courier New/Courier New, Courier, monospace;Georgia/Georgia, serif;Roboto/Roboto, Arial, sans-serif;Tahoma/Tahoma, Geneva, sans-serif;Times New Roman/Times New Roman, Times, serif;Verdana/Verdana, Geneva, sans-serif",
+                fontSize_sizes: "8/8px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;24/24px;28/28px;32/32px;36/36px;48/48px",
                 versionCheck: false,
                 filebrowserBrowseUrl: "/admin/moxiemanager/api.ashx",
                 filebrowserImageBrowseUrl: "/admin/moxiemanager/api.ashx?type=image",

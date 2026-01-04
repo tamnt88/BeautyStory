@@ -133,6 +133,39 @@ body {
     color: #b07a49;
 }
 
+@media (max-width: 767.98px) {
+    .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        text-align: left;
+    }
+
+    .section-head h3 {
+        text-align: left !important;
+    }
+
+    .section-head .down-line::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-head .wc-tabs {
+        width: 100%;
+        overflow-x: auto;
+        text-align: left;
+    }
+
+    .section-head .nav-pills {
+        justify-content: flex-start !important;
+    }
+
+    .section-head .wc-tabs .nav,
+    .section-head .wc-tabs .nav-pills {
+        justify-content: flex-start !important;
+    }
+}
+
 .banner-two-section {
     background-position: center;
     background-repeat: no-repeat;
@@ -269,7 +302,7 @@ body {
 .news-thumb {
     display: block;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    /*aspect-ratio: 1 / 1;*/
     overflow: hidden;
     background: #f5efe6;
 }
@@ -285,6 +318,28 @@ body {
     padding: 16px;
 }
 
+.news-page h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.news-title {
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+.news-title a {
+    font-weight: 700;
+}
+
+.news-excerpt {
+    font-size: 0.95rem;
+}
+
+.news-card-body .text-muted {
+    font-size: 0.85rem;
+}
+
 .news-title a {
     color: #1f1b16;
     text-decoration: none;
@@ -296,6 +351,44 @@ body {
 
 .news-excerpt {
     color: #5c4b3b;
+}
+
+.post-toc {
+    background: #f7f1e9;
+    border: 1px solid #eadfd2;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.post-toc-title {
+    font-weight: 700;
+    color: #3f3226;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.post-toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 6px;
+}
+
+.post-toc-item a {
+    color: #6f5b47;
+    text-decoration: none;
+}
+
+.post-toc-item a:hover {
+    color: #b07a49;
+}
+
+.post-toc-level-3 {
+    padding-left: 14px;
 }
 
 .post-tags {
@@ -367,6 +460,22 @@ body {
     color: #1f1b16;
     text-decoration: none;
     font-weight: 600;
+}
+
+.post-detail h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+}
+
+.post-detail .post-card > img,
+.post-detail .post-card .img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.post-detail .post-content img {
+    max-width: 100%;
+    height: auto;
 }
 
 .post-related-title a:hover {
@@ -2993,6 +3102,13 @@ button.search-submit {
     background: #c1692b;
     border-radius: 999px;
     margin-top: 8px;
+}
+
+@media (max-width: 767.98px) {
+    .brand-showcase-section .section-head h3::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 .brand-showcase-section .section-head .brand-title {
     color: #c1692b;

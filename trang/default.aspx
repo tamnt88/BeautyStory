@@ -11,7 +11,7 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container py-4 static-page">
         <div class="row g-4">
-            <aside class="col-lg-3">
+            <aside class="col-lg-3 order-2 order-lg-1">
                 <div class="static-page-menu">
                     <asp:Repeater ID="MenuGroupRepeater" runat="server" OnItemDataBound="MenuGroupRepeater_ItemDataBound">
                         <ItemTemplate>
@@ -33,7 +33,7 @@
                     </asp:Repeater>
                 </div>
             </aside>
-            <section class="col-lg-9">
+            <section class="col-lg-9 order-1 order-lg-2">
                 <h1 class="mb-4"><asp:Literal ID="PageTitleLiteral" runat="server" /></h1>
                 <div class="static-page-content">
                     <asp:Literal ID="ContentLiteral" runat="server" />

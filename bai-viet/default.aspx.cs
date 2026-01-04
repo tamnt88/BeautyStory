@@ -1,6 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 
 public partial class PostDetail : System.Web.UI.Page
@@ -46,8 +49,14 @@ public partial class PostDetail : System.Web.UI.Page
             BindCategoryMenu(categories, categorySlugs, post.CategoryId);
 
             TitleLiteral.Text = HttpUtility.HtmlEncode(post.Title);
+            BreadcrumbTitleLiteral.Text = TitleLiteral.Text;
             DateLiteral.Text = post.CreatedAt.ToString("dd/MM/yyyy");
-            ContentLiteral.Text = post.Content ?? string.Empty;
+
+            var contentHtml = post.Content ?? string.Empty;
+            var tocHtml = BuildTableOfContents(ref contentHtml);
+            ContentLiteral.Text = contentHtml;
+            TocLiteral.Text = tocHtml;
+            TocPanel.Visible = !string.IsNullOrWhiteSpace(tocHtml);
 
             if (!string.IsNullOrWhiteSpace(post.FeaturedImage))
             {
@@ -180,8 +189,9 @@ public partial class PostDetail : System.Web.UI.Page
             return;
         }
 
+        var relatedIds = related.Select(p => p.Id).ToList();
         var slugLookup = db.CfSeoSlugs
-            .Where(s => s.EntityType == "Post" && related.Select(p => p.Id).Contains(s.EntityId))
+            .Where(s => s.EntityType == "Post" && relatedIds.Contains(s.EntityId))
             .ToDictionary(s => s.EntityId, s => s.SeoSlug);
 
         var items = related.Select(p => new RelatedPostItem
@@ -195,6 +205,125 @@ public partial class PostDetail : System.Web.UI.Page
         RelatedRepeater.DataSource = items;
         RelatedRepeater.DataBind();
         RelatedPanel.Visible = items.Any();
+    }
+
+    private string BuildTableOfContents(ref string contentHtml)
+    {
+        if (string.IsNullOrWhiteSpace(contentHtml))
+        {
+            return string.Empty;
+        }
+
+        var headings = new List<TocItem>();
+        var usedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        var headingRegex = new Regex("<h([23])([^>]*)>(.*?)</h\\1>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+        contentHtml = headingRegex.Replace(contentHtml, match =>
+        {
+            var level = match.Groups[1].Value;
+            var attrs = match.Groups[2].Value ?? string.Empty;
+            var innerHtml = match.Groups[3].Value ?? string.Empty;
+            var plainText = StripHtml(innerHtml);
+
+            if (string.IsNullOrWhiteSpace(plainText))
+            {
+                return match.Value;
+            }
+
+            var idMatch = Regex.Match(attrs, "\\bid\\s*=\\s*([\"'])(.*?)\\1", RegexOptions.IgnoreCase);
+            var id = idMatch.Success ? idMatch.Groups[2].Value : BuildSlug(plainText);
+
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return match.Value;
+            }
+
+            id = EnsureUniqueId(id, usedIds);
+            headings.Add(new TocItem { Level = level, Title = plainText, Id = id });
+
+            var updatedAttrs = idMatch.Success
+                ? attrs
+                : (string.IsNullOrWhiteSpace(attrs) ? " id=\"" + id + "\"" : attrs + " id=\"" + id + "\"");
+
+            return "<h" + level + updatedAttrs + ">" + innerHtml + "</h" + level + ">";
+        });
+
+        if (!headings.Any())
+        {
+            return string.Empty;
+        }
+
+        var builder = new StringBuilder();
+        builder.Append("<div class=\"post-toc-title\">Mục lục</div>");
+        builder.Append("<ul class=\"post-toc-list\">");
+        foreach (var item in headings)
+        {
+            builder.Append("<li class=\"post-toc-item post-toc-level-");
+            builder.Append(item.Level);
+            builder.Append("\"><a href=\"#");
+            builder.Append(HttpUtility.HtmlAttributeEncode(item.Id));
+            builder.Append("\">");
+            builder.Append(HttpUtility.HtmlEncode(item.Title));
+            builder.Append("</a></li>");
+        }
+        builder.Append("</ul>");
+        return builder.ToString();
+    }
+
+    private static string StripHtml(string html)
+    {
+        var text = Regex.Replace(html, "<.*?>", string.Empty);
+        return HttpUtility.HtmlDecode(text ?? string.Empty).Trim();
+    }
+
+    private static string BuildSlug(string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return string.Empty;
+        }
+
+        var normalized = text.ToLowerInvariant().Normalize(NormalizationForm.FormD);
+        var builder = new StringBuilder();
+        foreach (var ch in normalized)
+        {
+            var category = CharUnicodeInfo.GetUnicodeCategory(ch);
+            if (category == UnicodeCategory.NonSpacingMark)
+            {
+                continue;
+            }
+            if (char.IsLetterOrDigit(ch))
+            {
+                builder.Append(ch);
+            }
+            else if (char.IsWhiteSpace(ch) || ch == '-' || ch == '_')
+            {
+                builder.Append('-');
+            }
+        }
+
+        var slug = Regex.Replace(builder.ToString(), "-{2,}", "-").Trim('-');
+        return slug;
+    }
+
+    private static string EnsureUniqueId(string id, HashSet<string> usedIds)
+    {
+        var unique = id;
+        var index = 1;
+        while (usedIds.Contains(unique))
+        {
+            unique = id + "-" + index;
+            index++;
+        }
+        usedIds.Add(unique);
+        return unique;
+    }
+
+    private class TocItem
+    {
+        public string Level { get; set; }
+        public string Title { get; set; }
+        public string Id { get; set; }
     }
 
     public class CategoryItem

@@ -65,11 +65,11 @@
                                 </div>
                                 <h1 class="product-name"><asp:Literal ID="ProductNameLiteral" runat="server" /></h1>
                                 <div class="product-meta">
-                                    <span class="rating-badge">4.9★</span>
+                                    <%--<span class="rating-badge">4.9★</span>
                                     <span>28 đánh giá</span>
                                     <span class="meta-sep">|</span>
                                     <span>112 Hỏi đáp</span>
-                                    <span class="meta-sep">|</span>
+                                    <span class="meta-sep">|</span>--%>
                                     <span>SKU: <span id="SkuValue"><asp:Literal ID="SkuLiteral" runat="server" /></span></span>
                                 </div>
                                 <div class="product-price-detail">

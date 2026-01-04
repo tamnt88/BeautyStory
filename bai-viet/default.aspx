@@ -10,8 +10,15 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container py-4 post-detail">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="/tin-tuc">Tin tức</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><asp:Literal ID="BreadcrumbTitleLiteral" runat="server" /></li>
+            </ol>
+        </nav>
         <div class="row g-4">
-            <aside class="col-lg-3">
+            <aside class="col-lg-3 order-2 order-lg-1">
                 <div class="news-sidebar">
                     <h6 class="mb-3 sidebar-heading"><i class="fa-solid fa-newspaper"></i><span>Danh mục tin tức</span></h6>
                     <asp:Repeater ID="PostCategoryRepeater" runat="server">
@@ -35,11 +42,14 @@
                     </asp:Repeater>
                 </div>
             </aside>
-            <section class="col-lg-9">
+            <section class="col-lg-9 order-1 order-lg-2">
                 <article class="post-card p-4 border rounded">
                     <h1 class="mb-2"><asp:Literal ID="TitleLiteral" runat="server" /></h1>
                     <div class="text-muted small mb-3"><asp:Literal ID="DateLiteral" runat="server" /></div>
                     <asp:Image ID="FeaturedImage" runat="server" CssClass="img-fluid rounded mb-3" Visible="false" />
+                    <asp:Panel ID="TocPanel" runat="server" Visible="false" CssClass="post-toc">
+                        <asp:Literal ID="TocLiteral" runat="server" />
+                    </asp:Panel>
                     <div class="post-content"><asp:Literal ID="ContentLiteral" runat="server" /></div>
                     <asp:Panel ID="TagPanel" runat="server" Visible="false" CssClass="post-tags">
                         <div class="post-tags-title">Từ khóa</div>

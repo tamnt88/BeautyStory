@@ -10,8 +10,14 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <main class="container py-4 news-page">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><asp:Literal ID="BreadcrumbTitleLiteral" runat="server" /></li>
+            </ol>
+        </nav>
         <div class="row g-4">
-            <aside class="col-lg-3">
+            <aside class="col-lg-3 order-2 order-lg-1">
                 <div class="news-sidebar">
                     <h6 class="mb-3 sidebar-heading"><i class="fa-solid fa-newspaper"></i><span>Danh mục tin tức</span></h6>
                     <asp:Repeater ID="PostCategoryRepeater" runat="server">
@@ -35,7 +41,7 @@
                     </asp:Repeater>
                 </div>
             </aside>
-            <section class="col-lg-9">
+            <section class="col-lg-9 order-1 order-lg-2">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                     <h1 class="mb-0"><asp:Literal ID="PageTitleLiteral" runat="server" /></h1>
                 </div>

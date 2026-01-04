@@ -26,7 +26,7 @@
                     <asp:Repeater ID="TrendingPanelRepeater" runat="server" OnItemDataBound="TrendingPanelRepeater_ItemDataBound">
                         <ItemTemplate>
                             <div class="tab-pane fade <%# (Container.ItemIndex == 0 ? "show active" : string.Empty) %> woocommerce-Tabs-panel woocommerce-Tabs-panel--description" id="trend-tab-<%# Eval("CategoryId") %>" role="tabpanel" aria-labelledby="trend-tab-<%# Eval("CategoryId") %>-tab">
-                                <div class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-1 product-style-1 trending-grid e-image-bg-light e-hover-image-zoom">
+                                <div class="row g-3 row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-2 product-style-1 trending-grid e-image-bg-light e-hover-image-zoom">
                                     <asp:Repeater ID="TrendingProductRepeater" runat="server">
                                         <ItemTemplate>
                                             <div class="col">

@@ -125,6 +125,7 @@ public partial class NewsDefault : System.Web.UI.Page
             }
 
             PageTitleLiteral.Text = HttpUtility.HtmlEncode(pageTitle);
+            BreadcrumbTitleLiteral.Text = HttpUtility.HtmlEncode(pageTitle);
             SeoTitleLiteral.Text = HttpUtility.HtmlEncode(pageTitle + " | Beauty Story");
             SeoMetaLiteral.Text = string.Empty;
         }
